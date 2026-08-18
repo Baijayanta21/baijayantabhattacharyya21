@@ -28,7 +28,7 @@
   --sans:"DM Sans",system-ui,sans-serif;
   --serif:"Libre Baskerville",Georgia,serif;
   --mono:"DM Mono",ui-monospace,monospace;
-  --max:1350px;
+  --max:1300px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -246,7 +246,7 @@ header{
 /* Footer */
 footer{border-top:1px solid var(--line);background:#eeeadf}
 .footer-main{
-  display:grid;grid-template-columns:1.4fr 1fr .7fr;
+  display:grid;grid-template-columns:1.4fr 1fr .7fr .2fr;
   gap:3rem;padding:3.2rem 0 2.5rem
 }
 .footer-brand{display:flex;gap:.85rem;align-items:flex-start}
@@ -264,6 +264,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 .footer-nav button:hover,.footer-contact a:hover{color:var(--rust);transform:translateX(2px)}
 .footer-contact i{font-size:.55rem;margin-left:.25rem}
+    .footer-qr {
+  width: 150px;
+  height: 150px;
+}
 .footer-bottom{
   border-top:1px solid var(--line);padding:1rem 0;
   display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:1rem;
@@ -721,6 +725,12 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <a href="mailto:baijayantabhattacharyya2003@gmail.com">Email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       <a href="#contact" data-page="contact">Contact <i class="fa-solid fa-arrow-right"></i></a>
     </div>
+
+<div class="footer-contact">
+  <span class="footer-label">Scan Me</span>
+  <img class="footer-qr" src="Baijayanta.png" alt="QR code">
+</div>
+      
   </div>
 
   <div class="container footer-bottom">
