@@ -28,13 +28,16 @@
   --sans:"DM Sans",system-ui,sans-serif;
   --serif:"Libre Baskerville",Georgia,serif;
   --mono:"DM Mono",ui-monospace,monospace;
-  --max:1300px;
+  --max:1350px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--paper);color:var(--ink);
-  font:500 20px var(--serif);overflow-x:hidden;
+  font:500 20px var(--serif);overflow-x:hidden;text-align: justify;
+    
+  letter-spacing: .012em;
+  word-spacing: .05em;
 }
 
 body:before{
@@ -62,8 +65,8 @@ background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='htt
 /* Header */
 header{
   position:sticky;top:0;z-index:100;
-  background:rgba(246,243,236,.84);
-  backdrop-filter:blur(14px) saturate(115%);
+  background:rgba(246,243,236,0.9);
+  backdrop-filter:blur(10px) saturate(115%);
   border-bottom:1px solid rgba(217,212,201,.86);
 }
 .header{
@@ -89,7 +92,7 @@ header{
 .nav{display:flex;align-items:center;justify-content:center;gap:1.05rem}
 .nav button{
   border:0;background:none;color:var(--muted);cursor:pointer;padding:.45rem 0;
-  font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.075em;
+  font:500 0.6rem var(--mono);text-transform:uppercase;letter-spacing:.075em;
   position:relative;
 }
 .nav button:after{
@@ -164,7 +167,7 @@ header{
 /* Interior */
 .inner{padding:5rem 0 6rem}
 .page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:3rem;margin-bottom:3.2rem}
-.page-index{font:400 1rem var(--serif);color:var(--soft)}
+.page-index{font:400 0.8rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
 .page-title{font:700 clamp(2rem,3.5vw,3.6rem)/1.12 var(--serif);letter-spacing:-.035em;max-width:13ch;margin:0}
 .page-desc{max-width:1000px;color:var(--muted);margin:1rem 0 0}
 
@@ -178,9 +181,9 @@ header{
 /* Research */
 .research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 .research-card{background:var(--paper);padding:2rem;min-height:260px;transition:.25s}
-.research-card:hover{background:var(--white);transform:translateY(-2px)}
+.research-card:hover{background:var(--white);transform:translateY(-10px)}
 .research-card .icon{color:var(--sage);font-size:.9rem;margin-bottom:3.2rem}
-.research-card h2{font:600 1.2rem var(--serif);margin:0 0 .55rem}.research-card p{font-size:.83rem;color:var(--muted);max-width:500px}
+.research-card h2{font:600 1.2rem var(--serif);margin:0 0 .55rem}.research-card p{font-size:.83rem;color:var(--muted);max-width:500px;text-align: justify;}
 .research-list{margin-top:3.3rem}.research-item{display:grid;grid-template-columns:50px 1fr auto;gap:1.4rem;padding:1.4rem 0;border-top:1px solid var(--line)}
 .research-item:last-child{border-bottom:1px solid var(--line)}
 .research-item .n{font:500 .6rem var(--mono);color:var(--rust)}
@@ -199,7 +202,7 @@ header{
 
 /* Publications */
 .pub-list{border-top:1px solid var(--line)}.pub{display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.7rem 0;border-bottom:1px solid var(--line)}
-.pub-year{font:500 .62rem var(--mono);color:var(--rust)}.pub h2{font:600 1rem/1.5 var(--sans);margin:0}.pub .authors{font-size:.76rem;color:var(--muted);margin-top:.35rem}.pub .venue{font:500 .57rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:.6rem}
+.pub-year{font:500 .62rem var(--mono);color:var(--rust)}.pub h2{font:600 1rem/1.5 var(--serif);margin:0}.pub .authors{font-size:.76rem;color:var(--muted);margin-top:.35rem}.pub .venue{font:500 .57rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:.6rem}
 
 /* Teaching */
 .teaching-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -570,7 +573,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         <div class="pub-year">2026</div>
         <div>
           <h2>The Tracking Tapered Gridded Estimator for the 21-cm power spectrum from the Murchison Widefield Array (MWA) drift scan observations — III. Improved upper limits at z = 8.2 from multiple pointings</h2>
-          <div class="authors"><strong>Bhattacharyya, B.</strong>, Sarkar, S., Elahi, K. M. A., Choudhuri, S., Bharadwaj, S., Chatterjee, S., Sethi, S., Patwa, A. K.</div>
+          <div class="authors">Sarkar, S., Elahi, K. M. A., Choudhuri, S., Bharadwaj, S., Chatterjee, <strong>Bhattacharyya, B.</strong>,  S., Sethi, S., Patwa, A. K.</div>
           <div class="venue">Monthly Notices of the Royal Astronomical Society · Vol. 549 · Issue 1 · May 2026</div>
         </div>
       </article>
@@ -578,7 +581,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <article class="pub">
         <div class="pub-year">—</div>
         <div>
-          <h2>Constraining reionization models with MWA 21-cm power spectrum upper limits</h2>
+          <h2>The Tracking Tapered Gridded Estimator for the 21-cm power spectrum from the Murchison Widefield Array (MWA) drift scan observations — IV.</h2>
           <div class="authors">Bhattacharyya, B., Bharadwaj, S., et al.</div>
           <div class="venue">Work in preparation</div>
         </div>
@@ -638,7 +641,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="movies">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">08 / MOVIES</div>
+      <div class="page-index">07 / MOVIES</div>
       <div>
         <div class="section-kicker">Cinema</div>
         <h1 class="page-title">Films I keep thinking about.</h1>
@@ -669,7 +672,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="contact">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">09 / CONTACT</div>
+      <div class="page-index">08 / CONTACT</div>
       <div>
         <h1 class="page-title">Start a conversation.</h1>
         <p class="page-desc">For research, collaboration and academic correspondence.</p>
