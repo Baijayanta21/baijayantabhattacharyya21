@@ -52,9 +52,10 @@ button{font:inherit}
 .container{width:min(var(--max),calc(100% - 3rem));margin:auto}
 .mono{font-family:var(--mono)}
 .eyebrow,.section-kicker{
-  font:500 0.7rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)
+  font:500 1rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)
 }
-.section-kicker{display:flex;align-items:center;gap:.7rem;color:var(--soft);margin-bottom:1rem}
+
+.section-kicker{display:flex;align-items:center;gap:1rem;color:var(--soft);margin-bottom:1rem}
 .section-kicker:before{content:"";width:28px;height:1px;background:var(--rust)}
 .small{font-size:.84rem;color:var(--muted)}
 .rule{border-top:1px solid var(--line)}
@@ -91,7 +92,7 @@ header{
 .nav{display:flex;align-items:center;justify-content:center;gap:1.05rem}
 .nav button{
   border:0;background:none;color:var(--muted);cursor:pointer;padding:.45rem 0;
-  font:500 0.8rem var(--mono);text-transform:uppercase;letter-spacing:.075em;
+  font:550 0.9rem var(--mono);text-transform:uppercase;letter-spacing:.075em;
   position:relative;
 }
 .nav button:after{
@@ -156,7 +157,7 @@ header{
 .hero-note .number{font:400 6.2rem/.8 var(--serif);color:rgba(37,41,35,.07)}
 .hero-note h2{font:600 1.25rem var(--serif);margin:1.2rem 0 .55rem}
 .hero-note p{color:var(--muted);font-size:.84rem}
-.hero-note .coordinates{border-top:1px solid var(--line);margin-top:1.7rem;padding-top:.9rem;font:400 .59rem/1.8 var(--mono);color:var(--soft)}
+.hero-note .coordinates{border-top:1px solid var(--line);margin-top:1.7rem;padding-top:.9rem;font:400 .8rem var(--mono);color:var(--soft)}
 .home-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .strip{display:grid;grid-template-columns:repeat(4,1fr)}
 .stat{padding:1.25rem 1rem;border-right:1px solid var(--line)}
@@ -171,11 +172,16 @@ header{
 .page-desc{max-width:1000px;color:var(--muted);margin:1rem 0 0}
 
 /* About */
-.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+.about-layout{padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;text-align: justify;}
 .prose{max-width:650px}.prose p{color:var(--muted);margin:0 0 1.15rem}.prose strong{color:#536be0}
 .info-table{border-top:1px solid var(--line)}
-.info-row{display:grid;grid-template-columns:125px 1fr;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
-.info-row dt{font:500 .59rem var(--mono);text-transform:uppercase;color:var(--soft)}.info-row dd{margin:0;font-size:.85rem}
+
+
+.info-row{display:block;padding:0.5rem 0;border-bottom:1px solid var(--line)}
+.info-row dt{display:block;font:500 1rem var(--mono);text-transform:uppercase;color:var(--soft);letter-spacing:.08em;margin-top:.2rem;}
+.info-row dd{margin:0;font:550 1.2rem var(--serif);padding:0.3rem 0;text-align:left;}
+
+        
 
 /* Research */
 
@@ -193,9 +199,11 @@ header{
   position: relative;
   background: #f5f3ee;
   padding: 2rem;
+  text-align: justify;
   border-radius:10px;
   min-height: 250px;
   overflow: hidden;
+    background: white;
   border: 1px solid rgba(0, 0, 0, 0.5);
   transition:
     background .3s ease,
@@ -242,6 +250,8 @@ header{
   display: grid;
   grid-template-columns: 35px 1fr auto;
   gap: 1rem;
+  text-align: justify;
+  background: white;
   padding: 1.5rem; /* ← inside each box */
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -264,9 +274,9 @@ header{
 
 .research-item .n{font:500 1rem var(--mono);color:var(--rust)}
 
-.research-item h3{color: #243447;font:600 1.2rem var(--serif);margin:0 0 1rem}
+.research-item h3{color: #243447;font:600 1.3rem var(--serif);margin:0 0 1rem}
 
-.research-item p{font-size:.85rem;color:var(--muted);margin:0}
+.research-item p{font-size:1rem;color:var(--muted);margin:0}
 
 
 .tag{font:500 .8rem var(--mono);text-transform:uppercase;color:var(--soft);white-space:nowrap}
@@ -278,12 +288,13 @@ header{
 
 
 
-.note-list{ display: grid;gap:15px;margin-top:0.3rem;padding:2.5rem;}
+.note-list{display: grid;gap:15px;margin-top:0.3rem;padding:2.5rem;}
 
 
 .note-item {
   display: grid;
   grid-template-columns: 35px 1fr auto;
+  background: white;
   gap: 1rem;
   padding: 1.5rem; /* ← inside each box */
   border-radius: 10px;
@@ -305,21 +316,25 @@ header{
 }
 
 
+
 .note-item .n{font:500 1rem var(--mono);color:var(--rust)}
 
-.note-item h3{color: #243447;font:600 1.2rem var(--serif);margin:0 0 1rem}
+.note-item h3{color: #243447;font:600 1.3rem var(--serif);margin:0 0 1rem}
 
-.note-item p{font-size:.85rem;color:var(--muted);margin:0}
+.note-item p{font-size:1rem;color:var(--muted);margin:0}
 
+    
 /* Publications */
-.pub-list{ display: grid;gap:15px;margin-top:0.3rem;padding:2.5rem;}
+.pub-list{display: grid;gap:15px;margin-top:0.3rem;padding:2.5rem;}
 
 
 .pub{
   display: grid;
   grid-template-columns: 50px 1fr auto;
   gap: 1rem;
-  padding: 1.5rem; /* ← inside each box */
+  text-align:justify;
+  background: white;
+  padding: 2rem; /* ← inside each box */
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
     transition:
@@ -337,14 +352,29 @@ header{
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
     
-.pub-year{font:500 0.7rem var(--mono);color:var(--rust)}
-
-.pub h2{color: #243447;font:600 1rem var(--serif);margin:0 0 1rem}
 
 
-    
 
-.pub .authors{font-size:.76rem;color:var(--muted);margin-top:.35rem}.pub .venue{font:500 .57rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:.6rem}
+
+.pub-year{font:500 1rem var(--mono);color:var(--rust)}
+
+.pub h2{color: #243447;font:550 1.3rem var(--serif);margin:0 0 1rem}
+
+
+
+.authors {
+  font: 500 1.5rem var(--sans);
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.authors strong {
+
+  font: 600 2rem;
+}
+
+
+.pub .venue{font:500 0.9rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:.6rem}
 
 /* Teaching */
 
@@ -361,8 +391,9 @@ header{
 .teach {
   position: relative;
   background: #f5f3ee;
-  padding: 2rem;
+  padding: 1.2rem;
   border-radius:10px;
+    background: white;
   min-height: 155px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -379,12 +410,14 @@ header{
   border-color:blue;
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
+
+.teach .year{font:500 1rem var(--mono);color:var(--rust);margin:0 0 1rem}
+
+.teach h2{color: #243447;font:550 1.3rem var(--serif);margin:0 0 1rem}
+
+.teach p{font-size:0.8rem;color:var(--muted);margin:0}
     
-.teach .year{font:500 0.7rem var(--mono);color:var(--rust)}
 
-.teach h2{color: #243447;font:600 1rem var(--serif);margin:0 0 1rem}
-
-.teach p{font-size:.6rem;color:var(--muted);margin:0}
 
 
 
@@ -394,15 +427,15 @@ header{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
+  padding: 2.5rem;
 }
 
 .photo {
   position: relative;
   height: 350px;
   width: 450px;
-  overflow: hidden;
-  border: 2px solid pink;
-  background: var(--paper2);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 .photo img {
@@ -410,42 +443,39 @@ header{
   height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform .4s ease;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
 }
+
 
 .photo:hover img {
-  transform: scale(2);
-}
-
-.photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,.65),
-    transparent 60%
-  );
+  transform: scale(1.7);
+  position: relative;
+  z-index: 9999;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 .photo-content {
+  display: none;
   position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 2;
-  color: white;
+  top: 10px;
+  right: 10px;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--rust);
+  white-space: nowrap;
 }
 
-.photo-content span {
-  font: 500 .55rem var(--mono);
-  text-transform: uppercase;
-  letter-spacing: .08em;
+.photo:hover .photo-content {
+  display: block;
 }
 
-.photo-content h3 {
-  font: 600 1rem var(--serif);
-  margin: .2rem 0 0;
-}
+
+
 
 /* Mobile */
 @media (max-width: 650px) {
@@ -467,16 +497,47 @@ header{
 .movie h3{font:600 .95rem var(--serif);margin:.8rem 0 .15rem}.movie p{font-size:.7rem;color:var(--muted);margin:0}.movie-meta{font:500 .54rem var(--mono);color:var(--soft);text-transform:uppercase;margin-top:.65rem}
 
 /* Extra personal pages */
-.timeline{border-left:1px solid var(--line);margin-left:.4rem}
+
+.timeline{border-left:1px solid var(--line);margin-left:1rem}
+
 .timeline-item{position:relative;padding:0 0 2rem 2rem}
+
 .timeline-item:before{content:"";position:absolute;left:-4px;top:.45rem;width:7px;height:7px;border-radius:50%;background:var(--rust)}
-.timeline-item .date{font:500 .58rem var(--mono);color:var(--soft)}.timeline-item h3{font:600 1rem var(--serif);margin:.3rem 0}.timeline-item p{font-size:.77rem;color:var(--muted);margin:0}
-.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.now-card{border:1px solid var(--line);background:var(--paper2);padding:1.8rem;min-height:240px}
-.now-card h2{font:600 1.15rem var(--serif);margin:.5rem 0}.now-card p{font-size:.8rem;color:var(--muted)}
-.skill-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+
+.timeline-item .date{font:500 .9rem var(--mono);color:var(--soft)}
+.timeline-item h3{font:600 1.2rem var(--serif);margin:.3rem 0}
+.timeline-item p{font-size:.77rem;margin:0}
+
+
+
+
+
+
+.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;
+  padding: 2rem; /* ← inside each box */}
+  
+  
+  
+.now-card{text-align:left;
+  background: white;
+  padding: 2rem; /* ← inside each box */
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5); min-height:240px}
+
+
+.now-card h2{font:600 1.3rem var(--serif);margin:.5rem 0}
+
+.now-card p{font-size:1rem;color:var(--muted)}
+
+
+
+
+
+
+
+.skill-list{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem;padding:2.5rem}
     
-.skill{border:1px solid var(--line);padding:.35rem .55rem;font:450 .8rem var(--mono);color:var(--muted);background:var(--paper)}
+.skill{border-radius:5px;padding;0.5rem;border:1px solid var(--line);padding:.5rem .55rem;font:450 0.85var(--mono);color:var(--muted);background:white}
 
 /* Contact */
 
@@ -488,12 +549,14 @@ header{
   padding: 2.5rem;
   border: 0.0px solid rgba(0, 0, 0, 0.5);
 
+
   
 }
 
 .contact-main,.contact-side{
+   
   position: relative;
-  background: #f5f3ee;
+ background: white;
   padding: 2rem;
   border-radius:10px;
   min-height: 155px;
@@ -506,10 +569,11 @@ header{
 }
     
 .contact-main h2{font:600 clamp(2rem,4vw,3.7rem)/1.05 var(--serif);max-width:9ch;margin:1rem 0}.contact-main p{max-width:500px;color:var(--muted)}
+.contact-main strong{color:#536be0}
 
     
     
-.contact-link{display:block;padding:1rem 0;border-bottom:1px solid var(--line)}.contact-link:last-child{border-bottom:0}.contact-link label{display:block;font:500 .57rem var(--mono);text-transform:uppercase;color:var(--soft);letter-spacing:.08em}.contact-link span{display:block;margin-top:.18rem;font-size:.82rem}.contact-link:hover span{color:var(--rust)}
+.contact-link{display:block;padding:1rem 0;border-bottom:1px solid var(--line)}.contact-link:last-child{border-bottom:0}.contact-link label{display:block;font:500 0.9rem var(--mono);text-transform:uppercase;color:var(--soft);letter-spacing:.08em}.contact-link span{display:block;margin-top:.3rem;font-size:1.2rem}.contact-link:hover span{color:var(--rust)}
 
 /* Footer */
 footer{border-top:1px solid var(--line);background:#eeeadf}
@@ -519,16 +583,16 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 .footer-brand{display:flex;gap:.85rem;align-items:flex-start}
 .footer-mark{width:38px;height:38px}
-.footer-brand strong{display:block;font:600 1rem var(--serif);margin-top:.05rem}
-.footer-brand p{font:500 .56rem var(--mono);color:var(--soft);text-transform:uppercase;letter-spacing:.07em;margin:.35rem 0 0}
+.footer-brand strong{display:block;font:600 1.2rem var(--serif);margin-top:.05rem}
+.footer-brand p{font:500 .9rem var(--mono);color:var(--soft);text-transform:uppercase;letter-spacing:.07em;margin:.35rem 0 0}
 .footer-label{
-  display:block;font:500 .55rem var(--mono);text-transform:uppercase;
+  display:block;font:500 .9rem var(--mono);text-transform:uppercase;
   letter-spacing:.12em;color:var(--soft);margin-bottom:.8rem
 }
 .footer-nav,.footer-contact{display:flex;flex-direction:column;align-items:flex-start;gap:.38rem}
 .footer-nav button,.footer-contact a{
   border:0;background:none;padding:0;color:var(--muted);cursor:pointer;
-  font:400 .72rem var(--serif);transition:.2s
+  font:550 0.9rem var(--serif);transition:.2s
 }
 .footer-nav button:hover,.footer-contact a:hover{color:var(--rust);transform:translateX(2px)}
 .footer-contact i{font-size:.55rem;margin-left:.25rem}
@@ -537,14 +601,14 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   height: 150px;
 }
 .footer-bottom{
-  border-top:1px solid var(--line);padding:1rem 0;
+  border-top:1.5px solid var(--line);padding:1rem 0;
   display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:1rem;
-  font:500 .53rem var(--mono);color:var(--soft)
+  font:500 1rem var(--mono);color:var(--soft)
 }
 .footer-bottom span:nth-child(2){text-align:center}
 .back-top{
   border:0;background:none;color:var(--muted);cursor:pointer;
-  font:500 .53rem var(--mono);text-transform:uppercase;letter-spacing:.07em
+  font:500 1rem var(--mono);text-transform:uppercase;letter-spacing:.07em
 }
 .back-top:hover{color:var(--rust)}
 
@@ -553,15 +617,15 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 .page-heading:after{
   content:"";position:absolute;right:0;bottom:-.3rem;width:24%;height:1px;background:var(--line)
 }
-.page-title{font-weight:600}
+
 .research-card,.note-feature,.now-card,.movie,.contact-main,.contact-side{box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
-.home-strip{background:rgba(255,253,248,.22)}
+.home-strip{display:grid;background:rgba(255,253,248,.22)}
 .stat strong{font-size:.94rem}
 .stat span{font-size:.52rem}
-.hero-note{padding:1rem}
+.hero-note{padding:1.5rem}
 .hero-note:before{
   content:"";position:absolute;inset:0;border:1px solid var(--line);
-  transform:rotate(2deg);z-index:-1;background:rgba(255,253,248,.25)
+  transform:rotate(3deg);z-index:-1;background:rgba(255,253,248,.25)
 }
 
 @media(max-width:980px){
@@ -596,9 +660,28 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   .footer-main{grid-template-columns:1fr}
   .footer-brand{grid-column:auto}
 }
+
+.research-text {
+    text-align: justify;
+}
+
+.sp-text h2{font-weight: 500;
+    font-size: 3.5rem;
+}
 </style>
 </head>
 
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']]
+    }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    
 <body>
 <div class="noise"></div>
 <div class="page-progress" id="page-progress"><span></span></div>
@@ -624,6 +707,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <button data-page="gallery">Gallery</button>
       <button data-page="movies">Movies</button>
       <button data-page="contact">Contact</button>
+
     </nav>
 
     <div class="header-tools">
@@ -643,11 +727,13 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   <div class="container home-hero">
     <div>
       <div class="eyebrow">Physics · Cosmology · Radio Astronomy</div>
+        
       <h1 class="home-title">Listening to the <span>early</span> Universe.</h1>
+        <div class="research-text">
       <p class="home-lede">
         I am a PhD researcher in the Department of Physics at <strong>IIT Kharagpur</strong>,
         working on the redshifted 21-cm signal, the Epoch of Reionization and radio-interferometric data analysis.
-      </p>
+      </p></div>
       <div class="home-actions">
         <button class="btn fill" data-page="research">View research <i class="fa-solid fa-arrow-right"></i></button>
         <button class="btn" data-page="about">About me</button>
@@ -656,10 +742,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
     <aside class="hero-note">
       <div class="number">21</div>
-      <h2>The hydrogen line.</h2>
-      <p>
+      <h2>cm hydrogen line.</h2>
+      <div class="research-text"><p>
         A faint radio signal from neutral hydrogen provides a way to investigate the structure and evolution of the young Universe.
-      </p>
+      </p></div>
       <div class="coordinates">
         DEPARTMENT OF PHYSICS<br>
         IIT KHARAGPUR<br>
@@ -684,32 +770,36 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     <div class="page-heading">
       <div class="page-index">01 / ABOUT</div>
       <div>
-        <h3 class="page-title">A physicist between ideas and data.</h3>
-        <p class="page-desc">An academic profile built around cosmology, astrophysics and computational analysis.</p>
+          <div class="section-kicker">About Me</div>
+        <h1>A physicist between ideas and data.</h1>
+        <p class="page-desc">An academic profile built around cosmology and computational analysis.</p>
       </div>
     </div>
 
-    <div class="about-layout">
-      <div class="prose">
-        <p>I am a PhD student in the <strong>Department of Physics at IIT Kharagpur</strong>, working with <strong>Prof. Somnath Bharadwaj</strong>.</p>
-        <p>My research focuses on theoretical cosmology and astrophysics, particularly the redshifted 21-cm signal of neutral hydrogen and its use as a probe of the early Universe.</p>
-        <p>Alongside theoretical work, I work with radio-interferometric observations and computational pipelines, including data associated with the <strong>Murchison Widefield Array</strong>.</p>
+      
+<div class="contact-layout">
+      <div class="contact-main">
+          
+<div class="research-text">
+    <div class="eyebrow">My Research At a glance</div>
+    <p>I am a PhD student in the <strong>Department of Physics at IIT Kharagpur</strong>, working with <strong>Prof. Somnath Bharadwaj</strong>.</p>
+    <p>My research focuses on theoretical cosmology and astrophysics, particularly the redshifted 21-cm signal of neutral hydrogen and its use as a probe of the early Universe.</p>
+    <p>Alongside theoretical work, I work with radio-interferometric observations and computational pipelines, including data associated with the <strong>Murchison Widefield Array</strong>.</p>
+</div>
       </div>
-
-      <dl class="info-table">
-        <div class="info-row"><dt>Degree</dt><dd>Doctor of Philosophy · Physics</dd></div>
-        <div class="info-row"><dt>Institute</dt><dd>Indian Institute of Technology Kharagpur</dd></div>
-        <div class="info-row"><dt>Department</dt><dd>Department of Physics</dd></div>
-        <div class="info-row"><dt>Advisor</dt><dd>Prof. Somnath Bharadwaj</dd></div>
-        <div class="info-row"><dt>Research</dt><dd>21-cm cosmology · reionization · radio interferometry</dd></div>
-      </dl>
+      <div class="contact-side">
+        <div class="contact-link"><label>Degree</label><span>Doctor of Philosophy · Physics</span></div>
+        <div class="contact-link"><label>Institute</label><span>Indian Institute of Technology Kharagpur</span></div>
+        <div class="contact-link"><label>Department</label><span>Department of Physics</span></div>
+        <div class="contact-link"><label>Advisor</label><span>Prof. Somnath Bharadwaj</span></div>
+        <div class="contact-link"><label>Research</label><span>21-cm cosmology · Radio interferometry</span></div>
+      </div>
     </div>
-
-      <div class="now-grid" style="margin-top:3.5rem">
+      <div class="now-grid" style="margin-top:-1.45rem">
         <article class="now-card">
           <div class="eyebrow">Now</div>
           <h2>What I am working on</h2>
-          <p>21-cm cosmology, radio-interferometric data analysis, power-spectrum estimation and computational tools for astrophysics.</p>
+          <div class="research-text"><p>21-cm cosmology, radio-interferometric data analysis, power-spectrum estimation and computational tools for astrophysics.</p></div>
           <div class="skill-list">
             <span class="skill">Python</span><span class="skill">NumPy</span><span class="skill">SciPy</span>
             <span class="skill">Matplotlib</span><span class="skill">Healpy</span><span class="skill">MWA</span>
@@ -722,7 +812,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
             <div class="timeline-item"><div class="date">2025 — present</div><h3>PhD in Physics</h3><p>Indian Institute of Technology Kharagpur</p></div>
             <div class="timeline-item"><div class="date">2023 — 2025</div><h3>Msc Physics</h3><p>Indian Institute of Technology Kharagpur</p></div>
               <div class="timeline-item"><div class="date">2020 — 2023</div><h3>Bsc Physics</h3><p>Kalyani University</p></div>
-            <div class="timeline-item"><div class="date">Research</div><h3>21-cm Cosmology</h3><p>Epoch of Reionization and radio-interferometric observations.</p></div>
+            <div class="timeline-item"><div class="date">Research</div><h3>21-cm Cosmology</h3><p>EoR and radio-interferometric observations.</p></div>
             <div class="timeline-item"><div class="date">Teaching</div><h3>Physics tutorials</h3><p>Classical mechanics and computational physics.</p></div>
           </div>
         </article>
@@ -736,7 +826,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     <div class="page-heading">
       <div class="page-index">02 / RESEARCH</div>
       <div>
-        <h1 class="page-title">Questions written in radio waves.</h1>
+          <div class="section-kicker">About My Research</div>
+        <h1>Questions written in radio waves.</h1>
         <p class="page-desc">The research programme connects cosmological theory with the observational problem of extracting a faint 21-cm signal from radio data.</p>
       </div>
     </div>
@@ -782,7 +873,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </article>
     </div>
 
-    <div style="margin-top:3.5rem">
+    <div style="margin-top:5rem">
       <div class="section-kicker">Research toolbox</div>
       <div class="skill-list">
         <span class="skill">21-cm Signal</span><span class="skill">EoR</span><span class="skill">Power Spectrum</span>
@@ -802,7 +893,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <div class="page-index">03 / NOTES</div>
       <div>
         <div class="section-kicker">Teaching material</div>
-        <h1 class="page-title">Lecture notes, tutorials &amp; useful things.</h1>
+        <h1>Lecture notes, tutorials &amp; useful things.</h1>
         <p class="page-desc">A personal shelf for notes, worked examples, tutorials and computational notebooks. The cards can later be linked to PDFs, GitHub repositories or individual pages.</p>
       </div>
     </div>
@@ -826,38 +917,64 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     <div class="page-heading">
       <div class="page-index">04 / PUBLICATIONS</div>
       <div>
-        <h1 class="page-title">Research in print.</h1>
+          <div class="section-kicker">Publications</div>
+        <h1>Research in print.</h1>
         <p class="page-desc">Selected publication information from the academic profile.</p>
       </div>
     </div>
 
     <div class="pub-list">
       <article class="pub">
-        <div class="pub-year">2026</div>
-        <div>
-          <h2>The Tracking Tapered Gridded Estimator for the 21-cm power spectrum from the Murchison Widefield Array (MWA) drift scan observations — III. Improved upper limits at z = 8.2 from multiple pointings</h2>
-          <div class="authors">S. Sarkar, K. M. A. Elahi, S. Choudhuri, S.Bharadwaj, S.Chatterjee, <strong>B. Bhattacharyya</strong>, S. Sethi, A. K. Patwa, </div>
-          <div class="venue">Monthly Notices of the Royal Astronomical Society · Vol. 549 · Issue 1 · May 2026</div>
-        </div>
-      </article>
+  <div class="pub-year">2026</div>
+  <div>
+    <h2>
+      The Tracking Tapered Gridded Estimator for the $21$-cm power spectrum from
+      the Murchison Widefield Array (MWA) drift scan observations — III.
+      Improved upper limits at $z = 8.2$ from multiple pointings
+    </h2>
 
-      <article class="pub">
-        <div class="pub-year">—</div>
-        <div>
-          <h2>The Tracking Tapered Gridded Estimator for the 21-cm power spectrum from the Murchison Widefield Array (MWA) drift scan observations — IV.</h2>
-          <div class="authors"><strong>S.Bharadwaj,</strong> B. Bhattacharyya, et al.</div>
-          <div class="venue">Work in preparation</div>
-        </div>
-      </article>
+    <div class="authors">
+      S. Sarkar, K. M. A. Elahi, S. Choudhuri, S. Bharadwaj, S. Chatterjee,
+      <strong>B. Bhattacharyya</strong>, S. Sethi, A. K. Patwa
+    </div>
 
-        <article class="pub">
-        <div class="pub-year">—</div>
-        <div>
-          <h2>The Tracking Tapered Gridded Estimator for the 21-cm power spectrum from the Murchison Widefield Array (MWA) drift scan observations — V.</h2>
-          <div class="authors"><strong>B. Bhattacharyya,</strong> S.Bharadwaj, et al.</div>
-          <div class="venue">Work in preparation</div>
-        </div>
-      </article>
+    <div class="venue">
+      Monthly Notices of the Royal Astronomical Society · Vol. 549 · Issue 1 · May 2026
+    </div>
+  </div>
+</article>
+
+<article class="pub">
+  <div class="pub-year">—</div>
+  <div>
+    <h2>
+      The Tracking Tapered Gridded Estimator for the $21$-cm power spectrum from
+      the Murchison Widefield Array (MWA) drift scan observations — IV.
+    </h2>
+
+    <div class="authors">
+      S. Bharadwaj, <strong>B. Bhattacharyya</strong>, et al.
+    </div>
+
+    <div class="venue">Work in preparation</div>
+  </div>
+</article>
+
+<article class="pub">
+  <div class="pub-year">—</div>
+  <div>
+    <h2>
+      The Tracking Tapered Gridded Estimator for the $21$-cm power spectrum from
+      the Murchison Widefield Array (MWA) drift scan observations — V.
+    </h2>
+
+    <div class="authors">
+      <strong>B. Bhattacharyya</strong>, S. Bharadwaj, et al.
+    </div>
+
+    <div class="venue">Work in preparation</div>
+  </div>
+</article>
     </div>
   </div>
 </section>
@@ -870,49 +987,73 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <div class="page-index">06 / GALLERY</div>
       <div>
         <div class="section-kicker">Beyond the desk</div>
-        <h1 class="page-title">A visual notebook.</h1>
+        <h1>A visual notebook.</h1>
         <p class="page-desc">A place for photographs, observatory visits, travel, sketches, experiments and the small moments around research life.</p>
       </div>
     </div>
 
       <div class="gallery-grid">
 
-  <article class="photo">
-    <img src="./photos/May2026/IMG_20260506_180055.jpg" alt="At the telescope">
-    <div class="photo-content">
-      <span>01 · Research</span>
-      <h3>At the telescope</h3>
-    </div>
+
   </article>
+ <article class="photo">
+  <img src="./photos/May2026/smst.jpg" alt="SMST Building">
+
+  <div class="photo-content">SMST Building</div>
+</article>
 
   <article class="photo">
-    <img src="photos/May2026/IMG_20260523_172115.jpg" alt="Observing">
-    <div class="photo-content">
-      
-    </div>
+    <img src="photos/May2026/jasmine.jpg" alt="Night-flowering Jasmine">
+    <div class="photo-content">Night-flowering Jasmine</div>
   </article>
+
+ 
 
     <article class="photo">
-    <img src="photos/May2026/IMG_20260525_185902.jpg" alt="Observing">
-    <div class="photo-content">
-      
-    </div>
+    <img src="photos/May2026/h1.jpg" alt="Helipad Road">
+    <div class="photo-content">Helipad Road</div>
   </article>
 
           <article class="photo">
-    <img src="photos/May2026/IMG_20260526_170531.jpg" alt="Observing">
-    <div class="photo-content">
-      <span>02 · Field</span>
-      <h3>Observing</h3>
-    </div>
+    <img src="photos/May2026/n1.jpg" alt="Near Nalanda">
+    <div class="photo-content">Near Nalanda</div>
   </article>
 
           <article class="photo">
-    <img src="photos/May2026/IMG_20260526_170745.jpg" alt="Observing">
-    <div class="photo-content">
-      <span>02 · Field</span>
-      <h3>Observing</h3>
-    </div>
+    <img src="photos/May2026/f1.jpg" alt="Beautiful Flowers">
+    <div class="photo-content">Beautiful Flowers</div>
+  </article>
+
+                    <article class="photo">
+    <img src="photos/May2026/nehru1.jpg" alt="Nehru Museum">
+    <div class="photo-content">Nehru Museum</div>
+  </article>
+
+          
+
+    <article class="photo">
+    <img src="photos/May2026/220526.jpg" alt="Kolaghat Bridge">
+    <div class="photo-content">Kolaghat Bridge</div>
+  </article>
+
+          <article class="photo">
+    <img src="photos/May2026/cashew.jpg" alt="Cashew Tree">
+    <div class="photo-content">Cashew Tree</div>
+  </article>
+          <article class="photo">
+    <img src="photos/May2026/f2.jpg" alt="Beautiful Flowers">
+    <div class="photo-content">Beautiful Flowers</div>
+  </article>
+
+
+          <article class="photo">
+    <img src="photos/May2026/nehru2.jpg" alt="Nehru Museum">
+    <div class="photo-content">Nehru Museum</div>
+  </article>
+
+          <article class="photo">
+    <img src="photos/May2026/f3.jpg" alt="Beautiful Flowers">
+    <div class="photo-content">Beautiful Flowers</div>
   </article>
 
 </div>
@@ -926,17 +1067,18 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     <div class="page-heading">
       <div class="page-index">05 / TEACHING</div>
       <div>
-        <h1 class="page-title">Teaching physics, one idea at a time.</h1>
+          <div class="section-kicker">My Teaching</div>
+        <h1>Teaching physics, one idea at a time.</h1>
         <p class="page-desc">Teaching activities and subjects listed in the supplied academic profile.</p>
       </div>
     </div>
 
     <div class="teaching-grid">
-      <article class="teach"><div class="year">2025–2026</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
-      <article class="teach"><div class="year">2024–2025</div><h2>Astrophysics</h2><p>Teaching Assistant · undergraduate level</p></article>
-      <article class="teach"><div class="year">—</div><h2>Mathematical Physics</h2><p>Tutorials and problem sessions</p></article>
-      <article class="teach"><div class="year">—</div><h2>General Relativity</h2><p>Recitation and assignment support</p></article>
-      <article class="teach"><div class="year">—</div><h2>Cosmology</h2><p>Guest lectures on 21-cm physics</p></article>
+        <article class="teach"><div class="year">2025–2026</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
+      <article class="teach"><div class="year">2026–2027</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
+      
+      <article class="teach"><div class="year">2026-2027</div><h2>Mathematical Physics</h2><p>Tutorials and problem sessions</p></article>
+      
       <article class="teach"><div class="year">Mentoring</div><h2>Computational Astrophysics</h2><p>Python, C++ and scientific visualisation</p></article>
     </div>
   </div>
@@ -950,7 +1092,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <div class="page-index">07 / MOVIES</div>
       <div>
         <div class="section-kicker">Cinema</div>
-        <h1 class="page-title">Films I keep thinking about.</h1>
+        <h1>Films I keep thinking about.</h1>
         <p class="page-desc">A personal cinema shelf. Favourite films, directors, discoveries and recommendations can live here without mixing with the academic side of the site.</p>
       </div>
     </div>
@@ -980,7 +1122,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     <div class="page-heading">
       <div class="page-index">08 / CONTACT</div>
       <div>
-        <h1 class="page-title">Start a conversation.</h1>
+          <div class="section-kicker">Contact Me</div>
+        <h1>Start a conversation.</h1>
         <p class="page-desc">For research, collaboration and academic correspondence.</p>
       </div>
     </div>
@@ -988,11 +1131,11 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     <div class="contact-layout">
       <div class="contact-main">
         <div class="eyebrow">Academic correspondence</div>
-        <h2>Let's talk science.</h2>
-        <p>For research-related communication, the institutional email address below is the primary contact provided on the original website.</p>
+        <div class="sp-text"><h2>Let's talk science.</h2></div>
+        <div class="research-text"><p>For research-related communication, the institutional email address below is the primary contact provided on the original website.</p></div>
       </div>
       <div class="contact-side">
-        <a class="contact-link" href="mailto:baijayanta@phy.iitkgp.ac.in"><label>Email</label><span>baijayanta@phy.iitkgp.ac.in</span></a>
+        <a class="contact-link" href="mailto:baijayantabhattacharyya2003@gmail.com"><label>Email</label><span>baijayantabhattacharyya2003@gmail.com</span></a>
         <div class="contact-link"><label>Department</label><span>Department of Physics, IIT Kharagpur</span></div>
         <div class="contact-link"><label>Location</label><span>Kharagpur 721302, India</span></div>
         <div class="contact-link"><label>Profiles</label><span>LinkedIn · GitHub · ORCID · arXiv</span></div>
