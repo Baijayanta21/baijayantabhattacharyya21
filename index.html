@@ -101,6 +101,80 @@ header{
 }
 .nav button:hover,.nav button.active{color:var(--ink)}
 .nav button.active:after{right:0}
+
+
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-more {
+  position: relative;
+}
+
+.more-button {
+  cursor: pointer;
+}
+
+.more-button span {
+  display: inline-block;
+  margin-left: 0.3rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-more.open .more-button span {
+  transform: rotate(180deg);
+}
+
+.more-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+
+  display: none;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  min-width: 150px;
+  padding: 0.5rem;
+
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-more.open .more-menu {
+  display: flex;
+}
+
+.more-menu button {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+
+  text-align: left;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.more-menu button:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+
+
+
+
+
+
+    
 .header-tools{display:flex;align-items:center;justify-content:flex-end;gap:1rem}
 .availability{
   font:500 .7rem var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--soft);
@@ -167,7 +241,7 @@ header{
 /* Interior */
 .inner{padding:5rem 0 6rem}
 .page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:3rem;margin-bottom:3.2rem}
-.page-index{font:550 1rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
+.page-index{font:550 0.9rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
 .page-title{font:700 clamp(2rem,3.5vw,3.6rem)/1.12 var(--serif);letter-spacing:-.035em;max-width:13ch;margin:0}
 .page-desc{max-width:1000px;color:var(--muted);margin:1rem 0 0;text-align:justify}
 
@@ -512,7 +586,7 @@ header{
 
 
 .now-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;
-  padding: 2rem 2rem 1rem 2rem; /* ← inside each box */}
+  padding: 2rem 2.5rem 1rem 2.5rem; /* ← inside each box */}
   
   
   
@@ -543,8 +617,8 @@ header{
 .contact-layout{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  padding: 0 2rem 1rem 2rem;
+  gap: 1rem;
+  padding: 0 2.5rem 1rem 2.5rem;
   border: 0.0px solid rgba(0, 0, 0, 0.5);
 
 
@@ -664,6 +738,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   background: var(--black);
   color: var(--rust);
 }
+
+
+/**/    
 @media(max-width:980px){
   .header{grid-template-columns:1fr auto}.header-tools{gap:.2rem}.availability{display:none}
   .nav{display:none;position:absolute;left:0;right:0;top:78px;background:rgba(246,243,236,.98);border-bottom:1px solid var(--line);padding:.8rem 1.5rem;flex-direction:column;align-items:flex-start;gap:.1rem}
@@ -716,7 +793,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   };
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     
 <body>
 <div class="noise"></div>
@@ -733,18 +810,33 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </span>
     </a>
 
-    <nav class="nav" id="nav" aria-label="Primary navigation">
-      <button data-page="home" class="active">Home</button>
-      <button data-page="about">About</button>
-      <button data-page="research">Research</button>
-      <button data-page="notes">Notes</button>
-      <button data-page="publications">Publications</button>
-      <button data-page="teaching">Teaching</button>
-      <button data-page="gallery">Gallery</button>
-      <button data-page="movies">Movies</button>
-      <button data-page="contact">Contact</button>
 
-    </nav>
+
+
+<nav class="nav">
+
+<button data-page="home" class="active">Home</button>
+<button data-page="about">About</button>
+<button data-page="research">Research</button>
+<button data-page="notes">Notes</button>
+<button data-page="publications">Publications</button>
+<button data-page="teaching">Teaching</button>
+<button data-page="contact">Contact</button>
+
+<div class="nav-more">
+    
+<button class="more-button" id="moreButton">More</button>
+    
+<div class="more-menu" id="moreMenu">
+<button data-page="gallery">Gallery</button>
+<button data-page="movies">Movies</button>
+<button data-page="br">Beyond Research</button>
+<button data-page="cv">CV</button>
+<button data-page="resources">Resources</button>
+</div>
+</div>
+
+</nav>
 
     <div class="header-tools">
       <span class="availability"><i></i> Research / Teaching</span>
@@ -1048,7 +1140,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="gallery">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$06$ / GALLERY</div>
+      <div class="page-index">$07$ / GALLERY</div>
       <div>
         <div class="section-kicker">Beyond the desk</div>
         <h1>A visual notebook.</h1>
@@ -1147,11 +1239,34 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 </section>
 
 
+<!-- Beyond Research -->
+<section class="page" id="br">
+  <div class="container inner">
+    <div class="page-heading">
+      <div class="page-index">$09$ / Beyond </div>
+      <div>
+          <div class="section-kicker">Apart From Research</div>
+        <h1>Teaching physics, one idea at a time.</h1>
+        <p class="page-desc">Teaching activities and subjects listed in the supplied academic profile.</p>
+      </div>
+    </div>
+
+    <div class="teaching-grid">
+        <article class="teach"><div class="year">2025–2026</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
+      <article class="teach"><div class="year">2026–2027</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
+      
+      <article class="teach"><div class="year">2026-2027</div><h2>Mathematical Physics</h2><p>Tutorials and problem sessions</p></article>
+      
+      <article class="teach"><div class="year">Mentoring</div><h2>Computational Astrophysics</h2><p>Python, C++ and scientific visualisation</p></article>
+    </div>
+  </div>
+</section>
+
 <!-- MOVIES -->
 <section class="page" id="movies">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$07$ / MOVIES</div>
+      <div class="page-index">$08$ / MOVIES</div>
       <div>
         <div class="section-kicker">Cinema</div>
         <h1>Films I keep thinking about.</h1>
@@ -1182,7 +1297,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="contact">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$09$ / CONTACT</div>
+      <div class="page-index">$06$ / CONTACT</div>
       <div>
           <div class="section-kicker">Contact Me</div>
         <h1>Start a conversation.</h1>
@@ -1205,6 +1320,50 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     </div>
   </div>
 </section>
+
+<section id="resources" class="page">
+
+  <h2>Differential Equation Solver</h2>
+
+  <div class="ode-input">
+
+    <div class="equation">
+      <label>dx/dt =</label>
+      <input id="dxInput" value="y">
+    </div>
+
+    <div class="equation">
+      <label>dy/dt =</label>
+      <input id="dyInput" value="-x">
+    </div>
+
+    <div class="ode-controls">
+      <label>
+        x range
+        <input id="xmin" type="number" value="-5">
+        <input id="xmax" type="number" value="5">
+      </label>
+
+      <label>
+        y range
+        <input id="ymin" type="number" value="-5">
+        <input id="ymax" type="number" value="5">
+      </label>
+
+      <button id="solveODE">Plot</button>
+    </div>
+
+  </div>
+
+  <div id="vectorField"></div>
+
+</section>
+
+
+
+
+
+
 
 </main>
 
@@ -1248,6 +1407,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 </footer>
 
 
+
+
+    
 <script>
 (() => {
   const pages=[...document.querySelectorAll('.page')];
@@ -1259,6 +1421,22 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
   const order=pages.map(p=>p.id);
 
+    
+const moreButton = document.getElementById("moreButton");
+const navMore = document.querySelector(".nav-more");
+
+moreButton.addEventListener("click", () => {
+  navMore.classList.toggle("open");
+});
+
+const morePages = document.querySelectorAll(".more-menu button");
+
+morePages.forEach(button => {
+  button.addEventListener("click", () => {
+    navMore.classList.remove("open");
+  });
+});
+    
   function showPage(id,push=true){
     const page=document.getElementById(id);
     if(!page)return;
@@ -1305,5 +1483,213 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   showPage(document.getElementById(location.hash.slice(1)) ? location.hash.slice(1) : 'home',false);
 })();
 </script>
+
+
+
+
+
+
+<!-- Plotly -->
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+<!-- Math.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.min.js"></script>
+
+<script>
+
+const dxInput = document.getElementById("dxInput");
+const dyInput = document.getElementById("dyInput");
+const solveButton = document.getElementById("solveODE");
+
+function plotVectorField() {
+
+  const fx = math.compile(dxInput.value);
+  const fy = math.compile(dyInput.value);
+
+  const xmin = Number(document.getElementById("xmin").value);
+  const xmax = Number(document.getElementById("xmax").value);
+
+  const ymin = Number(document.getElementById("ymin").value);
+  const ymax = Number(document.getElementById("ymax").value);
+
+  const x = [];
+  const y = [];
+  const u = [];
+  const v = [];
+
+  const N = 20;
+
+  for (let i = 0; i <= N; i++) {
+
+    const xx = xmin + (xmax - xmin) * i / N;
+
+    for (let j = 0; j <= N; j++) {
+
+      const yy = ymin + (ymax - ymin) * j / N;
+
+      try {
+
+        const vx = fx.evaluate({
+          x: xx,
+          y: yy
+        });
+
+        const vy = fy.evaluate({
+          x: xx,
+          y: yy
+        });
+
+        x.push(xx);
+        y.push(yy);
+        u.push(vx);
+        v.push(vy);
+
+      } catch {
+
+        x.push(xx);
+        y.push(yy);
+        u.push(0);
+        v.push(0);
+
+      }
+
+    }
+  }
+
+
+  /*
+   * Normalize arrows so that the
+   * vector field is easier to see.
+   */
+
+  const magnitude = u.map((value, i) =>
+    Math.sqrt(value * value + v[i] * v[i])
+  );
+
+  const maxMagnitude = Math.max(...magnitude);
+
+  const scale = 0.4 * Math.min(
+    (xmax - xmin) / N,
+    (ymax - ymin) / N
+  );
+
+
+  const traces = [];
+
+
+  /*
+   * Draw vector arrows using Plotly annotations.
+   */
+
+  const annotations = [];
+
+  for (let i = 0; i < x.length; i++) {
+
+    if (magnitude[i] === 0) continue;
+
+    const ux = u[i] / maxMagnitude;
+    const vy = v[i] / maxMagnitude;
+
+    annotations.push({
+
+      x: x[i] + ux * scale,
+      y: y[i] + vy * scale,
+
+      ax: x[i],
+      ay: y[i],
+
+      xref: "x",
+      yref: "y",
+
+      axref: "x",
+      ayref: "y",
+
+      showarrow: true,
+      arrowhead: 2,
+      arrowsize: 1,
+      arrowwidth: 1,
+
+      text: ""
+
+    });
+
+  }
+
+
+  /*
+   * Add the vector-field points.
+   */
+
+  traces.push({
+
+    x: x,
+    y: y,
+
+    mode: "markers",
+
+    marker: {
+      size: 2
+    },
+
+    hovertemplate:
+      "x = %{x:.2f}<br>" +
+      "y = %{y:.2f}<extra></extra>"
+
+  });
+
+
+  Plotly.newPlot(
+    "vectorField",
+    traces,
+    {
+
+      title:
+        `dx/dt = ${dxInput.value} , dy/dt = ${dyInput.value}`,
+
+      xaxis: {
+        title: "x",
+        range: [xmin, xmax],
+        zeroline: true
+      },
+
+      yaxis: {
+        title: "y",
+        range: [ymin, ymax],
+        zeroline: true,
+        scaleanchor: "x"
+      },
+
+      annotations: annotations,
+
+      margin: {
+        l: 60,
+        r: 30,
+        t: 70,
+        b: 60
+      }
+
+    },
+
+    {
+      responsive: true
+    }
+  );
+
+}
+
+
+solveButton.addEventListener(
+  "click",
+  plotVectorField
+);
+
+
+/* Initial plot */
+
+plotVectorField();
+
+</script>
+
+
 </body>
 </html>
