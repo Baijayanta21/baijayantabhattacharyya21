@@ -1,24 +1,11 @@
  
 /* start css.sty */
-.LibertinusSerif-Regular-tlf-ot1-x-x-120{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-120{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-120{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-120{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-207{font-size:172%; font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-207{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-207{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-207{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-144{font-size:120%; font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-144{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-144{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-144{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-109{font-size:90%; font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-109{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-109{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Regular-tlf-ot1-x-x-109{ font-family: 'Libertinus Serif', serif;}
-.LibertinusSerif-Bold-tlf-ot1-x-x-109{font-size:90%; font-weight: bold; font-family: 'Libertinus Serif', serif;}
-.LibertinusMono-Regular-tlf-ot1-x-x-102{font-size:85%; font-family: 'Libertinus Mono', monospace;}
-.LibertinusSerif-Italic-tlf-ot1-x-x-120{ font-style: italic; font-family: 'Libertinus Serif', serif;}
+.bchr8t-x-x-207{font-size:172%;}
+.bchr8t-x-x-144{font-size:120%;}
+.bchr8t-x-x-109{font-size:90%;}
+.bchb8t-x-x-109{font-size:90%;font-weight: bold;}
+.ectt-1200{ font-family: monospace,monospace;}
+.bchri8t-x-x-120{font-style: italic;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
