@@ -444,25 +444,23 @@ header{
   display: block;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.5s ease;
+  transition: transform 0.2s ease;
+  transform-origin: center;
 }
-
 
 .photo:hover img {
   transform: scale(1.7);
   position: relative;
   z-index: 9999;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
 }
 
 .photo-content {
   display: none;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -110px;
+  right: -135px;
   z-index: 10000;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, .9);
   color: black;
   padding: 10px 20px;
   border-radius: 8px;
@@ -473,7 +471,6 @@ header{
 .photo:hover .photo-content {
   display: block;
 }
-
 
 
 
