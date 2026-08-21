@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Baijayanta Bhattacharyya — Physics, cosmology and 21-cm astrophysics.">
 <meta name="theme-color" content="#f5f1e8">
-<title>Baijayanta Bhattacharyya — Physics &amp; Cosmology</title>
+<title>BB - Physics &amp; Cosmology</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,11 +167,6 @@ header{
 .more-menu button:hover {
   background: rgba(0, 0, 0, 0.06);
 }
-
-
-
-
-
 
 
     
@@ -432,12 +427,12 @@ header{
 
 .pub-year{font:500 1rem var(--mono);color:var(--rust)}
 
-.pub h2{color: #243447;font:550 1.3rem var(--serif);margin:0 0 1rem}
 
 
+.pub h3{color: #243447;font:600 1.1rem var(--serif);margin:0 0 1rem}
 
 .authors {
-  font: 500 1.5rem var(--sans);
+  font: 500 1rem var(--sans);
   color: var(--muted);
   margin-top: 0.2rem;
 }
@@ -667,7 +662,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   font:550 0.9rem var(--serif);transition:.2s
 }
 .footer-nav button:hover,.footer-contact a:hover{color:var(--rust);transform:translateX(2px)}
-.footer-contact i{font-size:.55rem;margin-left:.25rem}
+/**/
     .footer-qr {
   width: 150px;
   height: 150px;
@@ -684,6 +679,37 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 .back-top:hover{color:var(--rust)}
 
+
+ 
+
+   
+    
+.profile-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  gap: 0rem;
+}
+
+.profile-icons a {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+
+  width: 2rem;
+  height: 3.5rem;
+
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.profile-icons a:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
 /* More visual polish */
 .page-heading{position:relative}
 .page-heading:after{
@@ -1083,11 +1109,11 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <article class="pub">
   <div class="pub-year">2026</div>
   <div>
-    <h2>
+    <h3>
       The Tracking Tapered Gridded Estimator for the $21$-cm power spectrum from
-      the Murchison Widefield Array (MWA) drift scan observations — III.
+      the Murchison Widefield Array (MWA) drift scan observations —III.
       Improved upper limits at $z = 8.2$ from multiple pointings
-    </h2>
+    </h3>
 
     <div class="authors">
       S. Sarkar, K. M. A. Elahi, S. Choudhuri, S. Bharadwaj, S. Chatterjee,
@@ -1103,10 +1129,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <article class="pub">
   <div class="pub-year">—</div>
   <div>
-    <h2>
+    <h3>
       The Tracking Tapered Gridded Estimator for the $21$-cm power spectrum from
-      the Murchison Widefield Array (MWA) drift scan observations — — IV.
-    </h2>
+      the Murchison Widefield Array (MWA) drift scan observations —IV.
+    </h3>
 
     <div class="authors">
       S. Bharadwaj, <strong>B. Bhattacharyya</strong>, et al.
@@ -1119,10 +1145,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <article class="pub">
   <div class="pub-year">—</div>
   <div>
-    <h2>
+    <h3>
       The Tracking Tapered Gridded Estimator for the $21$-cm power spectrum from
-      the Murchison Widefield Array (MWA) drift scan observations — V.
-    </h2>
+      the Murchison Widefield Array (MWA) drift scan observations —V.
+    </h3>
 
     <div class="authors">
       <strong>B. Bhattacharyya</strong>, S. Bharadwaj, et al.
@@ -1191,12 +1217,12 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   </article>
 
           <article class="photo">
-    <img src="photos/May2026/cashew.jpg" alt="Cashew Tree">
-    <div class="photo-content">Cashew Tree</div>
+    <img src="photos/May2026/cashew.jpg" alt="Cashew Fruit">
+    <div class="photo-content">Cashew Fruit</div>
   </article>
           <article class="photo">
-    <img src="photos/May2026/f2.jpg" alt="Beautiful Flowers">
-    <div class="photo-content">Beautiful Flowers</div>
+    <img src="photos/May2026/f2.jpg" alt="Colorful Colocasia">
+    <div class="photo-content">Colorful Colocasia</div>
   </article>
 
 
@@ -1206,8 +1232,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   </article>
 
           <article class="photo">
-    <img src="photos/May2026/f3.jpg" alt="Beautiful Flowers">
-    <div class="photo-content">Beautiful Flowers</div>
+    <img src="photos/May2026/f3.jpg" alt="Sunflower">
+    <div class="photo-content">Sunflower</div>
   </article>
 
 </div>
@@ -1315,52 +1341,23 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         <a class="contact-link" href="mailto:baijayantabhattacharyya2003@gmail.com"><label>Email</label><span>baijayantabhattacharyya2003@gmail.com</span></a>
         <div class="contact-link"><label>Department</label><span>Department of Physics, IIT Kharagpur</span></div>
         <div class="contact-link"><label>Location</label><span>Kharagpur 721302, India</span></div>
-        <div class="contact-link"><label>Profiles</label><span>LinkedIn · GitHub · ORCID · arXiv</span></div>
+      <div class="contact-link"><label>Profiles</label><span><a href="YOUR_LINKEDIN_URL" target="_blank" aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+
+  <a href="YOUR_GITHUB_URL" target="_blank" aria-label="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+  <a href="YOUR_ORCID_URL" target="_blank" aria-label="ORCID">
+    <i class="fa-brands fa-orcid"></i>
+  </a></span></div>
+  
+
       </div>
     </div>
   </div>
 </section>
-
-<section id="resources" class="page">
-
-  <h2>Differential Equation Solver</h2>
-
-  <div class="ode-input">
-
-    <div class="equation">
-      <label>dx/dt =</label>
-      <input id="dxInput" value="y">
-    </div>
-
-    <div class="equation">
-      <label>dy/dt =</label>
-      <input id="dyInput" value="-x">
-    </div>
-
-    <div class="ode-controls">
-      <label>
-        x range
-        <input id="xmin" type="number" value="-5">
-        <input id="xmax" type="number" value="5">
-      </label>
-
-      <label>
-        y range
-        <input id="ymin" type="number" value="-5">
-        <input id="ymax" type="number" value="5">
-      </label>
-
-      <button id="solveODE">Plot</button>
-    </div>
-
-  </div>
-
-  <div id="vectorField"></div>
-
-</section>
-
-
-
 
 
 
@@ -1390,7 +1387,35 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <span class="footer-label">Elsewhere</span>
       <a href="mailto:baijayantabhattacharyya2003@gmail.com">Email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       <a href="#contact" data-page="contact">Contact <i class="fa-solid fa-arrow-right"></i></a>
+
+ 
+<div class="profile-icons">
+
+  <a href="YOUR_LINKEDIN_URL" target="_blank" aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+
+  <a href="YOUR_GITHUB_URL" target="_blank" aria-label="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+  <a href="YOUR_ORCID_URL" target="_blank" aria-label="ORCID">
+    <i class="fa-brands fa-orcid"></i>
+  </a>
+
+</div>
+
+
+            
+  </span>
+
+        
     </div>
+            
+
+
+  
+
 
 <div class="footer-contact">
   <span class="footer-label">Scan Me</span>
