@@ -1,0 +1,410 @@
+\documentclass[12pt,a4paper]{article}
+
+% --------------------------------------------------
+% Packages
+% --------------------------------------------------
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fourier}
+\usepackage{charter}
+
+
+\usepackage[margin=2.5cm]{geometry}
+\title{A Sample Physics Document}
+\author{Baijayanta Bhattacharyya}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This is a sample LaTeX document containing mathematical equations,
+		tables, matrices, figures, lists, and references. It can be used to
+		test conversion from \LaTeX{} to HTML.
+	\end{abstract}
+	
+	\tableofcontents
+	
+	% ==================================================
+	\section{Introduction}
+	% ==================================================
+	
+	Classical mechanics provides a powerful framework for describing
+	physical systems. The motion of a system can be obtained from the
+	Lagrangian
+	
+	\begin{equation}
+		L = T - V,
+		\label{eq:lagrangian}
+	\end{equation}
+	
+	where $T$ is the kinetic energy and $V$ is the potential energy.
+	
+	The Euler--Lagrange equation is
+	
+	\begin{equation}
+		\frac{d}{dt}
+		\left(
+		\frac{\partial L}{\partial \dot{q}_i}
+		\right)
+		-
+		\frac{\partial L}{\partial q_i}
+		= 0.
+		\label{eq:euler-lagrange}
+	\end{equation}
+	
+	Equation~\eqref{eq:euler-lagrange} determines the equations of motion
+	of the system.
+	
+	% ==================================================
+	\section{Mathematical Expressions}
+	% ==================================================
+	
+	Consider a simple harmonic oscillator with Lagrangian
+	
+	\begin{equation}
+		L =
+		\frac{1}{2}m\dot{x}^{\,2}
+		-
+		\frac{1}{2}kx^2.
+	\end{equation}
+	
+	Using the Euler--Lagrange equation,
+	
+	\begin{align}
+		\frac{\partial L}{\partial x}
+		&= -kx, \\
+		\frac{\partial L}{\partial \dot{x}}
+		&= m\dot{x}.
+	\end{align}
+	
+	Therefore,
+	
+	\begin{equation}
+		m\ddot{x} + kx = 0.
+	\end{equation}
+	
+	Defining
+	
+	\begin{equation}
+		\omega = \sqrt{\frac{k}{m}},
+	\end{equation}
+	
+	we obtain
+	
+	\begin{equation}
+		\boxed{
+			\ddot{x} + \omega^2 x = 0
+		}.
+	\end{equation}
+	
+	The general solution is
+	
+	\begin{equation}
+		x(t)
+		=
+		A\cos(\omega t)
+		+
+		B\sin(\omega t).
+	\end{equation}
+	
+	% ==================================================
+	\subsection{A More Complicated Equation}
+	% ==================================================
+	
+	Consider the integral
+	
+	\begin{equation}
+		I =
+		\int_0^\infty
+		\frac{\ln x}{1+x^3}\,dx.
+	\end{equation}
+	
+	A useful identity is
+	
+	\begin{equation}
+		\int_0^\infty
+		\frac{x^{a-1}}{1+x^b}\,dx
+		=
+		\frac{\pi}{b}
+		\csc\left(\frac{\pi a}{b}\right),
+		\qquad
+		0<a<b.
+	\end{equation}
+	
+	Differentiating with respect to $a$ gives
+	
+	\begin{equation}
+		\frac{d}{da}
+		\int_0^\infty
+		\frac{x^{a-1}}{1+x^b}\,dx
+		=
+		\int_0^\infty
+		\frac{x^{a-1}\ln x}{1+x^b}\,dx.
+	\end{equation}
+	
+	% ==================================================
+	\section{Matrices}
+	% ==================================================
+	
+	A general $2\times2$ matrix can be written as
+	
+	\begin{equation}
+		A =
+		\begin{pmatrix}
+			a & b \\
+			c & d
+		\end{pmatrix}.
+	\end{equation}
+	
+	Its determinant is
+	
+	\begin{equation}
+		\det A = ad-bc.
+	\end{equation}
+	
+	The inverse, provided $\det A\neq0$, is
+	
+	\begin{equation}
+		A^{-1}
+		=
+		\frac{1}{ad-bc}
+		\begin{pmatrix}
+			d & -b \\
+			-c & a
+		\end{pmatrix}.
+	\end{equation}
+	
+	For angular momentum, the commutation relation is
+	
+	\begin{equation}
+		[J_i,J_j]
+		=
+		i\hbar\epsilon_{ijk}J_k.
+	\end{equation}
+	
+	For spin-$\frac12$, the generators are
+	
+	\begin{equation}
+		J_i = \frac{\hbar}{2}\sigma_i,
+	\end{equation}
+	
+	where the Pauli matrices are
+	
+	\begin{align}
+		\sigma_x &=
+		\begin{pmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{pmatrix},
+		&
+		\sigma_y &=
+		\begin{pmatrix}
+			0 & -i \\
+			i & 0
+		\end{pmatrix},
+		&
+		\sigma_z &=
+		\begin{pmatrix}
+			1 & 0 \\
+			0 & -1
+		\end{pmatrix}.
+	\end{align}
+	
+	% ==================================================
+	\section{Tables}
+	% ==================================================
+	
+	Table~\ref{tab:particles} shows some example particle properties.
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Properties of selected particles.}
+		\label{tab:particles}
+		
+		\begin{tabular}{lccc}
+			\toprule
+			Particle & Mass (\si{\kilo\gram}) &
+			Charge ($e$) & Spin \\
+			\midrule
+			Electron & $9.11\times10^{-31}$ & $-1$ &
+			$\frac12$ \\
+			Proton   & $1.67\times10^{-27}$ & $+1$ &
+			$\frac12$ \\
+			Neutron  & $1.67\times10^{-27}$ & $0$ &
+			$\frac12$ \\
+			Photon   & $0$ & $0$ & $1$ \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	% ==================================================
+	\section{Lists}
+	% ==================================================
+	
+	Important concepts in classical mechanics include:
+	
+	\begin{itemize}
+		\item Configuration space
+		\item Generalized coordinates
+		\item Lagrangian mechanics
+		\item Hamiltonian mechanics
+		\item Canonical transformations
+	\end{itemize}
+	
+	The usual procedure for solving a Lagrangian problem is:
+	
+	\begin{enumerate}
+		\item Choose generalized coordinates.
+		\item Write the kinetic energy.
+		\item Write the potential energy.
+		\item Construct the Lagrangian.
+		\item Apply the Euler--Lagrange equations.
+	\end{enumerate}
+	
+	% ==================================================
+	\section{Figures}
+	% ==================================================
+	
+	Figure~\ref{fig:example} is an example figure.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.65\textwidth]{example-image-c}
+		\caption{An example figure.}
+		\label{fig:example}
+	\end{figure}
+	
+	% ==================================================
+	\section{Physics Example}
+	% ==================================================
+	
+	Consider a simple pendulum of length $L$ and mass $m$.
+	
+	The position of the bob can be written as
+	
+	\begin{equation}
+		x = L\sin\theta,
+		\qquad
+		y = -L\cos\theta.
+	\end{equation}
+	
+	The velocity is
+	
+	\begin{equation}
+		v^2 = L^2\dot{\theta}^{\,2}.
+	\end{equation}
+	
+	Therefore, the kinetic and potential energies are
+	
+	\begin{align}
+		T &= \frac12 mL^2\dot{\theta}^{\,2},\\
+		V &= mgL(1-\cos\theta).
+	\end{align}
+	
+	Hence,
+	
+	\begin{equation}
+		L
+		=
+		\frac12mL^2\dot{\theta}^{\,2}
+		-
+		mgL(1-\cos\theta).
+	\end{equation}
+	
+	Applying the Euler--Lagrange equation gives
+	
+	\begin{equation}
+		mL^2\ddot{\theta}
+		+
+		mgL\sin\theta
+		=0.
+	\end{equation}
+	
+	Thus,
+	
+	\begin{equation}
+		\boxed{
+			\ddot{\theta}
+			+
+			\frac{g}{L}\sin\theta
+			=0
+		}.
+		\label{eq:pendulum}
+	\end{equation}
+	
+	For small oscillations,
+	
+	\begin{equation}
+		\sin\theta \approx \theta,
+	\end{equation}
+	
+	and therefore
+	
+	\begin{equation}
+		\ddot{\theta}
+		+
+		\frac{g}{L}\theta
+		=0.
+	\end{equation}
+	
+	The period is
+	
+	\begin{equation}
+		T = 2\pi\sqrt{\frac{L}{g}}.
+	\end{equation}
+	
+	% ==================================================
+	\section{References}
+	% ==================================================
+	
+	For more information, see standard texts on classical mechanics
+	such as~\cite{goldstein}.
+	
+	\begin{thebibliography}{9}
+		
+		\bibitem{goldstein}
+		H. Goldstein, C. Poole, and J. Safko,
+		\textit{Classical Mechanics},
+		3rd ed.,
+		Pearson, 2002.
+		
+		\bibitem{griffiths}
+		D. J. Griffiths,
+		\textit{Introduction to Quantum Mechanics},
+		3rd ed.,
+		Cambridge University Press, 2018.
+		
+	\end{thebibliography}
+	
+	% ==================================================
+	\section{Conclusion}
+	% ==================================================
+	
+	This document contains:
+	
+	\begin{itemize}
+		\item Mathematical equations
+		\item Aligned equations
+		\item Matrices
+		\item Tables
+		\item Figures
+		\item Lists
+		\item Cross-references
+		\item Citations
+		\item Sections and subsections
+	\end{itemize}
+	
+	These features make it useful for testing a \LaTeX{} to HTML conversion
+	workflow.
+	
+\end{document}
+
