@@ -16,33 +16,59 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 <style>
-:root{
-  --paper:#f6f3ec;
-  --paper2:#ede8dd;
-  --white:#fffdf8;
-  --ink:#252923;
-  --muted:#272830;
-  --soft:#8c1525;
-  --line:#d9d4c9;
-  --rust:#a45135;
-  --sage:#54776d;
-  --gold:#a27a36;
-  --shadow:0 18px 50px rgba(38,42,35,.07);
-  --sans: "EB Garamond", Georgia, serif;
-  --serif:"Libre Baskerville",Georgia,serif;
-  --mono:"DM Mono",ui-monospace,monospace;
-  --max:1350px;
+
+    :root {
+  --paper: #f6f3ec;
+  --paper2: #ede8dd;
+  --white: #fffdf8;
+  --ink: #252923;
+  --muted: #272830;
+  --soft: #8c1525;
+  --line: #d9d4c9;
+  --rust: #a45135;
+  --sage: #54776d;
+  --gold: #a27a36;
+
+  --shadow: 0 18px 50px rgba(38, 42, 35, .07);
+
+  --display: "EB Garamond", Georgia, serif;
+        --sans: "EB Garamond", Georgia, serif;
+  --serif: "Libre Baskerville", Georgia, serif;
+  --mono: "DM Mono", ui-monospace, monospace;
+
+ 
+  --max: 1350px;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font:550 22px var(--serif);overflow-x:hidden;
+
+    *{box-sizing:border-box}
+html {
+  scroll-behavior: smooth;
+}
+
+    .footer-social {
+  display: flex;
+  gap: 1.2rem;
+}
+
     
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 530;
+  line-height: 1.45;
+
   letter-spacing: .012em;
   word-spacing: .05em;
+
+  font-synthesis: none;
+  overflow-x: hidden;
+    font-synthesis: none;
 }
 
 
@@ -613,7 +639,7 @@ header{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  padding: 0 2.5rem 1rem 2.5rem;
+  padding: 0rem 2.5rem 0rem 2.5rem;
   border: 0.0px solid rgba(0, 0, 0, 0.5);
 
 
@@ -623,8 +649,8 @@ header{
 .contact-main,.contact-side{
    
   position: relative;
- background: white;
-  padding: 2rem;
+  background: white;
+  padding: 2rem 2rem 0rem 2rem;
   border-radius:10px;
   min-height: 155px;
   overflow: hidden;
@@ -634,13 +660,15 @@ header{
     transform .2s ease,
     box-shadow .2s ease;
 }
+
+.contact-side{padding: 1rem 2rem 0.5rem 2rem;}
     
 .contact-main h2{font:600 clamp(2rem,4vw,3.7rem)/1.05 var(--serif);max-width:9ch;margin:1rem 0}.contact-main p{max-width:500px;color:var(--muted)}
 .contact-main strong{color:#536be0}
 
     
     
-.contact-link{display:block;padding:1rem 0;border-bottom:1px solid var(--line)}.contact-link:last-child{border-bottom:0}.contact-link label{display:block;font:500 0.9rem var(--mono);text-transform:uppercase;color:var(--soft);letter-spacing:.08em}.contact-link span{display:block;margin-top:.3rem;font-size:1.2rem}.contact-link:hover span{color:var(--rust)}
+.contact-link{display:block;padding:1rem 0;border-bottom:1px solid var(--line)}.contact-link:last-child{border-bottom:0}.contact-link label{display:block;font:500 0.9rem var(--mono);text-transform:uppercase;color:var(--soft);letter-spacing:.08em}.contact-link span{display:block;margin-top:.5rem;font-size:1.2rem}.contact-link:hover span{color:var(--rust)}
 
 /* Footer */
 footer{border-top:1px solid var(--line);background:#eeeadf}
@@ -689,6 +717,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   flex-direction: row;
   align-items: left;
   gap: 0rem;
+    margin-top:.5rem;
+    margin-bottom: -2rem;
 }
 
 .profile-icons a {
@@ -696,10 +726,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   align-items: left;
   justify-content: left;
 
-  width: 2rem;
+  width: 1.5rem;
   height: 3.5rem;
 
-  color: inherit;
+  color: #252923;
   text-decoration: none;
   font-size: 1.2rem;
 
@@ -707,8 +737,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 
 .profile-icons a:hover {
-  transform: scale(1.1);
-  opacity: 0.7;
+  transform: scale(1.3);
+  opacity: 0.9;
 }
 /* More visual polish */
 .page-heading{position:relative}
@@ -805,7 +835,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 
 .sp-text h2{font-weight: 500;
-    font-size: 3.5rem;
+    font-size: 4rem;
 }
 </style>
 </head>
@@ -1335,23 +1365,24 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <div class="contact-main">
         <div class="eyebrow">Academic correspondence</div>
         <div class="sp-text"><h2>Let's talk science.</h2></div>
-        <div class="research-text"><p>For research-related communication, the institutional email address below is the primary contact provided on the original website.</p></div>
+        <div class="research-text"><p>For communication, the personal email address below is the primary contact provided on the original website.</p></div>
       </div>
       <div class="contact-side">
         <a class="contact-link" href="mailto:baijayantabhattacharyya2003@gmail.com"><label>Email</label><span>baijayantabhattacharyya2003@gmail.com</span></a>
         <div class="contact-link"><label>Department</label><span>Department of Physics, IIT Kharagpur</span></div>
         <div class="contact-link"><label>Location</label><span>Kharagpur 721302, India</span></div>
-      <div class="contact-link"><label>Profiles</label><span>  <a href="http://www.google.com/url?q=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fbaijayanta-bhattacharyya-6b6a152a8&sa=D&sntz=1&usg=AOvVaw3iY8jmI9WkmXL73OZOoKH5" target="_blank" aria-label="LinkedIn">
-    <i class="fa-brands fa-linkedin"></i>
-  </a>
+      <div class="contact-link"><label>Profiles</label><div class="profile-icons">
 
-  <a href="https://github.com/Baijayanta21/" target="_blank" aria-label="GitHub">
-    <i class="fa-brands fa-github"></i>
-  </a>
+<a href="http://www.google.com/url?q=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fbaijayanta-bhattacharyya-6b6a152a8&sa=D&sntz=1&usg=AOvVaw3iY8jmI9WkmXL73OZOoKH5" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
 
-  <a href="https://orcid.org/my-orcid?orcid=0009-0004-1295-7800" target="_blank" aria-label="ORCID">
-    <i class="fa-brands fa-orcid"></i>
-  </a></span></div>
+<a href="https://github.com/Baijayanta21/" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+
+<a href="https://orcid.org/my-orcid?orcid=0009-0004-1295-7800" target="_blank" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+
+<a href="https://arxiv.org/a/yourid.html" target="_blank" aria-label="arxiv"><i class="ai ai-arxiv"></i></a>
+
+<a href="mailto:baijayantabhattacharyya2003@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+</div></div>
   
 
       </div>
@@ -1391,20 +1422,17 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
  
 <div class="profile-icons">
 
-  <a href="http://www.google.com/url?q=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fbaijayanta-bhattacharyya-6b6a152a8&sa=D&sntz=1&usg=AOvVaw3iY8jmI9WkmXL73OZOoKH5" target="_blank" aria-label="LinkedIn">
-    <i class="fa-brands fa-linkedin"></i>
-  </a>
+<a href="http://www.google.com/url?q=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fbaijayanta-bhattacharyya-6b6a152a8&sa=D&sntz=1&usg=AOvVaw3iY8jmI9WkmXL73OZOoKH5" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
 
-  <a href="https://github.com/Baijayanta21/" target="_blank" aria-label="GitHub">
-    <i class="fa-brands fa-github"></i>
-  </a>
+<a href="https://github.com/Baijayanta21/" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
 
-  <a href="https://orcid.org/my-orcid?orcid=0009-0004-1295-7800" target="_blank" aria-label="ORCID">
-    <i class="fa-brands fa-orcid"></i>
-  </a>
+<a href="https://orcid.org/my-orcid?orcid=0009-0004-1295-7800" target="_blank" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
 
+<a href="https://arxiv.org/a/yourid.html" target="_blank" aria-label="arxiv"><i class="ai ai-arxiv"></i></a>
+
+<a href="mailto:baijayantabhattacharyya2003@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+   
 </div>
-
 
             
   </span>
@@ -1449,17 +1477,26 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     
 const moreButton = document.getElementById("moreButton");
 const navMore = document.querySelector(".nav-more");
+const morePages = document.querySelectorAll(".more-menu button");
 
-moreButton.addEventListener("click", () => {
+// Open / close More menu
+moreButton.addEventListener("click", (event) => {
+  event.stopPropagation();
   navMore.classList.toggle("open");
 });
 
-const morePages = document.querySelectorAll(".more-menu button");
-
+// Close when clicking a submenu item
 morePages.forEach(button => {
   button.addEventListener("click", () => {
     navMore.classList.remove("open");
   });
+});
+
+// Close when clicking anywhere outside the More menu
+document.addEventListener("click", (event) => {
+  if (!navMore.contains(event.target)) {
+    navMore.classList.remove("open");
+  }
 });
     
   function showPage(id,push=true){
@@ -1508,213 +1545,6 @@ morePages.forEach(button => {
   showPage(document.getElementById(location.hash.slice(1)) ? location.hash.slice(1) : 'home',false);
 })();
 </script>
-
-
-
-
-
-
-<!-- Plotly -->
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-
-<!-- Math.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.min.js"></script>
-
-<script>
-
-const dxInput = document.getElementById("dxInput");
-const dyInput = document.getElementById("dyInput");
-const solveButton = document.getElementById("solveODE");
-
-function plotVectorField() {
-
-  const fx = math.compile(dxInput.value);
-  const fy = math.compile(dyInput.value);
-
-  const xmin = Number(document.getElementById("xmin").value);
-  const xmax = Number(document.getElementById("xmax").value);
-
-  const ymin = Number(document.getElementById("ymin").value);
-  const ymax = Number(document.getElementById("ymax").value);
-
-  const x = [];
-  const y = [];
-  const u = [];
-  const v = [];
-
-  const N = 20;
-
-  for (let i = 0; i <= N; i++) {
-
-    const xx = xmin + (xmax - xmin) * i / N;
-
-    for (let j = 0; j <= N; j++) {
-
-      const yy = ymin + (ymax - ymin) * j / N;
-
-      try {
-
-        const vx = fx.evaluate({
-          x: xx,
-          y: yy
-        });
-
-        const vy = fy.evaluate({
-          x: xx,
-          y: yy
-        });
-
-        x.push(xx);
-        y.push(yy);
-        u.push(vx);
-        v.push(vy);
-
-      } catch {
-
-        x.push(xx);
-        y.push(yy);
-        u.push(0);
-        v.push(0);
-
-      }
-
-    }
-  }
-
-
-  /*
-   * Normalize arrows so that the
-   * vector field is easier to see.
-   */
-
-  const magnitude = u.map((value, i) =>
-    Math.sqrt(value * value + v[i] * v[i])
-  );
-
-  const maxMagnitude = Math.max(...magnitude);
-
-  const scale = 0.4 * Math.min(
-    (xmax - xmin) / N,
-    (ymax - ymin) / N
-  );
-
-
-  const traces = [];
-
-
-  /*
-   * Draw vector arrows using Plotly annotations.
-   */
-
-  const annotations = [];
-
-  for (let i = 0; i < x.length; i++) {
-
-    if (magnitude[i] === 0) continue;
-
-    const ux = u[i] / maxMagnitude;
-    const vy = v[i] / maxMagnitude;
-
-    annotations.push({
-
-      x: x[i] + ux * scale,
-      y: y[i] + vy * scale,
-
-      ax: x[i],
-      ay: y[i],
-
-      xref: "x",
-      yref: "y",
-
-      axref: "x",
-      ayref: "y",
-
-      showarrow: true,
-      arrowhead: 2,
-      arrowsize: 1,
-      arrowwidth: 1,
-
-      text: ""
-
-    });
-
-  }
-
-
-  /*
-   * Add the vector-field points.
-   */
-
-  traces.push({
-
-    x: x,
-    y: y,
-
-    mode: "markers",
-
-    marker: {
-      size: 2
-    },
-
-    hovertemplate:
-      "x = %{x:.2f}<br>" +
-      "y = %{y:.2f}<extra></extra>"
-
-  });
-
-
-  Plotly.newPlot(
-    "vectorField",
-    traces,
-    {
-
-      title:
-        `dx/dt = ${dxInput.value} , dy/dt = ${dyInput.value}`,
-
-      xaxis: {
-        title: "x",
-        range: [xmin, xmax],
-        zeroline: true
-      },
-
-      yaxis: {
-        title: "y",
-        range: [ymin, ymax],
-        zeroline: true,
-        scaleanchor: "x"
-      },
-
-      annotations: annotations,
-
-      margin: {
-        l: 60,
-        r: 30,
-        t: 70,
-        b: 60
-      }
-
-    },
-
-    {
-      responsive: true
-    }
-  );
-
-}
-
-
-solveButton.addEventListener(
-  "click",
-  plotVectorField
-);
-
-
-/* Initial plot */
-
-plotVectorField();
-
-</script>
-
 
 </body>
 </html>
