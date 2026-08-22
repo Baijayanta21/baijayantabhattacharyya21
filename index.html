@@ -34,7 +34,7 @@
   --shadow: 0 18px 50px rgba(38, 42, 35, .07);
 
   --display: "EB Garamond", Georgia, serif;
-        --sans: "EB Garamond", Georgia, serif;
+  --sans: "EB Garamond", Georgia, serif;
   --serif: "Libre Baskerville", Georgia, serif;
   --mono: "DM Mono", ui-monospace, monospace;
 
@@ -125,7 +125,7 @@ header{
   content:"";position:absolute;left:0;right:100%;bottom:.05rem;height:1px;
   background:var(--rust);transition:.25s
 }
-.nav button:hover,.nav button.active{color:var(--ink)}
+.nav button:hover{color:var(--gold)},.nav button.active{color:var(--ink);}
 .nav button.active:after{right:0}
 
 
@@ -187,12 +187,9 @@ header{
   background: transparent;
 
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
-.more-menu button:hover {
-  background: rgba(0, 0, 0, 0.06);
-}
 
 
     
@@ -257,12 +254,12 @@ header{
 .strip{display:grid;grid-template-columns:repeat(4,1fr)}
 .stat{padding:1.25rem 1rem;border-right:1px solid var(--line)}
 .stat:first-child{padding-left:0}.stat:last-child{border-right:0}
-.stat strong{display:block;font:600 1rem var(--serif)}.stat span{font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--soft)}
+.stat strong{display:block;font:600 1.3rem var(--serif)}.stat span{font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--soft)}
 
 /* Interior */
 .inner{padding:5rem 0 6rem}
 .page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:3rem;margin-bottom:3.2rem}
-.page-index{font:550 0.9rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
+.page-index{font:550 0.9rem var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
 .page-title{font:700 clamp(2rem,3.5vw,3.6rem)/1.12 var(--serif);letter-spacing:-.035em;max-width:13ch;margin:0}
 .page-desc{max-width:1000px;color:var(--muted);margin:1rem 0 0;text-align:justify}
 
@@ -295,11 +292,12 @@ header{
   background: #f5f3ee;
   padding: 2rem;
   text-align: justify;
-  border-radius:10px;
+  border-radius:20px;
   min-height: 250px;
   overflow: hidden;
     background: white;
   border: 1px solid rgba(0, 0, 0, 0.5);
+    border-left:5px solid var(--gold);
   transition:
     background .3s ease,
     transform .2s ease,
@@ -311,6 +309,7 @@ header{
   background: var(--white);
   transform: translateY(-3px);
   border-color:blue;
+    border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
 
@@ -348,8 +347,9 @@ header{
   text-align: justify;
   background: white;
   padding: 1.5rem; /* ← inside each box */
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.5);
+    border-left:5px solid var(--gold);
     transition:
     background 0.25s ease,
     transform 0.25s ease,
@@ -363,11 +363,12 @@ header{
   background: var(--white);
   transform: translateY(-3px);
   border-color:blue;
+    border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
 
 
-.research-item .n{font:500 1rem var(--mono);color:var(--rust)}
+.research-item .n{font:550 1rem var(--sans);color:var(--rust)}
 
 .research-item h3{color: #243447;font:600 1.3rem var(--serif);margin:0 0 1rem}
 
@@ -392,8 +393,9 @@ header{
   background: white;
   gap: 1rem;
   padding: 1.5rem; /* ← inside each box */
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.5);
+    border-left:5px solid var(--gold);
     transition:
     background 0.25s ease,
     transform 0.25s ease,
@@ -407,12 +409,13 @@ header{
   background: var(--white);
   transform: translateY(-3px);
   border-color:blue;
+  border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
 
 
 
-.note-item .n{font:500 1rem var(--mono);color:var(--rust)}
+.note-item .n{font:550 1rem var(--sans);color:var(--rust)}
 
 .note-item h3{color: #243447;font:600 1.3rem var(--serif);margin:0 0 1rem}
 
@@ -430,8 +433,9 @@ header{
   text-align:justify;
   background: white;
   padding: 2rem; /* ← inside each box */
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.5);
+    border-left:5px solid var(--gold);
     transition:
     background 0.25s ease,
     transform 0.25s ease,
@@ -444,6 +448,7 @@ header{
   background: var(--white);
   transform: translateY(-3px);
   border-color:blue;
+    border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
     
@@ -451,14 +456,14 @@ header{
 
 
 
-.pub-year{font:500 1rem var(--mono);color:var(--rust)}
+.pub-year{font:550 1rem var(--sans);color:var(--rust)}
 
 
 
 .pub h3{color: #243447;font:600 1.1rem var(--serif);margin:0 0 1rem}
 
 .authors {
-  font: 500 1rem var(--sans);
+  font: 500 1.2rem var(--sans);
   color: var(--muted);
   margin-top: 0.2rem;
 }
@@ -487,11 +492,12 @@ header{
   position: relative;
   background: #f5f3ee;
   padding: 1.2rem;
-  border-radius:10px;
+  border-radius:20px;
     background: white;
   min-height: 155px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.5);
+    border-left:4.5px solid var(--gold);
   transition:
     background .3s ease,
     transform .2s ease,
@@ -503,10 +509,11 @@ header{
   background: var(--white);
   transform: translateY(-3px);
   border-color:blue;
+    border-left:5px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
-
-.teach .year{font:500 1rem var(--mono);color:var(--rust);margin:0 0 1rem}
+ 
+.teach .year{font:italic 550 1rem var(--serif);color:var(--rust);margin:0 0 1rem} 
 
 .teach h2{color: #243447;font:550 1.3rem var(--serif);margin:0 0 1rem}
 
@@ -593,9 +600,18 @@ header{
 
 .timeline{border-left:1px solid var(--line);margin-left:1rem}
 
-.timeline-item{position:relative;padding:0 0 2rem 2rem}
+.timeline-item{position:relative;padding:1rem 0 2rem 2rem}
 
-.timeline-item:before{content:"";position:absolute;left:-4px;top:.45rem;width:7px;height:7px;border-radius:50%;background:var(--rust)}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 1.4rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 10%;
+  background: var(--gold);
+}
 
 .timeline-item .date{font:500 .9rem var(--mono);color:var(--soft)}
 .timeline-item h3{font:600 1.2rem var(--serif);margin:.3rem 0}
@@ -607,7 +623,7 @@ header{
 
 
 .now-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;
-  padding: 2rem 2.5rem 1rem 2.5rem; /* ← inside each box */}
+  padding: 1rem 2.5rem 1rem 2.5rem; /* ← inside each box */}
   
   
   
@@ -630,7 +646,7 @@ header{
 
 .skill-list{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem;padding:2.5rem}
     
-.skill{border-radius:5px;padding;0.5rem;border:1px solid var(--line);padding:.5rem .55rem;font:450 0.85var(--mono);color:var(--muted);background:white}
+.skill{border-radius:7px;padding;0.5rem;border:1px solid var(--line);padding:.5rem .55rem;font:450 0.85var(--mono);color:var(--muted);background:white}
 
 /* Contact */
 
@@ -689,6 +705,11 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   border:0;background:none;padding:0;color:var(--muted);cursor:pointer;
   font:550 0.9rem var(--serif);transition:.2s
 }
+
+.footer-icon {
+  font:550 .7rem var(--serif)
+}
+    
 .footer-nav button:hover,.footer-contact a:hover{color:var(--rust);transform:translateX(2px)}
 /**/
     .footer-qr {
@@ -748,8 +769,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 .research-card,.note-feature,.now-card,.movie,.contact-main,.contact-side{box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
 .home-strip{display:grid;background:rgba(255,253,248,.22)}
-.stat strong{font-size:.94rem}
-.stat span{font-size:.52rem}
+.stat strong{font-size:1.2rem}
+.stat span{font-size:.7rem}
 .hero-note{padding:1.5rem}
 .hero-note:before{
   content:"";position:absolute;inset:0;border:1px solid var(--line);
@@ -793,6 +814,93 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 .button:hover {
   background: var(--black);
   color: var(--rust);
+}
+
+/* ================================
+   Beyond Research
+   ================================ */
+
+
+
+
+
+
+/* Quote */
+
+
+
+   
+.beyond-quote {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    max-width: 1000px;
+
+    margin-top: 3rem;
+
+    margin-right: auto;
+    margin-bottom: 1rem;
+    margin-left: 2.5rem;
+    border-radius:20px;
+    
+    border-left:5px solid var(--gold);
+    border-top: 1px solid rgba(37, 41, 35, 0.25);
+    border-bottom: 1px solid rgba(37, 41, 35, 0.25);
+    border-right: 1px solid rgba(37, 41, 35, 0.25);
+    
+    padding: 2rem;
+    background:white;
+    
+}
+
+.quote-mark {
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 0.7;
+    color: var(--gold);
+}
+
+.beyond-quote p {
+    margin: 0;
+
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.beyond-quote span:last-child {
+    display: block;
+    margin-top: 0.6rem;
+
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    opacity: 0.55;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .beyond-intro {
+        margin-left: 0;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .beyond-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .beyond-item {
+        padding: 2rem 1.5rem 2.5rem;
+    }
+
+    .beyond-quote {
+        margin-top: 3rem;
+    }
+
 }
 
 
@@ -887,8 +995,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <button data-page="gallery">Gallery</button>
 <button data-page="movies">Movies</button>
 <button data-page="br">Beyond Research</button>
-<button data-page="cv">CV</button>
-<button data-page="resources">Resources</button>
+
 </div>
 </div>
 
@@ -938,6 +1045,17 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     </aside>
   </div>
 
+       <div class="beyond-quote" style="margin-right:15rem;margin-top:-3rem;margin-left:auto">
+      <span class="quote-mark">“</span>
+      <div>
+        <p>The cosmos is within us. We are made of star-stuff.</p>
+        <span>— Carl Sagan</span>
+      </div>
+    </div>
+
+  </div>
+
+    
   <div class="home-strip">
     <div class="container strip">
       <div class="stat"><strong>$21$-cm</strong><span>Cosmology</span></div>
@@ -946,6 +1064,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       <div class="stat"><strong>PhD</strong><span>Physics · IIT Kharagpur</span></div>
     </div>
   </div>
+
+
+
+    
 </section>
 
 <!-- ABOUT -->
@@ -979,7 +1101,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         <div class="contact-link"><label>Research</label><span>21-cm cosmology · Radio interferometry</span></div>
       </div>
     </div>
-      <div class="now-grid" style="margin-top:-1.45rem">
+      <div class="now-grid" style="margin-top:0rem"></div>
+      <div class="section-kicker">What I am Working Currently</div>
+      <div class="now-grid" style="margin-top:1rem">
+          
         <article class="now-card">
           <div class="eyebrow">Now</div>
           <h2>What I am working on</h2>
@@ -990,6 +1115,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
             <span class="skill">Cosmology</span><span class="skill">Radio Astronomy</span>
           </div>
         </article>
+
+          
         <article class="now-card">
           <div class="eyebrow">Academic path</div>
           <div class="timeline">
@@ -1058,7 +1185,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </article>
     </div>
 
-    <div style="margin-top:5rem">
+    <div style="margin-top:2rem">
       <div class="section-kicker">Research toolbox</div>
       <div class="skill-list">
         <span class="skill">21-cm Signal</span><span class="skill">EoR</span><span class="skill">Power Spectrum</span>
@@ -1289,7 +1416,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       
       <article class="teach"><div class="year">2026-2027</div><h2>Mathematical Physics</h2><p>Tutorials and problem sessions</p></article>
       
-      <article class="teach"><div class="year">Mentoring</div><h2>Computational Astrophysics</h2><p>Python, C++ and scientific visualisation</p></article>
+      <article class="teach"><div class="year">Mentoring</div><h2>Computational Physics</h2><p>Python, C++ and scientific visualisation</p></article>
     </div>
   </div>
 </section>
@@ -1298,25 +1425,63 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <!-- Beyond Research -->
 <section class="page" id="br">
   <div class="container inner">
+
     <div class="page-heading">
-      <div class="page-index">$09$ / Beyond </div>
+      <div class="page-index">$09$ / Beyond</div>
+
       <div>
-          <div class="section-kicker">Apart From Research</div>
-        <h1>Teaching physics, one idea at a time.</h1>
-        <p class="page-desc">Teaching activities and subjects listed in the supplied academic profile.</p>
+        <div class="section-kicker">Off the Clock</div>
+        <h1>Beyond Research</h1>
+        <p class="page-desc">
+          The things I enjoy when I am not thinking about the universe. Away from the
+        telescope and the equations, I find myself drawn to games, teaching,
+        writing, and the quieter side of making things.
+        </p>
       </div>
     </div>
 
-    <div class="teaching-grid">
-        <article class="teach"><div class="year">2025–2026</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
-      <article class="teach"><div class="year">2026–2027</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
-      
-      <article class="teach"><div class="year">2026-2027</div><h2>Mathematical Physics</h2><p>Tutorials and problem sessions</p></article>
-      
-      <article class="teach"><div class="year">Mentoring</div><h2>Computational Astrophysics</h2><p>Python, C++ and scientific visualisation</p></article>
-    </div>
-  </div>
+
+
+<div class="notes-layout">
+<div class="note-list">
+    
+<article class="note-item">
+      <div class="n">01</div>
+      <div><h3>Open Source</h3><p>From scientific software to LaTeX templates, I enjoy building
+            small tools that make research, teaching, and presentation a
+            little easier.</p></div>
+      <div class="actions"><div class="tag">LaTex</div><div class="buttons"><a href="https://www.overleaf.com/latex/templates/baijayantas-tutorial-aka-tutorial/rsrrtbmbwrwz" target="_blank" class="button">View</a></div></div>
+</article>
+
+<article class="note-item">
+      <div class="n">02</div>
+      <div><h3>Teaching</h3><p>Teaching gives me a different way of thinking about physics.
+            Explaining an idea clearly often means understanding it more
+            deeply myself.</p></div>
+      <div class="actions"><div class="tag">Teaching</div><div class="buttons"><a class="button" data-page="teaching" target="_blank">View</a></div></div>
+</article>
+</article>
+
+<article class="note-item">
+      <div class="n">03</div>
+      <div><h3>Writing</h3><p>I like writing about physics in a way that makes
+            complicated ideas feel less intimidating and more intuitive.</p></div>
+      <div class="actions"><div class="tag">Notes</div><div class="buttons"><a class="button" data-page="notes" target="_blank">View</a></div></div>
+</article>
+
+<article class="note-item">
+      <div class="n">04</div>
+      <div><h3>Photography</h3><p>I love capturing the beauty of nature, from quiet landscapes to the little details that often go unnoticed.</p></div>
+      <div class="actions"><div class="tag">Photography</div><div class="buttons"><a class="button" data-page="gallery" target="_blank">View</a></div></div>
+</article>
+    
+</div>
+</div>
+
+ 
 </section>
+
+
 
 <!-- MOVIES -->
 <section class="page" id="movies">
