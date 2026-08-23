@@ -14,6 +14,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -34,10 +37,11 @@
 
   --shadow: 0 18px 50px rgba(38, 42, 35, .07);
 
-  --display: "EB Garamond", Georgia, serif;
+
   --sans: "EB Garamond", Georgia, serif;
   --serif: "Libre Baskerville", Georgia, serif;
   --mono: "DM Mono", ui-monospace, monospace;
+
 
  
   --max: 1350px;
@@ -80,7 +84,7 @@ button{font:inherit}
 .container{width:min(var(--max),calc(100% - 3rem));margin:auto}
 .mono{font-family:var(--mono)}
 .eyebrow,.section-kicker{
-  font:500 1rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)
+  font:550 1rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)
 }
 
 .section-kicker{display:flex;align-items:center;gap:1rem;color:var(--soft);margin-bottom:0.2rem}
@@ -242,8 +246,10 @@ header{
 .home-title span{color:var(--rust)}
 .home-lede{max-width:660px;color:var(--muted);font-size:1rem}
 .home-lede strong{color:var(--ink)}
-.home-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:2rem}
-.btn{border-color:var(--gold);border-radius:10px;border:1px solid var(--ink);background:white;padding:.66rem .92rem;cursor:pointer;font:500 .62rem var(--mono);letter-spacing:.07em;text-transform:uppercase;transition:.2s}
+.home-actions{display:flex;flex-wrap:wrap;gap:.65rem;}
+.btn{border-color:var(--gold);border-radius:10px;border:1px solid var(--ink);background:white;padding:.66rem .92rem;cursor:pointer;
+     font:550 0.7rem var(--serif);
+     letter-spacing:.07em;text-transform:uppercase;transition:.2s}
 .btn:hover{background:var(--ink);color:var(--paper)}
 .btn.fill{border-radius:10px;background:white;border-color:var(--gold);}
 .btn.fill:hover{background:var(--rust)}
@@ -260,8 +266,8 @@ header{
 
 /* Interior */
 .inner{padding:3rem 0 6rem}
-.page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:3rem;margin-bottom:3.2rem}
-.page-index{font:550 0.9rem var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
+.page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:3rem;margin-bottom:2rem}
+.page-index{font:550 0.9rem "Baskerville", serif;letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
 .page-title{font:700 clamp(2rem,3.5vw,3.6rem)/1.12 var(--serif);letter-spacing:-.035em;max-width:13ch;margin:0}
 .page-desc{max-width:1000px;color:var(--muted);margin:1rem 0 0;text-align:justify}
 
@@ -283,7 +289,7 @@ header{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
-  padding: 0 2.5rem 1rem 2.5rem;
+  padding: 1rem 2.5rem 1rem 2.5rem;
   border: 0.0px solid rgba(0, 0, 0, 0.5);
 
   
@@ -309,7 +315,7 @@ header{
 
 .research-card:hover {
   background: var(--white);
-  transform: translateY(-3px);
+  transform: scale(1.02);
   border-color:var(--gold);
     border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
@@ -339,7 +345,7 @@ header{
   font-size:1rem;color:var(--muted);text-align: justify;
 }
 
-.research-list{ display: grid;gap:15px;margin-top:0.3rem;padding: 2rem 2.5rem 0rem 2.5rem;}
+.research-list{ display: grid;gap:15px;padding: 1rem 2.5rem 1rem 2.5rem;}
 
 
 .research-item {
@@ -363,14 +369,14 @@ header{
 
 .research-item:hover {
   background: var(--white);
-  transform: translateY(-3px);
+  transform: scale(1.02);
   border-color:var(--gold);
     border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
 
 
-.research-item .n{font:550 1rem var(--sans);color:var(--rust)}
+.research-item .n{font:italic 550 1.2rem "Baskerville", serif;color:var(--rust);}
 
 .research-item h3{color: #243447;font:600 1.3rem var(--serif);margin:0 0 1rem}
 
@@ -380,15 +386,9 @@ header{
 .tag{font:550 .9rem var(--mono);text-transform:uppercase;color:var(--soft);white-space:nowrap}
 
 /* Notes */
+.note-list{display: grid;gap:15px;padding: 1rem 2.5rem 1rem 2.5rem;}
 
-
-
-
-
-
-.note-list{display: grid;gap:15px;margin-top:0.3rem;padding: 0 2.5rem 0rem 2.5rem;}
-
-
+   
 .note-item {
   display: grid;
   grid-template-columns: 35px 1fr auto;
@@ -409,7 +409,7 @@ header{
 
 .note-item:hover {
   background: var(--white);
-  transform: translateY(-3px);
+  transform: scale(1.02);
   border-color:var(--gold);
   border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
@@ -417,7 +417,7 @@ header{
 
 
 
-.note-item .n{font:550 1rem var(--sans);color:var(--rust)}
+.note-item .n{font:italic 550 1.2rem "Baskerville", serif;color:var(--rust);}
 
 .note-item h3{color: #243447;font:600 1.3rem var(--serif);margin:0 0 1rem}
 
@@ -425,7 +425,7 @@ header{
 
     
 /* Publications */
-.pub-list{display: grid;gap:15px;margin-top:0.3rem;padding: 0 2.5rem 2.5rem 2.5rem;}
+.pub-list{display: grid;gap:15px;padding: 1rem 2.5rem 1rem 2.5rem;}
 
 
 .pub{
@@ -448,7 +448,7 @@ header{
 
 .pub:hover {
   background: var(--white);
-  transform: translateY(-3px);
+  transform: scale(1.02);
   border-color:var(--gold);
     border-left:6px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
@@ -458,15 +458,15 @@ header{
 
 
 
-.pub-year{font:550 1rem var(--sans);color:var(--rust)}
+.pub-year{font:550 1.1rem "Baskerville", serif;color:var(--rust)}
 
 
 
 .pub h3{color: #243447;font:600 1.1rem var(--serif);margin:0 0 1rem}
 
 .authors {
-  font: 500 1rem "Source Serif 4", Georgia, serif;
-  color: var(--muted);
+  font: 550 1rem "Baskerville", serif;
+ color:  #a04123;
   margin-top: 0.2rem;
 }
 
@@ -484,7 +484,7 @@ header{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-  padding: 0 2.5rem 2.5rem 2.5rem;
+  padding: 1rem 2.5rem 1rem 2.5rem;
   border: 0.0px solid rgba(0, 0, 0, 0.5);
 
   
@@ -509,13 +509,13 @@ header{
 
 .teach:hover {
   background: var(--white);
-  transform: translateY(-3px);
+  transform: scale(1.02);
   border-color:var(--gold);
     border-left:5px solid var(--gold);
   box-shadow:0 15px 30px rgba(122,106,82,0.5);
 }
  
-.teach .year{font:italic 550 1rem var(--serif);color:var(--rust);margin:0 0 1rem} 
+.teach .year{font:550 1.2rem "Baskerville", serif;color:var(--rust);margin:0 0 1rem} 
 
 .teach h2{color: #243447;font:550 1.3rem var(--serif);margin:0 0 1rem}
 
@@ -531,7 +531,7 @@ header{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-  padding: 0 2.5rem 2.5rem 2.5rem;
+  padding: 1rem 2.5rem 1rem 2.5rem;
 }
 
 
@@ -571,6 +571,7 @@ header{
   transform: scale(1.7);
   position: relative;
   z-index: 9999;
+    border: 1px solid var(--gold);
 }
 
 
@@ -585,7 +586,7 @@ header{
   background: rgba(255, 255, 255, 0.9);
   color: black;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--rust);
   white-space: nowrap;
 }
@@ -608,12 +609,275 @@ header{
 }
 
 /* Movies */
-.movies-intro{max-width:690px;color:var(--muted);margin-bottom:2rem}
-.movie-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.movie{border:1px solid var(--line);background:var(--white);padding:1.2rem;min-height:245px;display:flex;flex-direction:column;justify-content:space-between;transition:.22s}
-.movie:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.movie-poster{height:120px;border:1px solid var(--line);display:grid;place-items:center;background:linear-gradient(145deg,#e3ddd1,#f7f2e8);color:var(--rust);font:500 .57rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
-.movie h3{font:600 .95rem var(--serif);margin:.8rem 0 .15rem}.movie p{font-size:.7rem;color:var(--muted);margin:0}.movie-meta{font:500 .54rem var(--mono);color:var(--soft);text-transform:uppercase;margin-top:.65rem}
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.filter-section {
+  margin-bottom: 45px;
+}
+
+.filter-top {
+  display: flex;
+    
+  justify-content: space-between;
+  align-items: center;
+  color: #c02b7f;
+  margin-bottom: 18px;
+}
+
+.filter-title {
+  
+  font-size: 25px;
+  font-weight: 550;
+  letter-spacing: 0.15em;
+}
+
+.movie-count {
+
+  font-size: 25px;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+
+
+
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.genre-btn {
+  appearance: none;
+
+  border: 1px solid #393937;
+  background: transparent;
+
+
+  padding: 7px 15px;
+
+  border-radius: 10px;
+
+    font-size:23px;
+  font-family: "EB Garamond", Georgia, serif;
+
+
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.genre-btn:hover {
+    color: #9700ff;
+}
+
+.genre-btn.active {
+  background: #e8e2d7;
+  border-color: #e8e2d7;
+
+  color: #171818;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   MOVIE GRID
+========================================================= */
+
+.movies {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(220px, 1fr));
+
+  gap: 20px 15px;
+
+}
+
+
+/* =========================================================
+   MOVIE CARD
+========================================================= */
+
+.movie {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  border: 1px solid #a27a36;
+  border-radius: 15px;
+
+  background:white;
+  color:red;
+
+  transition:
+    transform 0.35s cubic-bezier(.2,.7,.2,1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.movie:hover {
+  transform: scale(1.05);
+  border: 1.25px solid #a27a36;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   POSTER
+========================================================= */
+
+.poster {
+  position: relative;
+
+  aspect-ratio: 2 / 3;
+
+  overflow: hidden;
+
+  background: #1c1d1d;
+  border-bottom:1.25px solid black;
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s cubic-bezier(.2,.7,.2,1),
+    filter 0.5s ease;
+}
+
+.movie:hover .poster img {
+  transform: scale(1.1);
+    filter: brightness(1);
+}
+
+
+
+
+
+
+/* =========================================================
+ HOVER OVERLAY
+========================================================= */
+
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 20px;
+
+  opacity: 0;
+
+  background:linear-gradient(
+      to top,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.05) 95%
+    );
+
+  transition: opacity 0.35s ease;
+}
+
+.movie:hover .poster-overlay {
+  opacity: 1;
+}
+
+
+.imdb-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+
+  color: #f1ede5;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-family: Georgia, sans-serif;
+  backdrop-filter: blur(5px);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+      
+.imdb-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+
+  color: #f1ede5;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-family: Georgia, sans-serif;
+
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  transition: color 0.25s ease;
+}
+
+.imdb-link span {
+  font-size: 15px;
+}
+
+/* =========================================================
+MOVIE INFORMATION
+========================================================= */
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+font-size: 21px;
+font-weight:550}
+
+    
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    
+    margin-top: 7px;
+    
+    color: brown;
+    
+    
+}
+
+.movie-rating {
+    color: brown;
+}
+
+
+
+.movie-genres {
+  margin-bottom: 10px;
+color:blue;}
 
 /* Extra personal pages */
 
@@ -632,7 +896,7 @@ header{
   background: var(--gold);
 }
 
-.timeline-item .date{font:500 .9rem var(--mono);color:var(--soft)}
+.timeline-item .date{font:550 1.1rem "Baskerville", serif;color:var(--soft)}
 .timeline-item h3{font:600 1.2rem var(--serif);margin:.3rem 0}
 .timeline-item p{font:600 1rem var(--serif);margin-top:1rem}
 
@@ -677,7 +941,7 @@ header{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  padding: 0rem 2.5rem 0rem 2.5rem;
+  padding: 1rem 2.5rem 1rem 2.5rem;
   border: 0.0px solid rgba(0, 0, 0, 0.5);
 
 
@@ -760,8 +1024,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   flex-direction: row;
   align-items: left;
   gap: 0rem;
-    margin-top:.5rem;
-    margin-bottom: -2rem;
+  margin-top:.5rem;
+  margin-bottom: -2rem;
 }
 
 .profile-icons a {
@@ -780,7 +1044,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 
 .profile-icons a:hover {
+    color:var(--rust);
   transform: scale(1.3);
+    
   opacity: 0.9;
 }
 /* More visual polish */
@@ -900,7 +1166,13 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     opacity: 0.75;
 }
 
-
+.beyond-quote:hover{
+    background: var(--white);
+    transform: scale(1.02);
+    border-color:var(--gold);
+ 
+    box-shadow:0 15px 30px rgba(122,106,82,0.5);
+}
 /* Mobile */
 
 @media (max-width: 800px) {
@@ -1037,7 +1309,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 <!-- HOME -->
 <section class="page active" id="home">
-  <div class="container home-hero">
+  <div class="container home-hero" style="padding-top:0;padding-bottom:0rem"">
     <div>
       <div class="eyebrow">Physics · Cosmology · Radio Astronomy</div>
         
@@ -1067,7 +1339,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     </aside>
   </div>
 
-       <div class="beyond-quote" style="margin-right:15rem;margin-top:-3rem;margin-left:auto;margin-bottom:3rem;">
+       <div class="beyond-quote" style="margin-right:15rem;margin-top:0rem;margin-left:auto;margin-bottom:3rem;">
       <span class="quote-mark">“</span>
 <div>
   <p>The cosmos is within us. We are made of star-stuff.</p>
@@ -1122,9 +1394,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         <div class="contact-link"><label>Research</label><span>21-cm cosmology · Radio interferometry</span></div>
       </div>
     </div>
-      <div class="now-grid" style="margin-top:0rem"></div>
+      <div style="margin-top:0.8rem"></div>
       <div class="section-kicker">What I am Working Currently</div>
-      <div class="now-grid" style="margin-top:1rem">
+      <div class="now-grid">
           
         <article class="now-card">
           <div class="eyebrow">Now</div>
@@ -1158,14 +1430,15 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="research">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$02$ / RESEARCH</div>
+      <div class="page-index">02 / RESEARCH</div>
       <div>
           <div class="section-kicker">About My Research</div>
         <h1>Questions written in radio waves.</h1>
         <p class="page-desc">The research programme connects cosmological theory with the observational problem of extracting a faint 21-cm signal from radio data.</p>
       </div>
     </div>
-
+<div style="margin-top:1rem">
+      <div class="section-kicker">My Research At a glance</div>
     <div class="research-grid">
       <article class="research-card">
         <div class="icon"><i class="fa-solid fa-circle-nodes"></i></div>
@@ -1187,8 +1460,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         <h2>Scientific Computing</h2>
         <p>Numerical methods, Python-based analysis and visualisation for large scientific datasets and cosmological calculations.</p>
       </article>
-    </div>
-   <div style="margin-top:.5rem">
+    </div></div>
+   <div style="margin-top:1rem">
       <div class="section-kicker">Selected Works</div>
     <div class="research-list">
       <article class="research-item">
@@ -1208,7 +1481,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </article>
     </div>
 
-    <div style="margin-top:2rem">
+    <div style="margin-top:1rem">
       <div class="section-kicker">Research toolbox</div>
       <div class="skill-list">
         <span class="skill">21-cm Signal</span><span class="skill">EoR</span><span class="skill">Power Spectrum</span>
@@ -1230,7 +1503,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="notes">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$03$ / NOTES</div>
+      <div class="page-index">03 / NOTES</div>
       <div>
         <div class="section-kicker">Teaching material</div>
         <h1>Lecture notes, tutorials &amp; useful things.</h1>
@@ -1238,8 +1511,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </div>
     </div>
 
+<div style="margin-top:1rem">
+<div class="section-kicker">My Lecture Notes</div>
 
-<div class="notes-layout">
 <div class="note-list">
     
 <article class="note-item">
@@ -1267,8 +1541,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 </article>
     
 </div>
-</div>
 
+</div>
       
   </div>
 </section>
@@ -1277,14 +1551,15 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="publications">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$04$ / PUBLICATIONS</div>
+      <div class="page-index">04 / PUBLICATIONS</div>
       <div>
           <div class="section-kicker">Publications</div>
         <h1>Research in print.</h1>
         <p class="page-desc">Selected publication information from the academic profile.</p>
       </div>
     </div>
-
+<div style="margin-top:1rem">
+      <div class="section-kicker">List Of Publications</div>
     <div class="pub-list">
       <article class="pub">
   <div class="pub-year">2026</div>
@@ -1339,6 +1614,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 </article>
     </div>
   </div>
+      </div>
 </section>
 
 
@@ -1346,14 +1622,15 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="gallery">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$07$ / GALLERY</div>
+      <div class="page-index">07 / GALLERY</div>
       <div>
         <div class="section-kicker">Beyond the desk</div>
         <h1>A visual notebook.</h1>
         <p class="page-desc">A place for photographs, observatory visits, travel, sketches, experiments and the small moments around research life.</p>
       </div>
     </div>
-
+<div style="margin-top:1rem">
+      <div class="section-kicker">Apr 2026 - May2026</div>
       <div class="gallery-grid">
  <article class="photo">
   <img src="./photos/May2026/smst.jpg" alt="SMST Building">
@@ -1416,7 +1693,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   </article>
 
 </div>
-
+</div>
   </div>
 </section>
 
@@ -1424,7 +1701,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="teaching">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$05$ / TEACHING</div>
+      <div class="page-index">05 / TEACHING</div>
       <div>
           <div class="section-kicker">My Teaching</div>
         <h1>Teaching physics, one idea at a time.</h1>
@@ -1432,6 +1709,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </div>
     </div>
 
+      <div style="margin-top:1rem">
+      <div class="section-kicker">My Teachings</div>
+      
     <div class="teaching-grid">
         <article class="teach"><div class="year">2025–2026</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
       <article class="teach"><div class="year">2026–2027</div><h2>Classical Mechanics</h2><p>Teaching Assistant · postgraduate level</p></article>
@@ -1440,7 +1720,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       
       <article class="teach"><div class="year">Mentoring</div><h2>Computational Physics</h2><p>Python, C++ and scientific visualisation</p></article>
     </div>
-  </div>
+  </div></div>
 </section>
 
 
@@ -1449,7 +1729,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   <div class="container inner">
 
     <div class="page-heading">
-      <div class="page-index">$09$ / Beyond</div>
+      <div class="page-index">09 / Beyond</div>
 
       <div>
         <div class="section-kicker">Off the Clock</div>
@@ -1462,9 +1742,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </div>
     </div>
 
+      <div style="margin-top:1rem">
+      <div class="section-kicker">Outside World</div>
 
 
-<div class="notes-layout">
 <div class="note-list">
     
 <article class="note-item">
@@ -1509,7 +1790,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="movies">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$08$ / MOVIES</div>
+      <div class="page-index">08 / MOVIES</div>
       <div>
         <div class="section-kicker">Cinema</div>
         <h1>Films I keep thinking about.</h1>
@@ -1517,22 +1798,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </div>
     </div>
 
-    <div class="movie-grid">
-      <article class="movie"><div class="movie-poster">FILM / 01</div><div><h3>Favourite film</h3><p>A short note about why it stayed with me.</p><div class="movie-meta">Drama · ★★★★★</div></div></article>
-      <article class="movie"><div class="movie-poster">FILM / 02</div><div><h3>Recent discovery</h3><p>A film worth recommending to another cinephile.</p><div class="movie-meta">Cinema · ★★★★☆</div></div></article>
-      <article class="movie"><div class="movie-poster">FILM / 03</div><div><h3>Director spotlight</h3><p>A small collection from a favourite filmmaker.</p><div class="movie-meta">Director · ★★★★★</div></div></article>
-      <article class="movie"><div class="movie-poster">FILM / 04</div><div><h3>Science &amp; cinema</h3><p>Films where ideas, science or the cosmos matter.</p><div class="movie-meta">Sci-Fi · ★★★★☆</div></div></article>
-      <article class="movie"><div class="movie-poster">FILM / 05</div><div><h3>Indian cinema</h3><p>Personal picks from Indian filmmakers.</p><div class="movie-meta">Indian · ★★★★★</div></div></article>
-      <article class="movie"><div class="movie-poster">FILM / 06</div><div><h3>Watch next</h3><p>A running list of films waiting for a quiet evening.</p><div class="movie-meta">Watchlist · —</div></div></article>
-    </div>
+<div class="section-kicker">My Movie Recommendations</div>
 
-    <div style="margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem;display:flex;justify-content:space-between;gap:2rem;align-items:center">
-      <div>
-        <div class="eyebrow">Personal archive</div>
-        <div class="small">Later, this can become a real film diary with posters, ratings, reviews and yearly favourites.</div>
-      </div>
-      <button class="btn">My watchlist <i class="fa-solid fa-film"></i></button>
-    </div>
   </div>
 </section>
 
@@ -1540,7 +1807,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <section class="page" id="contact">
   <div class="container inner">
     <div class="page-heading">
-      <div class="page-index">$06$ / CONTACT</div>
+      <div class="page-index">06 / CONTACT</div>
       <div>
           <div class="section-kicker">Contact Me</div>
         <h1>Start a conversation.</h1>
@@ -1548,6 +1815,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
       </div>
     </div>
 
+            <div style="margin-top:1rem">
+      <div class="section-kicker">Contact Me</div>
+      
     <div class="contact-layout">
       <div class="contact-main" style="border:1px solid var(--gold)">
         <div class="eyebrow">Academic correspondence</div>
@@ -1560,6 +1830,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         <div class="contact-link"><label>Location</label><span>Kharagpur 721302, India</span></div>
       <div class="contact-link"><label>Profiles</label><div class="profile-icons">
 
+
 <a href="http://www.google.com/url?q=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fbaijayanta-bhattacharyya-6b6a152a8&sa=D&sntz=1&usg=AOvVaw3iY8jmI9WkmXL73OZOoKH5" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
 
 <a href="https://github.com/Baijayanta21/" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -1570,12 +1841,14 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 <a href="mailto:baijayantabhattacharyya2003@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
 
-<a href="https://arxiv.org/a/yourid.html" target="_blank" aria-label="GoogleScholar"><i class="fa-solid fa-graduation-cap"></i></a>
+<a style="padding-left:5px"  href="https://scholar.google.com/citations?user=uaqvTmoAAAAJ&hl=en" target="_blank" aria-label="GoogleScholar"><i class="fa-solid fa-graduation-cap"></i></a>
+          
 </div></div>
   
 
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -1621,7 +1894,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 <a href="mailto:baijayantabhattacharyya2003@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
 
-<a href="https://arxiv.org/a/yourid.html" target="_blank" aria-label="GoogleScholar"><i class="fa-solid fa-graduation-cap"></i></a>
+<a style="padding-left:5px" href="https://scholar.google.com/citations?user=uaqvTmoAAAAJ&hl=en" target="_blank" aria-label="GoogleScholar"><i class="fa-solid fa-graduation-cap"></i></a>
 
 
 </div>
