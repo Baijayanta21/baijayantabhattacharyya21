@@ -609,82 +609,103 @@ header{
 }
 
 /* Movies */
-
 /* =========================================================
-   FILTER BAR
+   MOVIE SECTION
 ========================================================= */
 
-.filter-section {
-  margin-bottom: 45px;
+.movie-section {
+    margin-top: 1rem;
 }
 
-.filter-top {
-  display: flex;
-    
-  justify-content: space-between;
-  align-items: center;
-  color: #c02b7f;
-  margin-bottom: 18px;
-}
 
-.filter-title {
-  
-  font-size: 25px;
-  font-weight: 550;
-  letter-spacing: 0.15em;
+/* =========================================================
+   MOVIE HEADER
+========================================================= */
+
+.movie-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    margin-bottom: 1rem;
 }
 
 .movie-count {
+    color: #795548;
 
-  font-size: 25px;
-  font-weight: 550;
-  letter-spacing: 0.05em;
-
-
-
+    font-family: italic "EB Garamond", Georgia, serif;
+    font-size: 1.2rem;
 }
 
-.genres {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+    .movie-section-heading {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 2rem;
 }
 
-.genre-btn {
-  appearance: none;
-
-  border: 1px solid #393937;
-  background: transparent;
-
-
-  padding: 7px 15px;
-
-  border-radius: 10px;
-
-    font-size:23px;
-  font-family: "EB Garamond", Georgia, serif;
-
-
-  letter-spacing: 0.04em;
-
-  cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+.movie-section-heading .section-kicker {
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.genre-btn:hover {
-    color: #9700ff;
+.movie-section-heading .eyebrow {
+    grid-column: 1;
+    grid-row: 2;
+
+    margin-top: 0.35rem;
 }
 
-.genre-btn.active {
-  background: #e8e2d7;
-  border-color: #e8e2d7;
+.movie-section-heading .movie-count {
+    grid-column: 2;
+    grid-row: 1 / 3;
 
-  color: #171818;
-  border-radius: 10px;
+    align-self: center;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   GENRE FILTER
+========================================================= */
+
+.movie-genres-filter {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 3rem;
+}
+
+.movie-genre-button {
+    padding: 6px 14px;
+
+    border: 1px solid #393937;
+    border-radius: 8px;
+
+    background: transparent;
+    color: inherit;
+
+    font-family: var(--serif);
+    font-size: 1.15rem;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.movie-genre-button:hover {
+    color: var(--rust);
+}
+
+.movie-genre-button.active {
+    background: #e8e2d7;
+    border-color: #e8e2d7;
+
+    color: #171818;
 }
 
 
@@ -692,14 +713,13 @@ header{
    MOVIE GRID
 ========================================================= */
 
-.movies {
-  display: grid;
+.movie-grid {
+    display: grid;
 
-  grid-template-columns:
-    repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns:
+        repeat(auto-fill, minmax(210px, 1fr));
 
-  gap: 20px 15px;
-
+    gap: 28px 16px;
 }
 
 
@@ -707,33 +727,30 @@ header{
    MOVIE CARD
 ========================================================= */
 
-.movie {
-  position: relative;
+.movie-card {
+    position: relative;
 
-  min-width: 0;
+    overflow: hidden;
 
-  overflow: hidden;
+    min-width: 0;
 
-  cursor: pointer;
+    border: 1px solid #a27a36;
+    border-radius: 15px;
 
-  border: 1px solid #a27a36;
-  border-radius: 15px;
+    background: white;
 
-  background:white;
-  color:red;
+    cursor: pointer;
 
-  transition:
-    transform 0.35s cubic-bezier(.2,.7,.2,1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.movie:hover {
-  transform: scale(1.05);
-  border: 1.25px solid #a27a36;
+.movie-card:hover {
+    transform: scale(1.1);
 
-  box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.28);
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.22);
 }
 
 
@@ -741,143 +758,160 @@ header{
    POSTER
 ========================================================= */
 
-.poster {
-  position: relative;
+.movie-poster {
+    position: relative;
 
-  aspect-ratio: 2 / 3;
+    aspect-ratio: 2 / 3;
 
-  overflow: hidden;
+    overflow: hidden;
 
-  background: #1c1d1d;
-  border-bottom:1.25px solid black;
+    background: #1c1d1d;
+
+    border-bottom: 1px solid #222;
 }
 
-.poster img {
-  width: 100%;
-  height: 100%;
+.movie-poster img {
+    width: 100%;
+    height: 100%;
 
-  display: block;
+    display: block;
 
-  object-fit: cover;
+    object-fit: cover;
 
-  transition:
-    transform 0.6s cubic-bezier(.2,.7,.2,1),
-    filter 0.5s ease;
+    transition:
+        transform 0.5s ease;
 }
 
-.movie:hover .poster img {
-  transform: scale(1.1);
-    filter: brightness(1);
+.movie-card:hover .movie-poster img {
+    transform: scale(1.08);
 }
-
-
-
-
 
 
 /* =========================================================
- HOVER OVERLAY
+   HOVER OVERLAY
 ========================================================= */
 
-.poster-overlay {
-  position: absolute;
-  inset: 0;
+.movie-overlay {
+    position: absolute;
+    inset: 0;
 
-  display: flex;
-  align-items: flex-end;
+    display: flex;
+    align-items: flex-end;
 
-  padding: 20px;
+    padding: 18px;
 
-  opacity: 0;
+    opacity: 0;
 
-  background:linear-gradient(
-      to top,
-      rgba(0,0,0,0.7),
-      rgba(0,0,0,0.05) 95%
-    );
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.05) 90%
+        );
 
-  transition: opacity 0.35s ease;
+    transition: opacity 0.3s ease;
 }
 
-.movie:hover .poster-overlay {
-  opacity: 1;
+.movie-card:hover .movie-overlay {
+    opacity: 1;
 }
 
+.movie-imdb {
+    color: white;
 
-.imdb-link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 7px;
+    font-family: Georgia, serif;
 
-  color: #f1ede5;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  font-family: Georgia, sans-serif;
-  backdrop-filter: blur(5px);
+    font-size: 14px;
+    font-weight: 600;
 
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease;
-}
-      
-.imdb-link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 7px;
-
-  color: #f1ede5;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  font-family: Georgia, sans-serif;
-
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-
-  transition: color 0.25s ease;
+    letter-spacing: 0.08em;
 }
 
-.imdb-link span {
-  font-size: 15px;
+.movie-imdb-arrow {
+    font-size: 16px;
 }
+
 
 /* =========================================================
-MOVIE INFORMATION
+   MOVIE INFORMATION
 ========================================================= */
 
-.movie-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-font-size: 21px;
-font-weight:550}
+.movie-information {
+    display: flex;
 
-    
+    flex-direction: column;
+    align-items: center;
+
+    padding: 8px 10px 10px;
+
+    font-family: "Baskerville", Georgia, serif;
+}
 
 .movie-meta {
     display: flex;
+
     align-items: center;
-    gap: 8px;
-    
-    
-    margin-top: 7px;
-    
+
+    gap: 12px;
+
     color: brown;
-    
-    
+
+    font-size: 1.05rem;
 }
 
 .movie-rating {
     color: brown;
 }
 
-
-
 .movie-genres {
-  margin-bottom: 10px;
-color:blue;}
+    margin-top: 2px;
+
+    color: brown;
+
+    font-size: 0.8rem;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.movie-empty {
+    grid-column: 1 / -1;
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+    color: #777;
+
+    font-family: "Baskerville", Georgia, serif;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .movie-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 20px 12px;
+    }
+
+    .movie-section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 5px;
+    }
+
+}
 
 /* Extra personal pages */
 
@@ -1108,71 +1142,43 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
    Beyond Research
    ================================ */
 
-
-
-
-
-
 /* Quote */
 
 
-
-   
 .beyond-quote {
     display: flex;
     align-items: flex-start;
+    text-align: justify;
     gap: 1.5rem;
-
+    
     max-width: 1000px;
 
-    margin-top: 3rem;
 
-    margin-right: auto;
-    margin-bottom: 1rem;
-    margin-left: 2.5rem;
-    border-radius:20px;
+ margin: 1rem 0rem 1rem auto;
+    border-radius: 20px;
+    border: 1px solid var(--gold);
+    border-left: 7px solid var(--gold);
 
-    border:1px solid var(--gold);
-    border-left:5px solid var(--gold);
-
-    
     padding: 2rem;
-    background:white;
-    
+    background: white;
 }
 
+
+
+    
 .quote-mark {
+    flex-shrink: 0;
+
     font-family: Georgia, serif;
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 0.7;
     color: var(--gold);
 }
 
-.beyond-quote p {
-    margin: 0;
+.beyond-quote p { margin: 0; font-family: Georgia, serif; font-weight:520; font-size: 1.2rem; line-height: 1.5; } 
+    
+.beyond-quote span:last-child { display: block; margin-top: 0.6rem; font-size: 1rem; letter-spacing: 0.08em; opacity: 0.8;}
 
-    font-family: Georgia, serif;
-    font-weight:520;
-    font-size: 1.5rem;
-    line-height: 1.5;
-}
-
-.beyond-quote span:last-child {
-    display: block;
-    margin-top: 0.6rem;
-
-    font-size: 1.2rem;
-    letter-spacing: 0.08em;
-    opacity: 0.75;
-}
-
-.beyond-quote:hover{
-    background: var(--white);
-    transform: scale(1.02);
-    border-color:var(--gold);
- 
-    box-shadow:0 15px 30px rgba(122,106,82,0.5);
-}
 /* Mobile */
 
 @media (max-width: 800px) {
@@ -1280,6 +1286,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <button data-page="publications">Publications</button>
 <button data-page="teaching">Teaching</button>
 <button data-page="contact">Contact</button>
+<button data-page="movies">Movies</button>
 
 <div class="nav-more">
     
@@ -1287,7 +1294,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     
 <div class="more-menu" id="moreMenu">
 <button data-page="gallery">Gallery</button>
-<button data-page="movies">Movies</button>
+
 <button data-page="br">Beyond Research</button>
 
 </div>
@@ -1342,7 +1349,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
        <div class="beyond-quote" style="margin-right:15rem;margin-top:0rem;margin-left:auto;margin-bottom:3rem;">
       <span class="quote-mark">“</span>
 <div>
-  <p>The cosmos is within us. We are made of star-stuff.</p>
+  <p>The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself.</p>
   <span>— Carl Sagan</span>
 </div>
     </div>
@@ -1785,22 +1792,259 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 </section>
 
 
-
+<!-- MOVIES -->
 <!-- MOVIES -->
 <section class="page" id="movies">
+
   <div class="container inner">
+
     <div class="page-heading">
-      <div class="page-index">08 / MOVIES</div>
+
+      <div class="page-index">
+        08 / MOVIES
+      </div>
+
       <div>
         <div class="section-kicker">Cinema</div>
-        <h1>Films I keep thinking about.</h1>
-        <p class="page-desc">A personal cinema shelf. Favourite films, directors, discoveries and recommendations can live here without mixing with the academic side of the site.</p>
+
+        <h1>
+          Films I keep thinking about.
+        </h1>
+
+        <p class="page-desc">
+          A personal cinema shelf. Favourite films, directors,
+          discoveries and recommendations can live here without
+          mixing with the academic side of the site.
+        </p>
       </div>
+
     </div>
 
-<div class="section-kicker">My Movie Recommendations</div>
+<!-- <div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>We are stardust brought to life, then empowered by the universe to figure itself out—and we have only just begun.</p>
+  <span>― Neil deGrasse Tyson, Astrophysics for People in a Hurry</span>
+</div>
+</div>
+
+      
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);;max-width:1200px">
+<span class="quote-mark">“</span>
+<div>
+  <p>Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives.</p>
+  <span>― Carl Sagan, Pale Blue Dot: A Vision of the Human Future in Space</span>
+</div>
+</div>
+
+
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>The good thing about science is that it's true whether or not you believe in it.</p>
+  <span>― Neil deGrasse Tyson</span>
+</div>
+</div>
+
+      
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);;max-width:1200px">
+<span class="quote-mark">“</span>
+<div>
+  <p>There’s as many atoms in a single molecule of your DNA as there are stars in the typical galaxy. We are, each of us, a little universe.</p>
+  <span>― Neil deGrasse Tyson, Cosmos.</span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>The universe is under no obligation to make sense to you.
+</p>
+  <span>― Neil deGrasse Tyson, Astrophysics for People in a Hurry</span>
+</div>
+</div>
+
+      
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);">
+<span class="quote-mark">“</span>
+<div>
+  <p>We are like butterflies who flutter for a day and think it is forever.”
+</p>
+  <span>― Carl Sagan, Cosmos</span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>Somewhere, something incredible is waiting to be known.
+
+</p>
+  <span>― Carl Sagan</span>
+</div>
+</div>
+
+      
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);">
+<span class="quote-mark">“</span>
+<div>
+  <p>Imagination will often carry us to worlds that never were, but without it we go nowhere.”
+</p>
+  <span>― Carl Sagan</span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>Physics isn't the most important thing. Love is.</p>
+  <span>― Richard P. Feynman</span>
+</div>
+</div>
+
+      
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);">
+<span class="quote-mark">“</span>
+<div>
+  <p>Nature has a great simplicity and therefore a great beauty.</p>
+  <span>― Richard P. Feynman</span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.
+</p>
+  <span>― Marilyn Monroe</span>
+</div>
+</div>
+
+      
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);">
+<span class="quote-mark">“</span>
+<div>
+  <p>You only live once, but if you do it right, once is enough.</p>
+  <span>― Mae West </span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>It does not do to dwell on dreams and forget to live.</p>
+  <span>― J.K. Rowling, Harry Potter and the Sorcerer's Stone</span>
+</div>
+</div>
+     
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);">
+<span class="quote-mark">“</span>
+<div>
+  <p>The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom.</p>
+  <span>― Isaac Asimov</span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>Get busy living or get busy dying.</p>
+  <span>― Stephen King, Different Seasons </span>
+</div>
+</div>
+
+
+
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);">
+<span class="quote-mark">“</span>
+<div>
+  <p>Monsters are real, and ghosts are real too. They live inside us, and sometimes, they win.</p>
+  <span>― Stephen King</span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>If a million people see my movie, I hope they see a million different movies.
+</p>
+  <span>– Quentin Tarantino</span>
+</div>
+</div>
+
+      
+<div class="beyond-quote" style="margin: 1rem auto 1rem 0rem;border: 1px solid var(--gold);
+    border-right: 7px solid var(--gold);max-width:1200px">
+<span class="quote-mark">“</span>
+<div>
+  <p>The whole of life is just like watching a film. Only it's as though you always get in ten minutes after the big picture has started, and no-one will tell you the plot, so you have to work it out all yourself from the clues.
+</p>
+  <span>― Terry Pratchett, Moving Pictures </span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>All work and no play makes Jack a dull boy.</p>
+  <span>― Stanley Kubrick </span>
+</div>
+</div>-->
+
+  
+    <!-- =====================================================
+         MOVIE COLLECTION
+    ====================================================== -->
+
+    <div class="movie-section">
+
+      <div class="movie-section-heading">
+
+          
+        <div class="section-kicker">
+          My Movie Recommendations
+        </div>
+
+          <div class="eyebrow">
+          Click on the card to redirect on imdb
+        </div>
+
+        <span
+          class="movie-count"
+          id="movie-count">
+        </span>
+
+      </div>
+
+
+      <!-- GENRES -->
+
+      <div
+        class="movie-genres-filter"
+        id="movie-genres">
+      </div>
+
+
+      <!-- MOVIE GRID -->
+
+      <div
+        class="movie-grid"
+        id="movie-grid">
+      </div>
+
+    </div>
 
   </div>
+
 </section>
 
 <!-- CONTACT -->
@@ -2011,5 +2255,711 @@ document.addEventListener("click", (event) => {
 })();
 </script>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =====================================================
+       MOVIE DATA
+    ===================================================== */
+
+    const movieData = [
+
+      {
+        title: 'Inception',
+        genres: ['Sci-Fi', 'Thriller'],
+        year: 2010,
+        rating: 8.8,
+        poster_path: '/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg',
+        imdb: 'https://www.imdb.com/title/tt1375666/'
+      },
+
+      {
+        title: 'The Dark Knight',
+        genres: ['Action', 'Drama'],
+        year: 2008,
+        rating: 9.0,
+        poster_path: '/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg',
+        imdb: 'https://www.imdb.com/title/tt0468569/'
+      },
+
+        
+
+      {
+        title: 'Interstellar',
+        genres: ['Sci-Fi', 'Adventure'],
+        year: 2014,
+        rating: 8.6,
+        poster_path: '/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',
+        imdb: 'https://www.imdb.com/title/tt0816692/'
+      },
+
+      {
+        title: 'Oppenheimer',
+        genres: ['Drama', 'History'],
+        year: 2023,
+        rating: 8.5,
+        poster_path: '/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
+        imdb: 'https://www.imdb.com/title/tt15398776/'
+      },
+
+      {
+        title: 'Jurassic Park',
+        genres: ['Adventure', 'Sci-Fi'],
+        year: 1993,
+        rating: 8.1,
+        poster_path: '/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg',
+        imdb: 'https://www.imdb.com/title/tt0107290/'
+      },
+
+      {
+        title: 'E.T. the Extra-Terrestrial',
+        genres: ['Family', 'Sci-Fi'],
+        year: 1982,
+        rating: 7.9,
+        poster_path: '/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg',
+        imdb: 'https://www.imdb.com/title/tt0083866/'
+      },
+
+      {
+        title: 'Jaws',
+        genres: ['Thriller', 'Horror'],
+        year: 1975,
+        rating: 8.1,
+        poster_path: '/s2xcqSFfT6F7ZXHxowjxfG0yisT.jpg',
+        imdb: 'https://www.imdb.com/title/tt0073195/'
+      },
+
+      {
+        title: "Schindler's List",
+        genres: ['Drama', 'History'],
+        year: 1993,
+        rating: 9.0,
+        poster_path: '/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg',
+        imdb: 'https://www.imdb.com/title/tt0108052/'
+      },
+
+      {
+        title: 'The Matrix',
+        genres: ['Sci-Fi', 'Action'],
+        year: 1999,
+        rating: 8.7,
+        poster_path: '/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg',
+        imdb: 'https://www.imdb.com/title/tt0133093/'
+      },
+
+      {
+        title: 'The Lord of the Rings: The Fellowship of the Ring',
+        genres: ['Fantasy', 'Adventure'],
+        year: 2001,
+        rating: 8.8,
+        poster_path: '/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120737/'
+      },
+
+      {
+        title: "Harry Potter and the Sorcerer's Stone",
+        genres: ['Fantasy', 'Family'],
+        year: 2001,
+        rating: 7.6,
+        poster_path: '/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg',
+        imdb: 'https://www.imdb.com/title/tt0241527/'
+      },
+
+      {
+        title: 'The Godfather',
+        genres: ['Drama', 'Crime'],
+        year: 1972,
+        rating: 9.2,
+        poster_path: '/3bhkrj58Vtu7enYsRolD1fZdja1.jpg',
+        imdb: 'https://www.imdb.com/title/tt0068646/'
+      },
+
+      {
+        title: 'Pulp Fiction',
+        genres: ['Thriller', 'Crime'],
+        year: 1994,
+        rating: 8.9,
+        poster_path: '/fIE3lAGcZDV1G6XM5KmuWnNsPp1.jpg',
+        imdb: 'https://www.imdb.com/title/tt0110912/'
+      },
+
+      {
+        title: 'Fight Club',
+        genres: ['Drama', 'Thriller'],
+        year: 1999,
+        rating: 8.8,
+        poster_path: '/a26cQPRhJPX6GbWfQbvZdrrp9j9.jpg',
+        imdb: 'https://www.imdb.com/title/tt0137523/'
+      },
+
+      {
+        title: 'The Shawshank Redemption',
+        genres: ['Drama'],
+        year: 1994,
+        rating: 9.3,
+        poster_path: '/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+        imdb: 'https://www.imdb.com/title/tt0111161/'
+      },
+
+      {
+        title: 'La La Land',
+        genres: ['Romance', 'Drama'],
+        year: 2016,
+        rating: 8.0,
+        poster_path: '/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg',
+        imdb: 'https://www.imdb.com/title/tt3783958/'
+      },
+
+      {
+        title: 'Titanic',
+        genres: ['Romance', 'Drama'],
+        year: 1997,
+        rating: 7.9,
+        poster_path: '/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120338/'
+      },
+
+      {
+        title: 'Joker',
+        genres: ['Thriller', 'Drama'],
+        year: 2019,
+        rating: 8.4,
+        poster_path: '/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg',
+        imdb: 'https://www.imdb.com/title/tt7286456/'
+      },
+
+      {
+        title: 'Whiplash',
+        genres: ['Drama', 'Music'],
+        year: 2014,
+        rating: 8.5,
+        poster_path: '/7fn624j5lj3xTme2SgiLCeuedmO.jpg',
+        imdb: 'https://www.imdb.com/title/tt2582802/'
+      },
+
+      {
+        title: 'The Silence of the Lambs',
+        genres: ['Thriller', 'Crime'],
+        year: 1991,
+        rating: 8.6,
+        poster_path: '/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg',
+        imdb: 'https://www.imdb.com/title/tt0102926/'
+      },
+
+      {
+        title: 'Se7en',
+        genres: ['Thriller', 'Crime'],
+        year: 1995,
+        rating: 8.6,
+        poster_path: '/6yoghtyTpznpBik8EngEmJskVUO.jpg',
+        imdb: 'https://www.imdb.com/title/tt0114369/'
+      },
+
+      {
+        title: 'Goodfellas',
+        genres: ['Crime', 'Drama'],
+        year: 1990,
+        rating: 8.7,
+        poster_path: '/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg',
+        imdb: 'https://www.imdb.com/title/tt0099685/'
+      },
+
+      {
+        title: 'Forrest Gump',
+        genres: ['Drama', 'Romance'],
+        year: 1994,
+        rating: 8.8,
+        poster_path: '/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg',
+        imdb: 'https://www.imdb.com/title/tt0109830/'
+      },
+
+      {
+        title: 'The Green Mile',
+        genres: ['Drama', 'Fantasy'],
+        year: 1999,
+        rating: 8.6,
+        poster_path: '/velWPhVMQeQKcxggNEU8YmIo52R.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120689/'
+      },
+
+      {
+        title: 'Gladiator',
+        genres: ['Action', 'Drama'],
+        year: 2000,
+        rating: 8.5,
+        poster_path: '/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg',
+        imdb: 'https://www.imdb.com/title/tt0172495/'
+      },
+
+      {
+        title: 'The Departed',
+        genres: ['Crime', 'Thriller'],
+        year: 2006,
+        rating: 8.5,
+        poster_path: '/nT97ifVT2J1yMQmeq20Qblg61T.jpg',
+        imdb: 'https://www.imdb.com/title/tt0407887/'
+      },
+
+      {
+        title: 'The Prestige',
+        genres: ['Drama', 'Mystery'],
+        year: 2006,
+        rating: 8.5,
+        poster_path: '/Ag2B2KHKQPukjH7WutmgnnSNurZ.jpg',
+        imdb: 'https://www.imdb.com/title/tt0482571/'
+      },
+
+      {
+        title: 'The Lion King',
+        genres: ['Animation', 'Adventure'],
+        year: 1994,
+        rating: 8.5,
+        poster_path: '/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg',
+        imdb: 'https://www.imdb.com/title/tt0110357/'
+      },
+
+      {
+        title: 'Saving Private Ryan',
+        genres: ['Drama', 'War'],
+        year: 1998,
+        rating: 8.6,
+        poster_path: '/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120815/'
+      },
+
+      {
+        title: 'The Usual Suspects',
+        genres: ['Crime', 'Mystery'],
+        year: 1995,
+        rating: 8.5,
+        poster_path: '/bUPmtQzrRhzqYySeiMpv7GurAfm.jpg',
+        imdb: 'https://www.imdb.com/title/tt0114814/'
+      },
+
+      {
+        title: 'Parasite',
+        genres: ['Drama', 'Thriller'],
+        year: 2019,
+        rating: 8.6,
+        poster_path: '/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg',
+        imdb: 'https://www.imdb.com/title/tt6751668/'
+      },
+
+      /* Pixar */
+
+      {
+        title: 'Toy Story',
+        genres: ['Animation', 'Family'],
+        year: 1995,
+        rating: 8.3,
+        poster_path: '/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg',
+        imdb: 'https://www.imdb.com/title/tt0114709/'
+      },
+
+      {
+        title: 'Toy Story 3',
+        genres: ['Animation', 'Adventure'],
+        year: 2010,
+        rating: 8.3,
+        poster_path: '/AbbXspMOwdvwWZgVN0nabZq03Ec.jpg',
+        imdb: 'https://www.imdb.com/title/tt0435761/'
+      },
+
+      {
+        title: 'Inside Out',
+        genres: ['Animation', 'Family'],
+        year: 2015,
+        rating: 8.1,
+        poster_path: '/2H1TmgdfNtsKlU9jKdeNyYL5y8T.jpg',
+        imdb: 'https://www.imdb.com/title/tt2096673/'
+      },
+
+      {
+        title: 'The Incredibles',
+        genres: ['Animation', 'Action'],
+        year: 2004,
+        rating: 8.0,
+        poster_path: '/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg',
+        imdb: 'https://www.imdb.com/title/tt0317705/'
+      },
+
+      {
+        title: 'Finding Nemo',
+        genres: ['Animation', 'Adventure'],
+        year: 2003,
+        rating: 8.2,
+        poster_path: '/zjqInUwldOBa0q07fOyohYCWxWX.jpg',
+        imdb: 'https://www.imdb.com/title/tt0266543/'
+      },
+
+      {
+        title: 'Coco',
+        genres: ['Animation', 'Family'],
+        year: 2017,
+        rating: 8.4,
+        poster_path: '/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg',
+        imdb: 'https://www.imdb.com/title/tt2380307/'
+      },
+
+      {
+        title: 'Elemental',
+        genres: ['Animation', 'Romance'],
+        year: 2023,
+        rating: 7.0,
+        poster_path: '/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg',
+        imdb: 'https://www.imdb.com/title/tt15789038/'
+      },
+
+      {
+        title: 'Up',
+        genres: ['Animation', 'Adventure'],
+        year: 2009,
+        rating: 8.3,
+        poster_path: '/mFvoEwSfLqbcWwFsDjQebn9bzFe.jpg',
+        imdb: 'https://www.imdb.com/title/tt1049413/'
+      },
+
+      {
+        title: 'WALL·E',
+        genres: ['Animation', 'Sci-Fi'],
+        year: 2008,
+        rating: 8.4,
+        poster_path: '/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg',
+        imdb: 'https://www.imdb.com/title/tt0910970/'
+      },
+
+      {
+        title: 'Ratatouille',
+        genres: ['Animation', 'Comedy'],
+        year: 2007,
+        rating: 8.1,
+        poster_path: '/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg',
+        imdb: 'https://www.imdb.com/title/tt0382932/'
+      },
+
+      {
+        title: 'Soul',
+        genres: ['Animation', 'Fantasy'],
+        year: 2020,
+        rating: 8.0,
+        poster_path: '/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg',
+        imdb: 'https://www.imdb.com/title/tt2948372/'
+      },
+
+      /* Disney */
+
+      {
+        title: 'Frozen',
+        genres: ['Animation', 'Family'],
+        year: 2013,
+        rating: 7.4,
+        poster_path: '/itAKcobTYGpYT8Phwjd8c9hleTo.jpg',
+        imdb: 'https://www.imdb.com/title/tt2294629/'
+      },
+
+      {
+        title: 'Moana',
+        genres: ['Animation', 'Adventure'],
+        year: 2016,
+        rating: 7.6,
+        poster_path: '/m5MDZOIFEFlxGiLuAzWzFSsWcye.jpg',
+        imdb: 'https://www.imdb.com/title/tt3521164/'
+      },
+
+      {
+        title: 'Zootopia',
+        genres: ['Animation', 'Comedy'],
+        year: 2016,
+        rating: 8.0,
+        poster_path: '/hlK0e0wAQ3VLuJcsfIYPvb4JVud.jpg',
+        imdb: 'https://www.imdb.com/title/tt2948356/'
+      },
+
+      {
+        title: 'Encanto',
+        genres: ['Animation', 'Family'],
+        year: 2021,
+        rating: 7.2,
+        poster_path: '/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg',
+        imdb: 'https://www.imdb.com/title/tt2953050/'
+      },
+
+      {
+        title: 'Aladdin',
+        genres: ['Animation', 'Adventure'],
+        year: 1992,
+        rating: 8.0,
+        poster_path: '/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg',
+        imdb: 'https://www.imdb.com/title/tt0103639/'
+      },
+
+      {
+        title: 'Beauty and the Beast',
+        genres: ['Animation', 'Fantasy'],
+        year: 1991,
+        rating: 8.0,
+        poster_path: '/hUJ0UvQ5tgE2Z9WpfuduVSdiCiU.jpg',
+        imdb: 'https://www.imdb.com/title/tt0101414/'
+      },
+
+      {
+        title: 'The Little Mermaid',
+        genres: ['Animation', 'Family'],
+        year: 1989,
+        rating: 7.6,
+        poster_path: '/plcZXvI310FkbwIptvd6rqk63LP.jpg',
+        imdb: 'https://www.imdb.com/title/tt0097757/'
+      },
+
+      {
+        title: 'Tangled',
+        genres: ['Animation', 'Adventure'],
+        year: 2010,
+        rating: 7.7,
+        poster_path: '/ym7Kst6a4uodryxqbGOxmewF235.jpg',
+        imdb: 'https://www.imdb.com/title/tt0398286/'
+      },
+
+      {
+        title: 'Big Hero 6',
+        genres: ['Animation', 'Action'],
+        year: 2014,
+        rating: 7.8,
+        poster_path: '/2mxS4wUimwlLmI1xp6QW6NSU361.jpg',
+        imdb: 'https://www.imdb.com/title/tt2245084/'
+      },
+
+      {
+        title: 'Frozen II',
+        genres: ['Animation', 'Adventure'],
+        year: 2019,
+        rating: 6.8,
+        poster_path: '/qdfARIhgpgZOBh3vfNhWS4hmSo3.jpg',
+        imdb: 'https://www.imdb.com/title/tt4520988/'
+      }
+
+    ];
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const genreContainer =
+        document.getElementById("movie-genres");
+
+    const movieContainer =
+        document.getElementById("movie-grid");
+
+    const countElement =
+        document.getElementById("movie-count");
+
+
+    /* =====================================================
+       SAFETY CHECK
+    ===================================================== */
+
+    if (!genreContainer || !movieContainer) {
+        console.error("Movie section elements not found.");
+        return;
+    }
+
+
+    /* =====================================================
+       GET GENRES
+    ===================================================== */
+
+    const allGenres = [
+        "All",
+        ...new Set(
+            movieData.flatMap(
+                movie => movie.genres
+            )
+        )
+    ];
+
+
+    /* =====================================================
+       RENDER GENRE BUTTONS
+    ===================================================== */
+
+    function renderGenreButtons() {
+
+        genreContainer.innerHTML = "";
+
+        allGenres.forEach(genre => {
+
+            const button =
+                document.createElement("button");
+
+            button.type = "button";
+
+            button.className =
+                "movie-genre-button";
+
+            button.textContent = genre;
+
+
+            if (genre === "All") {
+                button.classList.add("active");
+            }
+
+
+            button.addEventListener("click", () => {
+
+                document
+                    .querySelectorAll(
+                        ".movie-genre-button"
+                    )
+                    .forEach(button =>
+                        button.classList.remove("active")
+                    );
+
+                button.classList.add("active");
+
+
+                renderMovieCards(
+                    genre === "All"
+                        ? null
+                        : genre
+                );
+
+            });
+
+
+            genreContainer.appendChild(button);
+
+        });
+
+    }
+
+
+    /* =====================================================
+       RENDER MOVIES
+    ===================================================== */
+
+    function renderMovieCards(filter = null) {
+
+        movieContainer.innerHTML = "";
+
+
+        let filteredMovies =
+            filter === null
+
+                ? [...movieData]
+
+                : movieData.filter(movie =>
+                    movie.genres.includes(filter)
+                );
+
+
+        filteredMovies.sort(
+            (a, b) => b.rating - a.rating
+        );
+
+
+        if (countElement) {
+
+            countElement.textContent =
+                `${filteredMovies.length} film${
+                    filteredMovies.length === 1
+                        ? ""
+                        : "s"
+                }`;
+
+        }
+
+
+        filteredMovies.forEach(movie => {
+
+            const card =
+                document.createElement("article");
+
+            card.className = "movie-card";
+
+
+            card.innerHTML = `
+
+                <div class="movie-poster">
+
+                    <img
+                        src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+                        alt="${movie.title}"
+                        loading="lazy"
+                    >
+
+                    <div class="movie-overlay">
+
+                        <span class="movie-imdb">
+
+                            View on IMDb
+
+                            <span class="movie-imdb-arrow">
+                                »
+                            </span>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="movie-information">
+
+                    <div class="movie-meta">
+
+                        <span>
+                            ${movie.year}
+                        </span>
+
+                        <span class="movie-rating">
+                            ★ ${movie.rating}
+                        </span>
+
+                    </div>
+
+
+                    <div class="movie-genres">
+                        ${movie.genres.join(" · ")}
+                    </div>
+
+                </div>
+
+            `;
+
+
+            card.addEventListener("click", () => {
+
+                window.open(
+                    movie.imdb,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            });
+
+
+            movieContainer.appendChild(card);
+
+        });
+
+    }
+
+
+    /* =====================================================
+       START
+    ===================================================== */
+
+    renderGenreButtons();
+
+    renderMovieCards();
+
+});
+
+</script>
+
+    
 </body>
 </html>

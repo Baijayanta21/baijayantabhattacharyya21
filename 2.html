@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Movies</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+<style>
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {box-sizing: border-box;}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    
+    background:white;
+    color: blue;
+    
+    font-family: "Baskerville", serif;
+    font: 500 2rem;
+    
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    
+    
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+
+    /* =========================================================
+       PAGE
+    ========================================================= */
+
+    .page {
+      width: min(1450px, calc(100% - 80px));
+      margin: 0 auto;
+      padding: 70px 0 100px;
+    }
+
+
+   
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.filter-section {
+  margin-bottom: 45px;
+}
+
+.filter-top {
+  display: flex;
+    
+  justify-content: space-between;
+  align-items: center;
+  color: #c02b7f;
+  margin-bottom: 18px;
+}
+
+.filter-title {
+  
+  font-size: 25px;
+  font-weight: 550;
+  letter-spacing: 0.15em;
+}
+
+.movie-count {
+
+  font-size: 25px;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+
+
+
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.genre-btn {
+  appearance: none;
+
+  border: 1px solid #393937;
+  background: transparent;
+
+
+  padding: 7px 15px;
+
+  border-radius: 10px;
+
+    font-size:23px;
+  font-family: "EB Garamond", Georgia, serif;
+
+
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.genre-btn:hover {
+    color: #9700ff;
+}
+
+.genre-btn.active {
+  background: #e8e2d7;
+  border-color: #e8e2d7;
+
+  color: #171818;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   MOVIE GRID
+========================================================= */
+
+.movies {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(220px, 1fr));
+
+  gap: 20px 15px;
+
+}
+
+
+/* =========================================================
+   MOVIE CARD
+========================================================= */
+
+.movie {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  border: 1px solid #a27a36;
+  border-radius: 15px;
+
+  background:white;
+  color:red;
+
+  transition:
+    transform 0.35s cubic-bezier(.2,.7,.2,1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.movie:hover {
+  transform: scale(1.05);
+  border: 1.25px solid #a27a36;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   POSTER
+========================================================= */
+
+.poster {
+  position: relative;
+
+  aspect-ratio: 2 / 3;
+
+  overflow: hidden;
+
+  background: #1c1d1d;
+  border-bottom:1.25px solid black;
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s cubic-bezier(.2,.7,.2,1),
+    filter 0.5s ease;
+}
+
+.movie:hover .poster img {
+  transform: scale(1.1);
+    filter: brightness(1);
+}
+
+
+
+
+
+
+/* =========================================================
+ HOVER OVERLAY
+========================================================= */
+
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 20px;
+
+  opacity: 0;
+
+  background:linear-gradient(
+      to top,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.05) 95%
+    );
+
+  transition: opacity 0.35s ease;
+}
+
+.movie:hover .poster-overlay {
+  opacity: 1;
+}
+
+
+.imdb-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+
+  color: #f1ede5;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-family: Georgia, sans-serif;
+  backdrop-filter: blur(5px);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+      
+.imdb-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+
+  color: #f1ede5;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-family: Georgia, sans-serif;
+
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  transition: color 0.25s ease;
+}
+
+.imdb-link span {
+  font-size: 15px;
+}
+
+/* =========================================================
+MOVIE INFORMATION
+========================================================= */
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+font-size: 21px;
+font-weight:550}
+
+    
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    
+    margin-top: 7px;
+    
+    color: brown;
+    
+    
+}
+
+.movie-rating {
+    color: brown;
+}
+
+
+
+.movie-genres {
+  margin-bottom: 10px;
+color:blue;}
+
+    
+    /* =========================================================
+       EMPTY STATE
+    ========================================================= */
+
+    .empty {
+      grid-column: 1 / -1;
+
+      padding: 100px 20px;
+
+      text-align: center;
+
+      color: #77746e;
+    }
+
+
+
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .page {
+        width: min(100% - 40px, 700px);
+        padding-top: 50px;
+      }
+
+      .movies {
+        grid-template-columns:
+          repeat(auto-fill, minmax(160px, 1fr));
+
+        gap: 35px 18px;
+      }
+
+      .header h1 {
+        font-size: clamp(4rem, 16vw, 6rem);
+      }
+
+    }
+
+
+    @media (max-width: 500px) {
+
+      .page {
+        width: calc(100% - 28px);
+        padding-top: 35px;
+      }
+
+      .movies {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 12px;
+      }
+
+      .movie-info h3 {
+        font-size: 20px;
+      }
+
+      .header {
+        margin-bottom: 40px;
+      }
+
+      .header-description {
+        font-size: 14px;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+    }
+
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+
+    <!-- =====================================================
+         FILTERS
+    ====================================================== -->
+
+    <section class="filter-section">
+
+      <div class="filter-top">
+
+        <span class="filter-title">
+          Browse by genre
+        </span>
+
+        <span
+          class="movie-count"
+          id="movieCount">
+        </span>
+
+      </div>
+
+      <div
+        class="genres"
+        id="genres">
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MOVIES
+    ====================================================== -->
+
+    <section
+      class="movies"
+      id="movies">
+    </section>
+
+
+
+
+  </main>
+
+
+  <script>
+
+    /*
+    ============================================================
+    MOVIE DATA
+
+    Keep your existing movies array here.
+    ============================================================
+    */
+
+    const movies = [
+
+      {
+        title: 'Inception',
+        genres: ['Sci-Fi', 'Thriller'],
+        year: 2010,
+        rating: 8.8,
+        poster_path: '/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg',
+        imdb: 'https://www.imdb.com/title/tt1375666/'
+      },
+
+      {
+        title: 'The Dark Knight',
+        genres: ['Action', 'Drama'],
+        year: 2008,
+        rating: 9.0,
+        poster_path: '/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg',
+        imdb: 'https://www.imdb.com/title/tt0468569/'
+      },
+
+        
+
+      {
+        title: 'Interstellar',
+        genres: ['Sci-Fi', 'Adventure'],
+        year: 2014,
+        rating: 8.6,
+        poster_path: '/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',
+        imdb: 'https://www.imdb.com/title/tt0816692/'
+      },
+
+      {
+        title: 'Oppenheimer',
+        genres: ['Drama', 'History'],
+        year: 2023,
+        rating: 8.5,
+        poster_path: '/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
+        imdb: 'https://www.imdb.com/title/tt15398776/'
+      },
+
+      {
+        title: 'Jurassic Park',
+        genres: ['Adventure', 'Sci-Fi'],
+        year: 1993,
+        rating: 8.1,
+        poster_path: '/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg',
+        imdb: 'https://www.imdb.com/title/tt0107290/'
+      },
+
+      {
+        title: 'E.T. the Extra-Terrestrial',
+        genres: ['Family', 'Sci-Fi'],
+        year: 1982,
+        rating: 7.9,
+        poster_path: '/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg',
+        imdb: 'https://www.imdb.com/title/tt0083866/'
+      },
+
+      {
+        title: 'Jaws',
+        genres: ['Thriller', 'Horror'],
+        year: 1975,
+        rating: 8.1,
+        poster_path: '/s2xcqSFfT6F7ZXHxowjxfG0yisT.jpg',
+        imdb: 'https://www.imdb.com/title/tt0073195/'
+      },
+
+      {
+        title: "Schindler's List",
+        genres: ['Drama', 'History'],
+        year: 1993,
+        rating: 9.0,
+        poster_path: '/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg',
+        imdb: 'https://www.imdb.com/title/tt0108052/'
+      },
+
+      {
+        title: 'The Matrix',
+        genres: ['Sci-Fi', 'Action'],
+        year: 1999,
+        rating: 8.7,
+        poster_path: '/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg',
+        imdb: 'https://www.imdb.com/title/tt0133093/'
+      },
+
+      {
+        title: 'The Lord of the Rings: The Fellowship of the Ring',
+        genres: ['Fantasy', 'Adventure'],
+        year: 2001,
+        rating: 8.8,
+        poster_path: '/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120737/'
+      },
+
+      {
+        title: "Harry Potter and the Sorcerer's Stone",
+        genres: ['Fantasy', 'Family'],
+        year: 2001,
+        rating: 7.6,
+        poster_path: '/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg',
+        imdb: 'https://www.imdb.com/title/tt0241527/'
+      },
+
+      {
+        title: 'The Godfather',
+        genres: ['Drama', 'Crime'],
+        year: 1972,
+        rating: 9.2,
+        poster_path: '/3bhkrj58Vtu7enYsRolD1fZdja1.jpg',
+        imdb: 'https://www.imdb.com/title/tt0068646/'
+      },
+
+      {
+        title: 'Pulp Fiction',
+        genres: ['Thriller', 'Crime'],
+        year: 1994,
+        rating: 8.9,
+        poster_path: '/fIE3lAGcZDV1G6XM5KmuWnNsPp1.jpg',
+        imdb: 'https://www.imdb.com/title/tt0110912/'
+      },
+
+      {
+        title: 'Fight Club',
+        genres: ['Drama', 'Thriller'],
+        year: 1999,
+        rating: 8.8,
+        poster_path: '/a26cQPRhJPX6GbWfQbvZdrrp9j9.jpg',
+        imdb: 'https://www.imdb.com/title/tt0137523/'
+      },
+
+      {
+        title: 'The Shawshank Redemption',
+        genres: ['Drama'],
+        year: 1994,
+        rating: 9.3,
+        poster_path: '/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+        imdb: 'https://www.imdb.com/title/tt0111161/'
+      },
+
+      {
+        title: 'La La Land',
+        genres: ['Romance', 'Drama'],
+        year: 2016,
+        rating: 8.0,
+        poster_path: '/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg',
+        imdb: 'https://www.imdb.com/title/tt3783958/'
+      },
+
+      {
+        title: 'Titanic',
+        genres: ['Romance', 'Drama'],
+        year: 1997,
+        rating: 7.9,
+        poster_path: '/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120338/'
+      },
+
+      {
+        title: 'Joker',
+        genres: ['Thriller', 'Drama'],
+        year: 2019,
+        rating: 8.4,
+        poster_path: '/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg',
+        imdb: 'https://www.imdb.com/title/tt7286456/'
+      },
+
+      {
+        title: 'Whiplash',
+        genres: ['Drama', 'Music'],
+        year: 2014,
+        rating: 8.5,
+        poster_path: '/7fn624j5lj3xTme2SgiLCeuedmO.jpg',
+        imdb: 'https://www.imdb.com/title/tt2582802/'
+      },
+
+      {
+        title: 'The Silence of the Lambs',
+        genres: ['Thriller', 'Crime'],
+        year: 1991,
+        rating: 8.6,
+        poster_path: '/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg',
+        imdb: 'https://www.imdb.com/title/tt0102926/'
+      },
+
+      {
+        title: 'Se7en',
+        genres: ['Thriller', 'Crime'],
+        year: 1995,
+        rating: 8.6,
+        poster_path: '/6yoghtyTpznpBik8EngEmJskVUO.jpg',
+        imdb: 'https://www.imdb.com/title/tt0114369/'
+      },
+
+      {
+        title: 'Goodfellas',
+        genres: ['Crime', 'Drama'],
+        year: 1990,
+        rating: 8.7,
+        poster_path: '/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg',
+        imdb: 'https://www.imdb.com/title/tt0099685/'
+      },
+
+      {
+        title: 'Forrest Gump',
+        genres: ['Drama', 'Romance'],
+        year: 1994,
+        rating: 8.8,
+        poster_path: '/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg',
+        imdb: 'https://www.imdb.com/title/tt0109830/'
+      },
+
+      {
+        title: 'The Green Mile',
+        genres: ['Drama', 'Fantasy'],
+        year: 1999,
+        rating: 8.6,
+        poster_path: '/velWPhVMQeQKcxggNEU8YmIo52R.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120689/'
+      },
+
+      {
+        title: 'Gladiator',
+        genres: ['Action', 'Drama'],
+        year: 2000,
+        rating: 8.5,
+        poster_path: '/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg',
+        imdb: 'https://www.imdb.com/title/tt0172495/'
+      },
+
+      {
+        title: 'The Departed',
+        genres: ['Crime', 'Thriller'],
+        year: 2006,
+        rating: 8.5,
+        poster_path: '/nT97ifVT2J1yMQmeq20Qblg61T.jpg',
+        imdb: 'https://www.imdb.com/title/tt0407887/'
+      },
+
+      {
+        title: 'The Prestige',
+        genres: ['Drama', 'Mystery'],
+        year: 2006,
+        rating: 8.5,
+        poster_path: '/Ag2B2KHKQPukjH7WutmgnnSNurZ.jpg',
+        imdb: 'https://www.imdb.com/title/tt0482571/'
+      },
+
+      {
+        title: 'The Lion King',
+        genres: ['Animation', 'Adventure'],
+        year: 1994,
+        rating: 8.5,
+        poster_path: '/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg',
+        imdb: 'https://www.imdb.com/title/tt0110357/'
+      },
+
+      {
+        title: 'Saving Private Ryan',
+        genres: ['Drama', 'War'],
+        year: 1998,
+        rating: 8.6,
+        poster_path: '/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg',
+        imdb: 'https://www.imdb.com/title/tt0120815/'
+      },
+
+      {
+        title: 'The Usual Suspects',
+        genres: ['Crime', 'Mystery'],
+        year: 1995,
+        rating: 8.5,
+        poster_path: '/bUPmtQzrRhzqYySeiMpv7GurAfm.jpg',
+        imdb: 'https://www.imdb.com/title/tt0114814/'
+      },
+
+      {
+        title: 'Parasite',
+        genres: ['Drama', 'Thriller'],
+        year: 2019,
+        rating: 8.6,
+        poster_path: '/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg',
+        imdb: 'https://www.imdb.com/title/tt6751668/'
+      },
+
+      /* Pixar */
+
+      {
+        title: 'Toy Story',
+        genres: ['Animation', 'Family'],
+        year: 1995,
+        rating: 8.3,
+        poster_path: '/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg',
+        imdb: 'https://www.imdb.com/title/tt0114709/'
+      },
+
+      {
+        title: 'Toy Story 3',
+        genres: ['Animation', 'Adventure'],
+        year: 2010,
+        rating: 8.3,
+        poster_path: '/AbbXspMOwdvwWZgVN0nabZq03Ec.jpg',
+        imdb: 'https://www.imdb.com/title/tt0435761/'
+      },
+
+      {
+        title: 'Inside Out',
+        genres: ['Animation', 'Family'],
+        year: 2015,
+        rating: 8.1,
+        poster_path: '/2H1TmgdfNtsKlU9jKdeNyYL5y8T.jpg',
+        imdb: 'https://www.imdb.com/title/tt2096673/'
+      },
+
+      {
+        title: 'The Incredibles',
+        genres: ['Animation', 'Action'],
+        year: 2004,
+        rating: 8.0,
+        poster_path: '/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg',
+        imdb: 'https://www.imdb.com/title/tt0317705/'
+      },
+
+      {
+        title: 'Finding Nemo',
+        genres: ['Animation', 'Adventure'],
+        year: 2003,
+        rating: 8.2,
+        poster_path: '/zjqInUwldOBa0q07fOyohYCWxWX.jpg',
+        imdb: 'https://www.imdb.com/title/tt0266543/'
+      },
+
+      {
+        title: 'Coco',
+        genres: ['Animation', 'Family'],
+        year: 2017,
+        rating: 8.4,
+        poster_path: '/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg',
+        imdb: 'https://www.imdb.com/title/tt2380307/'
+      },
+
+      {
+        title: 'Elemental',
+        genres: ['Animation', 'Romance'],
+        year: 2023,
+        rating: 7.0,
+        poster_path: '/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg',
+        imdb: 'https://www.imdb.com/title/tt15789038/'
+      },
+
+      {
+        title: 'Up',
+        genres: ['Animation', 'Adventure'],
+        year: 2009,
+        rating: 8.3,
+        poster_path: '/mFvoEwSfLqbcWwFsDjQebn9bzFe.jpg',
+        imdb: 'https://www.imdb.com/title/tt1049413/'
+      },
+
+      {
+        title: 'WALL·E',
+        genres: ['Animation', 'Sci-Fi'],
+        year: 2008,
+        rating: 8.4,
+        poster_path: '/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg',
+        imdb: 'https://www.imdb.com/title/tt0910970/'
+      },
+
+      {
+        title: 'Ratatouille',
+        genres: ['Animation', 'Comedy'],
+        year: 2007,
+        rating: 8.1,
+        poster_path: '/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg',
+        imdb: 'https://www.imdb.com/title/tt0382932/'
+      },
+
+      {
+        title: 'Soul',
+        genres: ['Animation', 'Fantasy'],
+        year: 2020,
+        rating: 8.0,
+        poster_path: '/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg',
+        imdb: 'https://www.imdb.com/title/tt2948372/'
+      },
+
+      /* Disney */
+
+      {
+        title: 'Frozen',
+        genres: ['Animation', 'Family'],
+        year: 2013,
+        rating: 7.4,
+        poster_path: '/itAKcobTYGpYT8Phwjd8c9hleTo.jpg',
+        imdb: 'https://www.imdb.com/title/tt2294629/'
+      },
+
+      {
+        title: 'Moana',
+        genres: ['Animation', 'Adventure'],
+        year: 2016,
+        rating: 7.6,
+        poster_path: '/m5MDZOIFEFlxGiLuAzWzFSsWcye.jpg',
+        imdb: 'https://www.imdb.com/title/tt3521164/'
+      },
+
+      {
+        title: 'Zootopia',
+        genres: ['Animation', 'Comedy'],
+        year: 2016,
+        rating: 8.0,
+        poster_path: '/hlK0e0wAQ3VLuJcsfIYPvb4JVud.jpg',
+        imdb: 'https://www.imdb.com/title/tt2948356/'
+      },
+
+      {
+        title: 'Encanto',
+        genres: ['Animation', 'Family'],
+        year: 2021,
+        rating: 7.2,
+        poster_path: '/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg',
+        imdb: 'https://www.imdb.com/title/tt2953050/'
+      },
+
+      {
+        title: 'Aladdin',
+        genres: ['Animation', 'Adventure'],
+        year: 1992,
+        rating: 8.0,
+        poster_path: '/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg',
+        imdb: 'https://www.imdb.com/title/tt0103639/'
+      },
+
+      {
+        title: 'Beauty and the Beast',
+        genres: ['Animation', 'Fantasy'],
+        year: 1991,
+        rating: 8.0,
+        poster_path: '/hUJ0UvQ5tgE2Z9WpfuduVSdiCiU.jpg',
+        imdb: 'https://www.imdb.com/title/tt0101414/'
+      },
+
+      {
+        title: 'The Little Mermaid',
+        genres: ['Animation', 'Family'],
+        year: 1989,
+        rating: 7.6,
+        poster_path: '/plcZXvI310FkbwIptvd6rqk63LP.jpg',
+        imdb: 'https://www.imdb.com/title/tt0097757/'
+      },
+
+      {
+        title: 'Tangled',
+        genres: ['Animation', 'Adventure'],
+        year: 2010,
+        rating: 7.7,
+        poster_path: '/ym7Kst6a4uodryxqbGOxmewF235.jpg',
+        imdb: 'https://www.imdb.com/title/tt0398286/'
+      },
+
+      {
+        title: 'Big Hero 6',
+        genres: ['Animation', 'Action'],
+        year: 2014,
+        rating: 7.8,
+        poster_path: '/2mxS4wUimwlLmI1xp6QW6NSU361.jpg',
+        imdb: 'https://www.imdb.com/title/tt2245084/'
+      },
+
+      {
+        title: 'Frozen II',
+        genres: ['Animation', 'Adventure'],
+        year: 2019,
+        rating: 6.8,
+        poster_path: '/qdfARIhgpgZOBh3vfNhWS4hmSo3.jpg',
+        imdb: 'https://www.imdb.com/title/tt4520988/'
+      }
+
+    ];
+
+
+    /* ========================================================
+       GENRES
+    ======================================================== */
+
+    const genresDiv = document.getElementById("genres");
+    const moviesDiv = document.getElementById("movies");
+    const movieCount = document.getElementById("movieCount");
+
+
+    function getGenres() {
+
+      return [
+        "All",
+        ...new Set(
+          movies.flatMap(movie => movie.genres)
+        )
+      ];
+
+    }
+
+
+    function renderGenres() {
+
+      genresDiv.innerHTML = "";
+
+      getGenres().forEach(genre => {
+
+        const button = document.createElement("button");
+
+        button.className = "genre-btn";
+
+        if (genre === "All") {
+          button.classList.add("active");
+        }
+
+        button.textContent = genre;
+
+        button.addEventListener("click", () => {
+
+          document
+            .querySelectorAll(".genre-btn")
+            .forEach(btn => btn.classList.remove("active"));
+
+          button.classList.add("active");
+
+          renderMovies(
+            genre === "All" ? null : genre
+          );
+
+        });
+
+        genresDiv.appendChild(button);
+
+      });
+
+    }
+
+
+    /* ========================================================
+       RENDER MOVIES
+    ======================================================== */
+
+    function renderMovies(filterGenre = null) {
+
+      moviesDiv.innerHTML = "";
+
+      let filteredMovies = filterGenre
+        ? movies.filter(movie =>
+            movie.genres.includes(filterGenre)
+          )
+        : [...movies];
+
+
+      /* Highest rated first */
+
+      filteredMovies.sort(
+        (a, b) => b.rating - a.rating
+      );
+
+
+      movieCount.textContent =
+        `${filteredMovies.length} film${filteredMovies.length !== 1 ? "s" : ""}`;
+
+
+      if (filteredMovies.length === 0) {
+
+        moviesDiv.innerHTML = `
+          <div class="empty">
+            No films found.
+          </div>
+        `;
+
+        return;
+      }
+
+
+  filteredMovies.forEach(movie => {
+
+    const card = document.createElement("article");
+
+    card.className = "movie";
+
+    card.innerHTML = `
+
+      <div class="poster">
+
+        <img
+          src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+          alt="${movie.title}"
+          loading="lazy"
+        >
+
+        <div class="poster-overlay">
+
+          <span class="imdb-link">
+            View on IMDb
+            <span>»</span>
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="movie-info">
+
+        <div class="movie-meta">
+
+          <span>
+            ${movie.year}
+          </span>
+
+        
+
+          <span class="movie-rating">
+            <span>★</span> ${movie.rating}
+          </span>
+
+        </div>
+
+        <div class="movie-genres">
+          ${movie.genres.join(" · ")}
+        </div>
+
+      </div>
+
+    `;
+
+
+          card.addEventListener("click", () => {
+
+          window.open(
+            movie.imdb,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+        });
+
+
+        moviesDiv.appendChild(card);
+
+      });
+
+    }
+
+
+    /* ========================================================
+       INITIALIZE
+    ======================================================== */
+
+    renderGenres();
+    renderMovies();
+
+  </script>
+
+</body>
+</html>
