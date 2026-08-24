@@ -68,7 +68,7 @@ body {
 
   font-family: var(--serif);
   font-size: 22px;
-  font-weight: 530;
+  font-weight: 520;
   line-height: 1.7;
 
   letter-spacing: .012em;
@@ -95,7 +95,7 @@ button{font:inherit}
 .small{font-size:.84rem;color:var(--muted)}
 .rule{border-top:1px solid var(--line)}
 
-.noise{position:fixed;inset:0;pointer-events:none;z-index:30;opacity:.025;
+.noise{position:fixed;inset:0;pointer-events:none;z-index:30;opacity:.005;
 background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* Header */
@@ -1333,7 +1333,16 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 .sp-text h2{font-weight: 500;
     font-size: 4rem;
 }
-
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  opacity: 0.05;
+    filter: blur(2px);
+}
 
     
 </style>
@@ -1405,8 +1414,15 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 <main>
 
+
+    
 <!-- HOME -->
 <section class="page active" id="home">
+
+
+  <canvas id="universe"></canvas>
+
+    
     <div class="container inner">
   <div class="home-hero ">
       
@@ -3558,6 +3574,113 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
+
+  <script>
+    const canvas = document.getElementById('universe');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const stars = [];
+    const meteors = [];
+    const nebulas = [];
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    class Star {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = random(0, canvas.width);
+        this.y = random(0, canvas.height);
+        this.size = random(0.3, 1.5);
+this.speed = random(0.02, 0.12);
+this.opacity = random(0.15, 0.8);
+      }
+      update() {
+        this.y += this.speed;
+        if (this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.fillStyle = `rgba(0, 0, 0, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    class Meteor {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = random(-canvas.width, canvas.width);
+        this.y = random(-canvas.height, 0);
+        this.length = random(80, 150);
+        this.speed = random(4, 8);
+        this.angle = Math.PI / 4;
+      }
+      update() {
+        this.x += this.speed * Math.cos(this.angle);
+        this.y += this.speed * Math.sin(this.angle);
+        if (this.x > canvas.width || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        const grad = ctx.createLinearGradient(this.x, this.y, this.x - this.length, this.y - this.length);
+        grad.addColorStop(0, 'rgba(25,25,255,0.5)');
+        grad.addColorStop(1, 'rgba(25,25,255,0)');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x - this.length, this.y - this.length);
+        ctx.stroke();
+      }
+    }
+
+    class NebulaParticle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = random(0, canvas.width);
+        this.y = random(0, canvas.height);
+          
+        this.size = random(10, 200);
+        this.opacity = random(0.02, 0.08);
+        this.color = `hsla(${random(200, 300)}, 100%, 70%, ${this.opacity})`;
+      }
+      update() {
+        this.x += random(-0.2, 0.2);
+        this.y += random(-0.2, 0.2);
+      }
+      draw() {
+          
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 50; i++) stars.push(new Star());
+    for (let i = 0; i <1 ; i++) meteors.push(new Meteor());
+    for (let i = 0; i < 10; i++) nebulas.push(new NebulaParticle());
+
+    function animate() {
+      
+
+      nebulas.forEach(n => { n.update(); n.draw(); });
+      stars.forEach(s => { s.update(); s.draw(); });
+      meteors.forEach(m => { m.update(); m.draw(); });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 
     
 </body>
