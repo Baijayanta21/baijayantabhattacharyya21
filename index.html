@@ -76,6 +76,9 @@ body {
 
   font-synthesis: none;
   overflow-x: hidden;
+  hyphens: auto;
+
+  
 }
 
 
@@ -224,15 +227,20 @@ header{
 }
 
 /* Page system */
-.page{display:none;min-height:calc(100vh - 74px)}
+.page{display:none;min-height:calc(0.9vh - 100px)}
 .page.active{display:block;animation:pageIn .42s ease both}
+    
 @keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 /* Home */
 .home-hero{
-  min-height:calc(100vh - 74px);display:grid;grid-template-columns:1.15fr .85fr;
-  align-items:center;gap:5rem;padding:5.2rem 0 4rem;position:relative;
+    display:grid;
+    grid-template-columns:2fr .85fr;
+    gap:1rem;
+    position:relative;
+    align-items: center;
 }
+    
 .home-hero:before{
   content:"";position:absolute;width:43vw;height:43vw;max-width:590px;max-height:590px;
   right:-11vw;top:50%;transform:translateY(-50%);border:1px solid rgba(84,119,109,.17);border-radius:50%;
@@ -242,34 +250,59 @@ header{
   right:-4vw;top:50%;border:1px dashed rgba(164,122,54,.24);border-radius:50%;
   animation:orbit 28s linear infinite;
 }
+
+    
 @keyframes orbit{to{transform:translateY(-50%) rotate(360deg)}}
-.home-title{font:700 clamp(2.8rem,5.8vw,6rem)/1.02 var(--serif);letter-spacing:-.045em;max-width:9ch;margin:.8rem 0 1.35rem}
+.home-title{font:700 clamp(2.8rem,5.8vw,6rem)/1.02 var(--serif);max-width:10ch;margin:.8rem 0 1.35rem}
 .home-title span{color:var(--rust)}
-.home-lede{max-width:660px;color:var(--muted);font-size:1rem}
+.home-lede{max-width:770px;color:var(--muted);font-size:1rem}
 .home-lede strong{color:var(--ink)}
 .home-actions{display:flex;flex-wrap:wrap;gap:.65rem;}
-.btn{border-color:var(--gold);border-radius:10px;border:1px solid var(--ink);background:white;padding:.66rem .92rem;cursor:pointer;
-     font:550 0.7rem var(--serif);
-     letter-spacing:.07em;text-transform:uppercase;transition:.2s}
-.btn:hover{background:var(--ink);color:var(--paper)}
-.btn.fill{border-radius:10px;background:white;border-color:var(--gold);}
-.btn.fill:hover{background:var(--rust)}
-.hero-note{position:relative;z-index:2;max-width:310px;margin-left:auto}
-.hero-note .number{font:italic 500 6.2rem/.8 var(--sans);color:rgba(37,41,35,.7)}
+
+.hero-note{position:relative;
+           z-index:2;
+           max-width:310px;
+           margin-left:auto;
+           margin-right:2rem;
+           padding:1.5rem;
+           }
+    
+.hero-note .number{font:500 6.2rem/.8 var(--sans);color:rgba(37,41,35,.7)}
+
+    
 .hero-note h2{font:600 1.25rem var(--serif);margin:1.2rem 0 .55rem}
 .hero-note p{color:var(--muted);font-size:.84rem}
-.hero-note .coordinates{border-top:1px solid var(--line);margin-top:1.7rem;padding-top:.9rem;font:500 .9rem var(--mono);color:var(--soft)}
+.hero-note .coordinates{border-top:1px solid var(--line);padding-top:.9rem;font:500 .9rem var(--mono);color:var(--soft)}
 
 
+
+.hero-note:before{
+  content:"";position:absolute;inset:0;
+  transform:rotate(3deg);z-index:-1;background:white;border-radius:10px;border:1.2px solid var(--gold);
+}
+
+.btn{font:550 1rem "Baskerville", serif;
+    border-radius:10px;
+     border:1px solid var(--gold);
+     background:white;
+     padding:.66rem .92rem;
+     cursor:pointer;
+     letter-spacing:.1em;
+     transition:.2s}
+
+.btn:hover{color:var(--rust);background;#6dd6c712;}
     
-.home-strip{border-top:1.5px solid var(--line)}
 
 
 
-    
+
+
+
+/*Home Strip details*/    
+.home-strip{border-block: 1.5px solid var(--line);
+            margin-top: auto;}
+
 .strip{display:grid;grid-template-columns:repeat(4,1fr)}
-
-
     
 .stat{padding:1.25rem 1rem;border-right:1px solid var(--line)}
     
@@ -277,7 +310,6 @@ header{
 .stat:last-child{border-right:0}
     
 .stat strong{display:block;font:600 1.5rem var(--serif)}
-    
     
 .stat span{font:500 0.8rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--soft)}
 
@@ -1128,11 +1160,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
     
 
-.hero-note{padding:1.5rem}
-.hero-note:before{
-  content:"";position:absolute;inset:0;border:1.2px solid var(--gold);
-  transform:rotate(3deg);z-index:-1;background:white;border-radius:10px;
-}
+
 
 
 
@@ -1149,21 +1177,29 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 
 .button {
+
+    font:550 1rem "Baskerville", serif;
+    
+    letter-spacing:.1em;
+ 
+
+
+    
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   padding: 0.35rem 0.7rem;
 
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 6px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
 
   color: var(--black);
   background: transparent;
 
   text-decoration: none;
-  font-family: var(--mono);
-  font-size: 0.75rem;
+
+  font-size: 1rem;
 
   transition: all 0.2s ease;
 }
@@ -1178,41 +1214,54 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
    ================================ */
 
 /* Quote */
-
-
-.beyond-quote {
+ 
+.beyond-quote,
+.beyond-quoter {
     display: flex;
     align-items: flex-start;
     text-align: justify;
-    gap: 1.5rem;
-    
-    max-width: 1000px;
-
-
- margin: 1rem 0rem 1rem auto;
+    gap: 1rem;
+    width: fit-content;
+    max-width: 80%;
     border-radius: 20px;
     border: 1px solid var(--gold);
-    border-left: 7px solid var(--gold);
-
-    padding: 2rem;
+    padding: 1.7rem;
     background: white;
 }
 
+.beyond-quote {
+    border-left: 7px solid var(--gold);
+    margin: 1rem 0 1rem auto;
+}
 
-
+.beyond-quoter {
+    border-right: 7px solid var(--gold);
+    margin: 1rem auto 1rem 0;
+}
     
 .quote-mark {
     flex-shrink: 0;
-
     font-family: Georgia, serif;
     font-size: 3rem;
     line-height: 0.7;
     color: var(--gold);
 }
 
-.beyond-quote p { margin: 0; font-family: Georgia, serif; font-weight:520; font-size: 1.2rem; line-height: 1.5; } 
+.beyond-quote p, .beyond-quoter p{ 
+    margin: 0; 
+    font-family: Baskerville, serif; 
+    font-weight:520; 
+    font-size: 1.4rem; 
+    line-height: 1.5; 
+} 
     
-.beyond-quote span:last-child { display: block; margin-top: 0.6rem; font-size: 1rem; letter-spacing: 0.08em; opacity: 0.8;}
+.beyond-quote span:last-child, .beyond-quoter span:last-child{
+    display: block; 
+    margin-top: 0.6rem; 
+    font-size: 1rem; 
+    letter-spacing: 0.08em; 
+    opacity: 0.8;
+}
 
 /* Mobile */
 
@@ -1328,7 +1377,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 <div class="nav-more">
     
-<button class="more-button" id="moreButton">More</button>
+<button class="more-button" id="moreButton">More▾</button>
     
 <div class="more-menu" id="moreMenu">
 <button data-page="gallery">Gallery</button>
@@ -1354,9 +1403,10 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 <!-- HOME -->
 <section class="page active" id="home">
-  <div class="container home-hero" style="padding-top:0;padding-bottom:0rem"">
+  <div class="container home-hero inner">
+      
     <div>
-      <div class="eyebrow">Physics · Cosmology · Radio Astronomy</div>
+      <div class="eyebrow">Physics · Cosmology · Radio Astronomy · Computational Physics</div>
         
       <h1 class="home-title">Listening to the <span>early</span> Universe.</h1>
         <div class="research-text">
@@ -1365,7 +1415,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         working on the redshifted $21$-cm signal, the Epoch of Reionization and radio-interferometric data analysis.
       </p></div>
       <div class="home-actions">
-        <button class="btn fill" data-page="research">View research <i class="fa-solid fa-arrow-right"></i></button>
+        <button class="btn" data-page="research">View research</button>
         <button class="btn" data-page="about">About me</button>
       </div>
     </div>
@@ -1382,16 +1432,17 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
         INDIA
       </div>
     </aside>
-  </div>
 
-       <div class="beyond-quote" style="margin-right:15rem;margin-top:0rem;margin-left:auto;margin-bottom:3rem;">
-      <span class="quote-mark">“</span>
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
 <div>
   <p>The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself.</p>
   <span>— Carl Sagan</span>
 </div>
-    </div>
+</div> 
+      
   </div>
+   
 
     
   <div class="home-strip">
@@ -1857,7 +1908,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
     </div>
 
-<!-- <div class="beyond-quote">
+<div class="beyond-quote">
 <span class="quote-mark">“</span>
 <div>
   <p>We are stardust brought to life, then empowered by the universe to figure itself out—and we have only just begun.</p>
@@ -2035,8 +2086,74 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   <p>All work and no play makes Jack a dull boy.</p>
   <span>― Stanley Kubrick </span>
 </div>
-</div>-->
+</div>
 
+<div class="beyond-quoter">
+<span class="quote-mark">“</span>
+<div>
+  <p>I have not failed. I've just found 10,000 ways that won't work.</p>
+  <span>― Thomas A. Edison</span>
+</div>
+</div>
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>And, when you want something, all the universe conspires in helping you to achieve it.</p>
+  <span>― Paulo Coelho, The Alchemist</span>
+</div>
+</div>
+
+<div class="beyond-quoter">
+<span class="quote-mark">“</span>
+<div>
+  <p>It’s no use going back to yesterday, because I was a different person then.</p>
+  <span>― Lewis Carroll </span>
+</div>
+</div>
+
+
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>Waiting is painful. Forgetting is painful. But not knowing which to do is the worst kind of suffering.</p>
+  <span>― Paulo Coelho, By the River Piedra I Sat Down and Wept </span>
+</div>
+</div>
+      
+
+<div class="beyond-quoter">
+<span class="quote-mark">“</span>
+<div>
+  <p>I do not always know what I want, but I do know what I don't want.</p>
+  <span>― Stanley Kubrick </span>
+</div>
+</div>
+
+
+
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>Last, but not least -- in fact, this is most important -- you need a happy ending. However, if you can create tragic situations and jerk a few tears before the happy ending, it will work much better.</p>
+  <span>― Satyajit Ray, The Bandits of Bombay </span>
+</div>
+</div>
+
+
+
+      <div class="beyond-quoter">
+<span class="quote-mark">“</span>
+<div>
+  <p>The bad news is time flies. The good news is you’re the pilot.</p>
+  <span>– Michael Altshuler</span>
+</div>
+</div>
+
+
+      
   
     <!-- =====================================================
          MOVIE COLLECTION
