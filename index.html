@@ -47,6 +47,8 @@
   --max: 1350px;
 }
 
+
+
     *{box-sizing:border-box}
 html {
   scroll-behavior: smooth;font-size: 20px;
@@ -67,14 +69,13 @@ body {
   font-family: var(--serif);
   font-size: 22px;
   font-weight: 530;
-  line-height: 1.45;
+  line-height: 1.7;
 
   letter-spacing: .012em;
   word-spacing: .05em;
 
   font-synthesis: none;
   overflow-x: hidden;
-    font-synthesis: none;
 }
 
 
@@ -258,14 +259,31 @@ header{
 .hero-note h2{font:600 1.25rem var(--serif);margin:1.2rem 0 .55rem}
 .hero-note p{color:var(--muted);font-size:.84rem}
 .hero-note .coordinates{border-top:1px solid var(--line);margin-top:1.7rem;padding-top:.9rem;font:500 .9rem var(--mono);color:var(--soft)}
-.home-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.strip{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:1.25rem 1rem;border-right:1px solid var(--line)}
-.stat:first-child{padding-left:0}.stat:last-child{border-right:0}
-.stat strong{display:block;font:600 1.3rem var(--serif)}.stat span{font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--soft)}
 
+
+    
+.home-strip{border-top:1.5px solid var(--line)}
+
+
+
+    
+.strip{display:grid;grid-template-columns:repeat(4,1fr)}
+
+
+    
+.stat{padding:1.25rem 1rem;border-right:1px solid var(--line)}
+    
+/*.stat:first-child{padding-left:0}*/
+.stat:last-child{border-right:0}
+    
+.stat strong{display:block;font:600 1.5rem var(--serif)}
+    
+    
+.stat span{font:500 0.8rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--soft)}
+
+    
 /* Interior */
-.inner{padding:3rem 0 6rem}
+.inner{padding:3rem 0 3rem}
 .page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:3rem;margin-bottom:2rem}
 .page-index{font:550 0.9rem "Baskerville", serif;letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
 .page-title{font:700 clamp(2rem,3.5vw,3.6rem)/1.12 var(--serif);letter-spacing:-.035em;max-width:13ch;margin:0}
@@ -495,7 +513,7 @@ header{
   background: #f5f3ee;
   padding: 1.2rem;
   border-radius:20px;
-    background: white;
+  background: white;
   min-height: 155px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -715,9 +733,9 @@ header{
 
 .movie-grid {
     display: grid;
-
+    
     grid-template-columns:
-        repeat(auto-fill, minmax(210px, 1fr));
+        repeat(auto-fill, minmax(250px, 1fr));
 
     gap: 28px 16px;
 }
@@ -737,7 +755,7 @@ header{
     border: 1px solid #a27a36;
     border-radius: 15px;
 
-    background: white;
+    background: #c4d4f92e;
 
     cursor: pointer;
 
@@ -767,7 +785,7 @@ header{
 
     background: #1c1d1d;
 
-    border-bottom: 1px solid #222;
+
 }
 
 .movie-poster img {
@@ -842,9 +860,14 @@ header{
     flex-direction: column;
     align-items: center;
 
-    padding: 8px 10px 10px;
+    padding: 2px 2px 10px 2px;
 
-    font-family: "Baskerville", Georgia, serif;
+   
+     font-weight:550;
+
+     border-top: 1px solid #222;
+
+    color:black;
 }
 
 .movie-meta {
@@ -854,21 +877,20 @@ header{
 
     gap: 12px;
 
-    color: brown;
+    font-size:1.2rem;
 
-    font-size: 1.05rem;
+
 }
 
 .movie-rating {
-    color: brown;
+
 }
 
 .movie-genres {
     margin-top: 2px;
 
-    color: brown;
+    font-size:0.95rem;
 
-    font-size: 0.8rem;
 
     text-align: center;
 }
@@ -915,29 +937,30 @@ header{
 
 /* Extra personal pages */
 
-.timeline{border-left:1px solid var(--line);margin-left:1rem}
+.timeline{border-left:1.5px solid #9c8553;margin:0.5rem 0rem 0rem 1rem}
 
-.timeline-item{position:relative;padding:1rem 0 0.5rem 2rem}
+.timeline-item{position:relative;padding:0.5rem 0rem 0.5rem 2rem}
 
-.timeline-item::before {
+.timeline-item .date::before {
   content: "";
   position: absolute;
-  left: -5px;
-  top: 1.4rem;
-  width: 10px;
-  height: 10px;
+  left: -6px;
+  top:13%;
+  width: 12px;
+  height: 12px;
   border-radius: 10%;
   background: var(--gold);
 }
 
 .timeline-item .date{font:550 1.1rem "Baskerville", serif;color:var(--soft)}
 .timeline-item h3{font:600 1.2rem var(--serif);margin:.3rem 0}
-.timeline-item p{font:600 1rem var(--serif);margin-top:1rem}
+
 
 
 .timeline-item p {
   font: 550 1.2rem "Source Serif 4", Georgia, serif;
-  margin-top: 0.7rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.7rem;
 }
 
 
@@ -949,7 +972,7 @@ header{
   
 .now-card{text-align:left;
   background: white;
-  padding: 2rem; /* ← inside each box */
+  padding: 2rem 2rem 2rem 2rem; /* ← inside each box */
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.5); min-height:240px}
 
@@ -964,9 +987,9 @@ header{
 
 
 
-.skill-list{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0rem;padding:1rem 2.5rem 0 2.5rem}
+.skill-list{display:flex;flex-wrap:wrap;gap:1rem;padding:1rem 2.5rem 0 2.5rem}
     
-.skill{border-radius:10px;padding;0.5rem;border:1px solid var(--gold);padding:.5rem .55rem;font:450 0.85var(--mono);color:var(--muted);background:white}
+.skill{border-radius:10px;border:1px solid var(--gold);padding:.5rem .55rem;font:450 0.85var(--mono);color:var(--muted);background:white}
 
 /* Contact */
 
@@ -999,7 +1022,7 @@ header{
 
 .contact-side{padding: 1rem 1.5rem 0.5rem 1.5rem;}
     
-.contact-main h2{font:600 clamp(2rem,4vw,3.7rem)/1.05 var(--serif);max-width:9ch;margin:1rem 0}.contact-main p{max-width:500px;color:var(--muted)}
+.contact-main h2{font:600 clamp(2rem,4vw,3.7rem)/1.05 var(--serif);max-width:9ch;margin:1rem 0}.contact-main p{color:var(--muted)}
 .contact-main strong{color:#536be0}
 
     
@@ -1009,8 +1032,8 @@ header{
 /* Footer */
 footer{border-top:1px solid var(--line);background:#eeeadf}
 .footer-main{
-  display:grid;grid-template-columns:1.4fr 1fr .7fr .5fr;
-  gap:3rem;padding:3.2rem 0 2.5rem
+  display:grid;grid-template-columns:1.2fr 0.7fr .7fr .5fr;
+  gap:1rem;padding:2rem 0 2rem
 }
 .footer-brand{display:flex;gap:.2rem;align-items:flex-start}
 .footer-mark{width:38px;height:38px}
@@ -1030,11 +1053,23 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
   font:550 .7rem var(--serif)
 }
     
-.footer-nav button:hover,.footer-contact a:hover{color:var(--rust);transform:translateX(2px)}
+.footer-nav button,
+.footer-contact a {
+    transition:
+        color 0.3s ease,
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-nav button:hover,
+.footer-contact a:hover {
+    color: var(--rust);
+    transform: translateX(5px);
+}
 /**/
     .footer-qr {
   width: 150px;
   height: 150px;
+ border-radius:20px;
 }
 .footer-bottom{
   border-top:1.5px solid var(--line);padding:1rem 0;
@@ -1090,9 +1125,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 }
 
 .research-card,.note-feature,.now-card,.movie,.contact-main,.contact-side{box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
-.home-strip{display:grid;background:rgba(255,253,248,.22)}
-.stat strong{font-size:1.2rem}
-.stat span{font-size:.7rem}
+
+    
+
 .hero-note{padding:1.5rem}
 .hero-note:before{
   content:"";position:absolute;inset:0;border:1.2px solid var(--gold);
@@ -1245,6 +1280,9 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 .sp-text h2{font-weight: 500;
     font-size: 4rem;
 }
+
+
+    
 </style>
 </head>
 
@@ -1410,8 +1448,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
           <h2>What I am working on</h2>
           <div class="research-text"><p>$21$-cm cosmology, radio-interferometric data analysis, power-spectrum estimation and computational tools for astrophysics and cosmology.</p></div>
             <div class="eyebrow">Keywords</div>
-          <div class="skill-list" style="
-  flex-direction: column;">
+          <div class="skill-list">
             <span class="skill">Python</span><span class="skill">NumPy</span><span class="skill">SciPy</span>
             <span class="skill">Matplotlib</span><span class="skill">Healpy</span><span class="skill">MWA</span>
             <span class="skill">Cosmology</span><span class="skill">Radio Astronomy</span>
@@ -2122,8 +2159,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
     <div class="footer-contact">
       <span class="footer-label">Elsewhere</span>
-      <a href="mailto:baijayantabhattacharyya2003@gmail.com">Email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      <a href="#contact" data-page="contact">Contact <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="mailto:baijayantabhattacharyya2003@gmail.com">Email <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7rem;"></i></a>
+      <a href="#contact" data-page="contact">Contact <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
 
  
 <div class="profile-icons">
