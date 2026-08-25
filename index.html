@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Sora:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -132,12 +132,12 @@ header{
 }
 .nav button:after{
   content:"";position:absolute;left:0;right:100%;bottom:.05rem;height:1px;
-  background:var(--rust);transition:.25s
+  background:var(--gold);transition:.5s
 }
-.nav button:hover{color:var(--gold)},.nav button.active{color:var(--ink);}
-.nav button.active:after{right:0}
+,.nav button.active{color:var(--ink);}
 
 
+    .nav button:hover::after, .nav button.active::after{right:0}
 
 
 .nav {
@@ -238,6 +238,7 @@ header{
     gap:1rem;
     position:relative;
     align-items: center;
+    padding:1rem 0rem;
 }
     
 .home-hero:before{
@@ -314,11 +315,11 @@ header{
 
     
 /* Interior */
-.inner{padding:2rem 0 1rem}
-.page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:3rem;margin-bottom:2rem}
+.inner{padding:1rem 0 1rem}
+.page-heading{display:grid;grid-template-columns:.22fr 1fr;gap:0rem;margin-bottom:2rem}
 .page-index{font:550 0.9rem "Baskerville", serif;letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}
 .page-title{font:700 clamp(2rem,3.5vw,3.6rem)/1.12 var(--serif);letter-spacing:-.035em;max-width:13ch;margin:0}
-.page-desc{max-width:1000px;color:var(--muted);margin:1rem 0 0;text-align:justify}
+.page-desc{color:var(--muted);margin:1rem 0 0;text-align:justify}
 
 /* About */
 .about-layout{padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;text-align: justify;}
@@ -1229,7 +1230,8 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     border-radius: 20px;
     border: 1px solid var(--gold);
     padding: 0.5rem 1.7rem;
-    background: white;
+    background: none;
+    backdrop-filter:blur(5px);
 
 }
 
@@ -1424,6 +1426,7 @@ canvas {
 
     
     <div class="container inner">
+        
   <div class="home-hero ">
       
     <div>
@@ -1485,6 +1488,21 @@ canvas {
 <!-- ABOUT -->
 <section class="page" id="about">
   <div class="container inner">
+
+
+
+<div class="beyond-quote">
+<span class="quote-mark">“</span>
+<div>
+  <p>I will die someday, and I’m not afraid of that. What I’m really afraid of is dying before I’ve done something that truly matters—before I’ve had the chance to make my life mean something.</p>
+  <span>– Baijayanta Bhattacharyya</span>
+</div>
+</div>
+
+
+
+
+      
     <div class="page-heading">
       <div class="page-index">01 / ABOUT</div>
       <div>
@@ -3351,7 +3369,7 @@ document.addEventListener("DOMContentLoaded", function () {
   genres: ['Crime', 'Drama'],
   year: 2002,
   rating: 8.1,
-  poster_path: '/ctjEj2xM32OvB2Xkk4X5j0Qm9.jpg',
+  poster_path: '/An9qRPZIes1BZ5MNrrfnnTlOlZd.jpg',
   imdb: 'https://www.imdb.com/title/tt0264464/'
 },
     ];
@@ -3610,32 +3628,7 @@ this.opacity = random(0.15, 0.8);
       }
     }
 
-    class Meteor {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = random(-canvas.width, canvas.width);
-        this.y = random(-canvas.height, 0);
-        this.length = random(80, 150);
-        this.speed = random(4, 8);
-        this.angle = Math.PI / 4;
-      }
-      update() {
-        this.x += this.speed * Math.cos(this.angle);
-        this.y += this.speed * Math.sin(this.angle);
-        if (this.x > canvas.width || this.y > canvas.height) this.reset();
-      }
-      draw() {
-        const grad = ctx.createLinearGradient(this.x, this.y, this.x - this.length, this.y - this.length);
-        grad.addColorStop(0, 'rgba(25,25,255,0.5)');
-        grad.addColorStop(1, 'rgba(25,25,255,0)');
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x - this.length, this.y - this.length);
-        ctx.stroke();
-      }
-    }
+ 
 
     class NebulaParticle {
       constructor() { this.reset(); }
@@ -3661,7 +3654,6 @@ this.opacity = random(0.15, 0.8);
     }
 
     for (let i = 0; i < 50; i++) stars.push(new Star());
-    for (let i = 0; i <1 ; i++) meteors.push(new Meteor());
     for (let i = 0; i < 10; i++) nebulas.push(new NebulaParticle());
 
     function animate() {
