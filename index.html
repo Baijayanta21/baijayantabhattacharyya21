@@ -83,7 +83,6 @@ body {
 
   font-synthesis: none;
   overflow-x: hidden;
-
   
 }
 
@@ -307,7 +306,7 @@ header{
 
 /*Home Strip details*/    
 .home-strip{border-block: 1.5px solid var(--line);
-            margin-top: auto;}
+            margin-top: auto;backdrop-filter:blur(2px)}
 
 .strip{display:grid;grid-template-columns:repeat(4,1fr)}
     
@@ -363,13 +362,15 @@ header{
     background: white;
   border: 1px solid rgba(0, 0, 0, 0.5);
     border-left:5px solid var(--gold);
-  transition:
-    transform .3s ease,
+    transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 
 .research-card:hover {
-  transform: scale(1.02);
+    border-color:var(--gold);
+      box-shadow:1px 7px 5px rgba(122,106,82,0.5);
 
 
 }
@@ -421,10 +422,8 @@ header{
 
 
 .research-item:hover {
-  transform: scale(1.02);
   border-color:var(--gold);
-    border-left:5px solid var(--gold);
-  box-shadow:0 10px 15px rgba(122,106,82,0.5);
+      box-shadow:1px 7px 5px rgba(122,106,82,0.5);
 }
 
 
@@ -451,10 +450,11 @@ header{
   border: 1px solid rgba(0, 0, 0, 0.5);
     border-left:5px solid var(--gold);
     transition:
-    background 0.2s ease,
     transform 0.2s ease,
     box-shadow 0.2s ease,
     border-color 0.2s ease;
+
+    align-items: baseline;
 }
 
 
@@ -463,10 +463,9 @@ header{
 
 
 
-      transform: scale(1.02);
   border-color:var(--gold);
-    border-left:5px solid var(--gold);
-  box-shadow:0 10px 15px rgba(122,106,82,0.5);
+      box-shadow:1px 7px 5px rgba(122,106,82,0.5);
+
 }
 
 
@@ -477,6 +476,51 @@ header{
 
 .note-item p{font-size:1rem;color:var(--muted);margin:0}
 
+
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+
+    font-family:"EB Garamond", serif;
+    
+    letter-spacing:.1em;
+ 
+
+
+    
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.1rem 0.35rem;
+
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+
+  color: var(--black);
+  background: transparent;
+
+  text-decoration: none;
+
+  font-size: 1.15rem;
+
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  color: var(--rust);
+}
     
 /* Publications */
 .pub-list{display: grid;gap:15px;padding: 1rem 2.5rem 1rem 2.5rem;}
@@ -501,10 +545,8 @@ header{
 
 
 .pub:hover {
-  transform: scale(1.02);
   border-color:var(--gold);
-    border-left:5px solid var(--gold);
-  box-shadow:0 10px 15px rgba(122,106,82,0.5);
+      box-shadow:1px 7px 5px rgba(122,106,82,0.5);
 }
     
 
@@ -561,11 +603,8 @@ header{
 
 
 .teach:hover {
-  transform: scale(1.02);
   border-color:var(--gold);
-    border-left:5px solid var(--gold);
-  box-shadow:0 10px 15px rgba(122,106,82,0.5);
-    filter:contrast(150%);
+      box-shadow:1px 7px 5px rgba(122,106,82,0.5);
 }
  
 .teach .year{font:550 1.2rem  "EB Garamond", serif;color:var(--rust);margin:0 0 1rem} 
@@ -1171,50 +1210,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 
 
-.actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.7rem;
-}
 
-.buttons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.button {
-
-    font:550 1rem "EB Garamond", serif;
-    
-    letter-spacing:.1em;
- 
-
-
-    
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.35rem 0.7rem;
-
-  border: 1px solid var(--gold);
-  border-radius: 10px;
-
-  color: var(--black);
-  background: transparent;
-
-  text-decoration: none;
-
-  font-size: 1rem;
-
-  transition: all 0.2s ease;
-}
-
-.button:hover {
-  background: var(--black);
-  color: var(--rust);
-}
 
 /* ================================
    Beyond Research
@@ -1258,14 +1254,15 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 
 .beyond-quote p, .beyond-quoter p{ 
     margin: 0; 
-    font-family: "EB Garamond", serif; 
-    font-weight:520; 
-    font-size: 1.5rem; 
+    
+    font-weight:550; 
+    font-size: 1.1rem; 
     line-height: 1.5; 
 } 
     
 .beyond-quote span:last-child, .beyond-quoter span:last-child{
     display: block; 
+  
     margin-top: 0.3rem; 
     font-size: 1rem; 
     letter-spacing: 0.08em; 
@@ -1393,7 +1390,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
 <button data-page="publications">Publications</button>
 <button data-page="teaching">Teaching</button>
 <button data-page="contact">Contact</button>
-<button data-page="movies">Movies</button>
+
 
 <div class="nav-more">
     
@@ -1401,7 +1398,7 @@ footer{border-top:1px solid var(--line);background:#eeeadf}
     
 <div class="more-menu" id="moreMenu">
 <button data-page="gallery">Gallery</button>
-
+<button data-page="movies">Movies</button>
 <button data-page="br">Beyond Research</button>
 
 </div>
